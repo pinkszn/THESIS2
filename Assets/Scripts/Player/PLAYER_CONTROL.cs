@@ -7,6 +7,7 @@ public class PLAYER_CONTROL : MonoBehaviour
     [SerializeField] float Health = 10.0f;
     [SerializeField] float Damage;
 
+    [SerializeField] GameObject GameOverCanvas;
     Vector2 movement;
     Transform player;
     Rigidbody2D rb;
@@ -21,7 +22,20 @@ public class PLAYER_CONTROL : MonoBehaviour
     //GameObject[] weaponTypes;
     private void Update()
     {
-        
+        isAliveChecker();
+
+        if (isAlive == true)
+        {
+            Movement();
+        }
+        else
+        {
+            GameOverCanvas.SetActive(true);
+            return;
+        }
+
+
+
     }
 
     private void Start()
@@ -30,9 +44,18 @@ public class PLAYER_CONTROL : MonoBehaviour
         Debug.Log("Health: " + Health);
     }
 
-    private void FixedUpdate()
+    //private void FixedUpdate()
+    //{
+
+    //}
+
+    void isAliveChecker()
     {
-        Movement();
+        if (Health <= 0)
+        {
+            isAlive = false;
+        }
+        else isAlive = true;
     }
 
     #region Player Controls
