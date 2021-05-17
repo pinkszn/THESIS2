@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PLAYER_CONTROL : MonoBehaviour
 {
-    [SerializeField] float Health = 10.0f;
-    [SerializeField] float Damage;
+    [SerializeField] float MaxHealth = 10.0f;
+    [SerializeField] float CurrentHealth;
+    [SerializeField] float attackDamage;
 
     [SerializeField] GameObject GameOverCanvas;
     Vector2 movement;
@@ -16,32 +17,33 @@ public class PLAYER_CONTROL : MonoBehaviour
     float minMoveSpeed;
     float maxMoveSpeed;
 
-    bool isAlive = false;
-    bool isPaused = false;
+    public float attackRange;
+    [SerializeField] Transform attackPoint;
+    public LayerMask enemyLayers;
 
     //GameObject[] weaponTypes;
     private void Update()
     {
-        isAliveChecker();
+        
 
-        if (isAlive == true)
+        if (isAlive())
         {
             Movement();
+            CheckInputs(); // This should check your inputs.
         }
         else
         {
             GameOverCanvas.SetActive(true);
             return;
         }
-
-
-
+         
     }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log("Health: " + Health);
+        CurrentHealth = MaxHealth;
+        Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
     }
 
     //private void FixedUpdate()
@@ -49,13 +51,24 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     //}
 
-    void isAliveChecker()
-    {
-        if (Health <= 0)
+    void CheckInputs()
+	{
+        if (Input.GetMouseButtonDown(0))
         {
-            isAlive = false;
+            Attack(); //Do Attack Function
         }
-        else isAlive = true;
+
+        //Check inputs for 1, 2, 3, 4
+        //Changing weapons of character
+    }
+
+    bool isAlive()
+    {
+        if (CurrentHealth <= 0)
+        {
+            return false;
+        }
+        else return true;
     }
 
     #region Player Controls
@@ -63,7 +76,8 @@ public class PLAYER_CONTROL : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+        transform.Translate(movement.normalized * currentMoveSpeed * Time.deltaTime);
+
         //rb.MovePosition(rb.position + movement * currentMoveSpeed * Time.fixedDeltaTime);
         /*
          * W,A,S,D movement
@@ -82,10 +96,21 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     void Attack()
     {
+        Debug.Log("Pressed Left Click");
         /*
          * baka gawin na lang nating animator to imbis na ganto
          * pero atm isang simpleng attack lang muna para makapag indicator na tayo for weapon types
          */
+
+
+        //This detects the collision of the attack to all enemies hit
+
+        /*Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies)
+		{
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+		}*/
     }
     #endregion
 
@@ -94,8 +119,8 @@ public class PLAYER_CONTROL : MonoBehaviour
         Debug.Log("COLLISSION WITH " + collision.name);
         if (collision.CompareTag("ENEMY"))
         {
-            Health -= 1;
-            Debug.Log("Health: " + Health);
+            CurrentHealth -= 1;
+            Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
         }
     }
 }
