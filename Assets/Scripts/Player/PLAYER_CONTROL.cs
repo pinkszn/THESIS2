@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class PLAYER_CONTROL : MonoBehaviour
 {
+    Animator animator;
+
     [SerializeField] float MaxHealth = 10.0f;
     [SerializeField] float CurrentHealth;
-    [SerializeField] float attackDamage;
+
+    
 
     [SerializeField] GameObject GameOverCanvas;
     Vector2 movement;
-    Transform player;
     Rigidbody2D rb;
 
     [SerializeField] float currentMoveSpeed = 5.0f;
     float minMoveSpeed;
     float maxMoveSpeed;
 
-    public float attackRange;
     [SerializeField] Transform attackPoint;
     public LayerMask enemyLayers;
+
+    public float attackRange;
+    public float attackDamage;
+
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
 
     //GameObject[] weaponTypes;
     private void Update()
     {
-        
-
         if (isAlive())
         {
             Movement();
@@ -53,10 +58,15 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     void CheckInputs()
 	{
-        if (Input.GetMouseButtonDown(0))
-        {
-            Attack(); //Do Attack Function
+        if(Time.time >= nextAttackTime)
+		{
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack(); //Do Attack Function
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
+        
 
         //Check inputs for 1, 2, 3, 4
         //Changing weapons of character
@@ -105,7 +115,8 @@ public class PLAYER_CONTROL : MonoBehaviour
 
         //This detects the collision of the attack to all enemies hit
 
-        /*Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        /* animator.SetTrigger("Attack");
+         * Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)
 		{
@@ -123,4 +134,12 @@ public class PLAYER_CONTROL : MonoBehaviour
             Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
         }
     }
+
+	private void OnDrawGizmosSelected()
+	{
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+	}
 }
