@@ -9,8 +9,6 @@ public class PLAYER_CONTROL : MonoBehaviour
     [SerializeField] float MaxHealth = 10.0f;
     [SerializeField] float CurrentHealth;
 
-    
-
     [SerializeField] GameObject GameOverCanvas;
     Vector2 movement;
     Rigidbody2D rb;
@@ -28,6 +26,8 @@ public class PLAYER_CONTROL : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    public int selectedWeapon = 0;
+
     //GameObject[] weaponTypes;
     private void Update()
     {
@@ -41,7 +41,9 @@ public class PLAYER_CONTROL : MonoBehaviour
             GameOverCanvas.SetActive(true);
             return;
         }
-         
+
+        WeaponSwitch(); //Checks input for swapping weapons
+        //SelectWeapon(); //Swaps the weapon corresponding the input of WeaponSwitch
     }
 
     private void Start()
@@ -57,19 +59,73 @@ public class PLAYER_CONTROL : MonoBehaviour
     //}
 
     void CheckInputs()
-	{
-        if(Time.time >= nextAttackTime)
-		{
+    {
+        if (Time.time >= nextAttackTime)
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 Attack(); //Do Attack Function
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
-        
 
         //Check inputs for 1, 2, 3, 4
         //Changing weapons of character
+    }
+
+    void WeaponSwitch()  // might do some cleaning up with the if statements
+    {
+        int previousSelectedWeapon = selectedWeapon;
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if (selectedWeapon >= transform.childCount - 1)
+            {
+                selectedWeapon = 0;
+            }
+            else
+            {
+                selectedWeapon++;
+            }
+        }
+
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+		{
+            if (selectedWeapon <= 0)
+            {
+                selectedWeapon = transform.childCount - 1;
+            }
+            else
+            {
+                selectedWeapon--;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1) && transform.childCount >= 1)
+		{
+            selectedWeapon = 0;
+		}
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+        {
+            selectedWeapon = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
+        {
+            selectedWeapon = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
+        {
+            selectedWeapon = 3;
+        }
+
+        if (previousSelectedWeapon != selectedWeapon)
+		{
+            SelectWeapon();
+		}
+
     }
 
     bool isAlive()
@@ -95,13 +151,24 @@ public class PLAYER_CONTROL : MonoBehaviour
          */
     }
 
-    void WeaponSwitch()
+    
+
+    void SelectWeapon()
     {
-        /*
-         * Weapon type switch container
-         * can switch around different types of bin
-         * baka mag lagay tayo ng ring menu kapag may mga extra type tayo ng gamit like yung eco-bombs and shit
-         */
+        int i = 0;
+
+        foreach(Transform weapon in transform)
+		{
+            if(i == selectedWeapon)
+			{
+                weapon.gameObject.SetActive(true);
+			}
+			else
+			{
+                weapon.gameObject.SetActive(false);
+			}
+            i++;
+		}
     }
 
     void Attack()
