@@ -224,24 +224,20 @@ public class PLAYER_CONTROL : MonoBehaviour
         currentState = newState;
     }
 
-    void MovementAnimator()//Make sure player can move up and down with the same movespeed
+    void MovementAnimator()
     {
         if (movement.x < 0)//Left
         {
-            movement.x = -currentMoveSpeed;
-            transform.localScale = new Vector2(-1, 1);
-            
+            transform.localScale = new Vector2(-1, 1);     
         }
         else if (movement.x > 0)//Right
         {
-            movement.x = currentMoveSpeed;
             transform.localScale = new Vector2(1, 1);
         }
 
-        if (movement.x != 0)
+        if (movement != null)
         {
-            
-            transform.Translate(movement.normalized * currentMoveSpeed * Time.deltaTime);
+            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
             ChangeAnimationState(PLAYER_RUN);   
         }
         else
