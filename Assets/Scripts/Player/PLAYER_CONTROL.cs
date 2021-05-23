@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class PLAYER_CONTROL : MonoBehaviour
 {
+    
     Animator animator;
+    private string currentState;
+
+    //ANIMATION STATES
+    const string PLAYER_IDLE = "Player_idle";
+    const string PLAYER_RUN = "Player_run";
+    const string PLAYER_DODGE = "Player_dodge";
+    const string PLAYER_DIE = "Player_die";
+
+    const string PLAYER_ATTACK1 = "Player_attack_1";
+    const string PLAYER_ATTACK2 = "Player_attack_2";
+    const string PLAYER_ATTACK3 = "Player_attack_3";
+    const string PLAYER_THROW = "Player_throw";
+
+
 
     [SerializeField] float MaxHealth = 10.0f;
     [SerializeField] float CurrentHealth;
 
     [SerializeField] GameObject GameOverCanvas;
     Vector2 movement;
+    float xAxis;
+    float yAxis;
     Rigidbody2D rb;
 
     [SerializeField] float currentMoveSpeed = 5.0f;
@@ -48,15 +65,12 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         CurrentHealth = MaxHealth;
         Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
     }
 
-    //private void FixedUpdate()
-    //{
-
-    //}
 
     void CheckInputs()
     {
@@ -174,6 +188,10 @@ public class PLAYER_CONTROL : MonoBehaviour
     void Attack()
     {
         Debug.Log("Pressed Left Click");
+
+
+
+
         /*
          * baka gawin na lang nating animator to imbis na ganto
          * pero atm isang simpleng attack lang muna para makapag indicator na tayo for weapon types
@@ -181,7 +199,6 @@ public class PLAYER_CONTROL : MonoBehaviour
 
 
         //This detects the collision of the attack to all enemies hit
-
         /* animator.SetTrigger("Attack");
          * Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -189,6 +206,41 @@ public class PLAYER_CONTROL : MonoBehaviour
 		{
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
 		}*/
+    }
+    #endregion
+
+    #region ANIMATOR HELL
+    void ChangeAnimationState(string newState)
+    {
+        //stop the same animation from interrupting itself
+        if (currentState == newState) return;
+
+        //play the animation
+        animator.Play(newState);
+
+        //reassing the current state
+        currentState = newState;
+    }
+
+    void MovementAnimator()
+    {
+        if(xAxis < 0)
+        {
+            movement.x = -currentMoveSpeed;
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (xAxis > 0)
+        {
+            movement.x = currentMoveSpeed;
+            transform.localScale = new Vector2(1, 1);
+        }
+
+        if (xAxis != 0)
+        {
+            ChangeAnimationState(PLAYER_RUN);
+        }
+        else
+            ChangeAnimationState(PLAYER_IDLE);
     }
     #endregion
 
