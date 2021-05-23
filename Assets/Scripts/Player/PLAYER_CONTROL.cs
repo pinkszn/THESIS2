@@ -157,7 +157,8 @@ public class PLAYER_CONTROL : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        transform.Translate(movement.normalized * currentMoveSpeed * Time.deltaTime);
+
+        //transform.Translate(movement.normalized * currentMoveSpeed * Time.deltaTime);
 
         //rb.MovePosition(rb.position + movement * currentMoveSpeed * Time.fixedDeltaTime);
         /*
@@ -223,27 +224,28 @@ public class PLAYER_CONTROL : MonoBehaviour
         currentState = newState;
     }
 
-    void MovementAnimator()
+    void MovementAnimator()//Make sure player can move up and down with the same movespeed
     {
         if (movement.x < 0)//Left
         {
-            movement.x = -currentMoveSpeed * Time.deltaTime;
+            movement.x = -currentMoveSpeed;
             transform.localScale = new Vector2(-1, 1);
+            
         }
         else if (movement.x > 0)//Right
         {
-            movement.x = currentMoveSpeed * Time.deltaTime;
+            movement.x = currentMoveSpeed;
             transform.localScale = new Vector2(1, 1);
         }
 
         if (movement.x != 0)
         {
-            ChangeAnimationState(PLAYER_RUN);
-            Debug.Log("IS RUNNING");    
+            
+            transform.Translate(movement.normalized * currentMoveSpeed * Time.deltaTime);
+            ChangeAnimationState(PLAYER_RUN);   
         }
         else
             ChangeAnimationState(PLAYER_IDLE);
-            Debug.Log("IS IDLE");
     }
     #endregion
 
