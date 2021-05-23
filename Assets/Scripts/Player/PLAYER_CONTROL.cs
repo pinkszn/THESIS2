@@ -26,8 +26,6 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     [SerializeField] GameObject GameOverCanvas;
     Vector2 movement;
-    float xAxis;
-    float yAxis;
     Rigidbody2D rb;
 
     [SerializeField] float currentMoveSpeed = 5.0f;
@@ -48,9 +46,12 @@ public class PLAYER_CONTROL : MonoBehaviour
     //GameObject[] weaponTypes;
     private void Update()
     {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
         if (isAlive())
         {
-            Movement();
+            MovementAnimator();
             CheckInputs(); // This should check your inputs.
         }
         else
@@ -216,7 +217,7 @@ public class PLAYER_CONTROL : MonoBehaviour
         if (currentState == newState) return;
 
         //play the animation
-        animator.Play(newState);
+        animator.Play(newState, 1);
 
         //reassing the current state
         currentState = newState;
@@ -224,23 +225,25 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     void MovementAnimator()
     {
-        if(xAxis < 0)
+        if (movement.x < 0)//Left
         {
-            movement.x = -currentMoveSpeed;
+            movement.x = -currentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(-1, 1);
         }
-        else if (xAxis > 0)
+        else if (movement.x > 0)//Right
         {
-            movement.x = currentMoveSpeed;
+            movement.x = currentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(1, 1);
         }
 
-        if (xAxis != 0)
+        if (movement.x != 0)
         {
             ChangeAnimationState(PLAYER_RUN);
+            Debug.Log("IS RUNNING");    
         }
         else
             ChangeAnimationState(PLAYER_IDLE);
+            Debug.Log("IS IDLE");
     }
     #endregion
 
