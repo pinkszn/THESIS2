@@ -379,7 +379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79c8ec820592f94686a300da31aa6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
   speed: 0
@@ -893,6 +892,7 @@ GameObject:
   - component: {fileID: 1232418802}
   - component: {fileID: 1232418803}
   - component: {fileID: 1232418804}
+  - component: {fileID: 1232418805}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: PLAYER
@@ -1038,6 +1038,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1232418805
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232418799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67dd28137f681c34e86e63db3289f2b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1300529302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8614522167206222119, guid: 57111a5ae39894348a5bae27df16c711,

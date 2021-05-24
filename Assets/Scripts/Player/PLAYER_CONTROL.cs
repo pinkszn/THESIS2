@@ -69,7 +69,7 @@ public class PLAYER_CONTROL : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         CurrentHealth = MaxHealth;
-        Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
+        //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
     }
 
 
@@ -157,14 +157,6 @@ public class PLAYER_CONTROL : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        //transform.Translate(movement.normalized * currentMoveSpeed * Time.deltaTime);
-
-        //rb.MovePosition(rb.position + movement * currentMoveSpeed * Time.fixedDeltaTime);
-        /*
-         * W,A,S,D movement
-         * lagyan pa ba natin to ng dodge? (consult with design team)
-         */
     }
 
     
@@ -247,11 +239,11 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("COLLISSION WITH " + collision.name);
+        //Debug.Log("COLLISSION WITH " + collision.name);
         if (collision.CompareTag("ENEMY"))
         {
             CurrentHealth -= 1;
-            Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
+            //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
         }
     }
 
