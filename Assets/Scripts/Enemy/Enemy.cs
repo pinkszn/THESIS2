@@ -14,14 +14,17 @@ public class Enemy : MonoBehaviour
 	const string MUTATE = "Mutate";
 	const string IDLE = "idle";
 
+
     [SerializeField] float maxHealth = 10;
     [SerializeField] float currentHealth;
-
+	Transform Player;
     public float speed;
     public float damage;
 	Vector2 movement;
 
     public bool Decomposable, NonDecomposable, Recyclable;
+	bool isMoving;
+	bool isAttacking;
 
     private void Awake()
     {
@@ -81,23 +84,30 @@ public class Enemy : MonoBehaviour
 		{
 			transform.localScale = new Vector2(1, 1);
 		}
-		if (movement != null)
+
+		if (transform.localPosition.x == 0 && transform.localPosition.y == 0)
 		{
-			transform.Translate(movement * speed * Time.deltaTime);
+			ChangeAnimationState(IDLE);
+		}
+        else
+        {
+			transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.position, 10f);
 			ChangeAnimationState(CHASE);
 		}
-		else
-			ChangeAnimationState(IDLE);
+						
+			
 	}
 
 	void AttackState()
     {
 		//Monster should attack within range and should stop when moving when attacking
+		//if player is within range, activate attackState
+		//if attackState activated, stop moving then attack
     }
 
 	void StaggerState()
     {
-
+		//if hit then stop moving
     }
 
 	void MutateState()
@@ -108,6 +118,7 @@ public class Enemy : MonoBehaviour
 	void DieState()
 	{
 		//Die animation
+		gameObject.SetActive(false);
 	}
 
     #endregion

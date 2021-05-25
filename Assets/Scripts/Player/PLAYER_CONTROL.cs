@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PLAYER_CONTROL : MonoBehaviour
 {
-    
+
     Animator animator;
     private string currentState;
 
@@ -18,7 +18,8 @@ public class PLAYER_CONTROL : MonoBehaviour
     const string PLAYER_ATTACK2 = "Player_attack_2";
     const string PLAYER_ATTACK3 = "Player_attack_3";
     const string PLAYER_THROW = "Player_throw";
-
+    int attackStateCounter = 0;
+    bool isAttacking = false;
 
 
     [SerializeField] float MaxHealth = 10.0f;
@@ -46,6 +47,7 @@ public class PLAYER_CONTROL : MonoBehaviour
     //GameObject[] weaponTypes;
     private void Update()
     {
+        Debug.Log(currentState);
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -79,7 +81,7 @@ public class PLAYER_CONTROL : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Attack(); //Do Attack Function
+                AttackState(); //Do Attack Function
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
@@ -104,8 +106,8 @@ public class PLAYER_CONTROL : MonoBehaviour
             }
         }
 
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
-		{
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
             if (selectedWeapon <= 0)
             {
                 selectedWeapon = transform.childCount - 1;
@@ -116,10 +118,10 @@ public class PLAYER_CONTROL : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha1) && transform.childCount >= 1)
-		{
+        if (Input.GetKeyDown(KeyCode.Alpha1) && transform.childCount >= 1)
+        {
             selectedWeapon = 0;
-		}
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
         {
@@ -137,9 +139,9 @@ public class PLAYER_CONTROL : MonoBehaviour
         }
 
         if (previousSelectedWeapon != selectedWeapon)
-		{
+        {
             SelectWeapon();
-		}
+        }
 
     }
 
@@ -155,28 +157,26 @@ public class PLAYER_CONTROL : MonoBehaviour
     #region Player Controls
     void Movement()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
     }
-
-    
 
     void SelectWeapon()
     {
         int i = 0;
 
-        foreach(Transform weapon in transform)
-		{
-            if(i == selectedWeapon)
-			{
+        foreach (Transform weapon in transform)
+        {
+            if (i == selectedWeapon)
+            {
                 weapon.gameObject.SetActive(true);
-			}
-			else
-			{
+            }
+            else
+            {
                 weapon.gameObject.SetActive(false);
-			}
+            }
             i++;
-		}
+        }
     }
 
     void Attack()
@@ -210,7 +210,7 @@ public class PLAYER_CONTROL : MonoBehaviour
         if (currentState == newState) return;
 
         //play the animation
-        animator.Play(newState, 1);
+        animator.Play(newState, 0);
 
         //reassing the current state
         currentState = newState;
@@ -218,26 +218,53 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     void MovementAnimator()
     {
-        if (movement.x < 0)//Left
+        if (movement.x < 0)//Left LOCAL POSITION
         {
-            transform.localScale = new Vector2(-1, 1);     
+            transform.localScale = new Vector2(-1, 1);
         }
-        else if (movement.x > 0)//Right
+        else if (movement.x > 0)//Right LOCAL POSITION
         {
             transform.localScale = new Vector2(1, 1);
         }
 
-        if (movement != null)
+        if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
-            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
-            ChangeAnimationState(PLAYER_RUN);   
+            ChangeAnimationState(PLAYER_IDLE);
         }
         else
-            ChangeAnimationState(PLAYER_IDLE);
+        {
+            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+            ChangeAnimationState(PLAYER_RUN);
+        }
     }
-    #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void AttackState()
+    {
+        if (!isAttacking)
+        {
+            if (attackStateCounter == 0)
+            {
+                ChangeAnimationState(PLAYER_ATTACK1);
+                //attackStateCounter++;
+            }
+        }
+        else ChangeAnimationState(PLAYER_IDLE);
+        //if (attackStateCounter == 1)
+        //{
+        //    ChangeAnimationState(PLAYER_ATTACK2);
+        //    attackStateCounter++;
+        //}
+        //if (attackStateCounter == 2)
+        //{
+        //    ChangeAnimationState(PLAYER_ATTACK3);
+        //    attackStateCounter = 0;
+        //}
+    }
+
+
+        #endregion
+
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("COLLISSION WITH " + collision.name);
         if (collision.CompareTag("ENEMY"))
