@@ -39,8 +39,10 @@ public class PLAYER_CONTROL : MonoBehaviour
     public float attackRange;
     public float attackDamage;
 
-    public float attackRate = 2f;
+    public float attackRate = 2f; //The interval of attack animation to do when you spam the left click
+    public float attackResetRate = 1f; //Seconds of not attacking to reset to first attack animation
     float nextAttackTime = 0f;
+    float AttackResetTime = 0f;
 
     public int selectedWeapon = 0;
 
@@ -64,6 +66,9 @@ public class PLAYER_CONTROL : MonoBehaviour
 
         WeaponSwitch(); //Checks input for swapping weapons
         //SelectWeapon(); //Swaps the weapon corresponding the input of WeaponSwitch
+
+        //Debug.Log(nextAttackTime);
+        //Debug.Log(AttackResetTime);
     }
 
     private void Start()
@@ -79,12 +84,19 @@ public class PLAYER_CONTROL : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 AttackState(); //Do Attack Function
-                nextAttackTime = Time.time + 1f / attackRate;
+                nextAttackTime = Time.time + 1f / attackRate; //sets the interval of the next attack anim
+                AttackResetTime = Time.time + attackResetRate; //sets the reset time to first attack anim
+            }
+            if (Time.time >= AttackResetTime)
+            {
+                ChangeAnimationState(PLAYER_IDLE);
+                attackStateCounter = 0;
             }
         }
+        
 
         //Check inputs for 1, 2, 3, 4
         //Changing weapons of character
@@ -240,25 +252,24 @@ public class PLAYER_CONTROL : MonoBehaviour
 
     void AttackState()
     {
-        if (!isAttacking)
+        if (attackStateCounter == 0)
         {
-            if (attackStateCounter == 0)
-            {
-                ChangeAnimationState(PLAYER_ATTACK1);
-                //attackStateCounter++;
-            }
+            ChangeAnimationState(PLAYER_ATTACK1);
+            attackStateCounter++;
+            return;
         }
-        else ChangeAnimationState(PLAYER_IDLE);
-        //if (attackStateCounter == 1)
-        //{
-        //    ChangeAnimationState(PLAYER_ATTACK2);
-        //    attackStateCounter++;
-        //}
-        //if (attackStateCounter == 2)
-        //{
-        //    ChangeAnimationState(PLAYER_ATTACK3);
-        //    attackStateCounter = 0;
-        //}
+        if (attackStateCounter == 1)
+        {
+            ChangeAnimationState(PLAYER_ATTACK2);
+            attackStateCounter++;
+            return;
+        }
+        if (attackStateCounter == 2)
+        {
+            ChangeAnimationState(PLAYER_ATTACK3);
+            attackStateCounter = 0;
+            return;
+        }
     }
 
 
