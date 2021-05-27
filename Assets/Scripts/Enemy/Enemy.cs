@@ -17,10 +17,12 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float maxHealth = 10;
     [SerializeField] float currentHealth;
-	Transform Player;
+	public Transform Player;
     public float speed;
     public float damage;
 	Vector2 movement;
+	float playerRange;
+	float attackRange;
 
     public bool Decomposable, NonDecomposable, Recyclable;
 	bool isMoving;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
 		animator = GetComponent<Animator>();
+		//Player = GetComponent<Transform>();
     }
 
     private void Start()
@@ -36,10 +39,10 @@ public class Enemy : MonoBehaviour
 		currentHealth = maxHealth;
 	}
 
-	public void Attack()
-	{
-
-	}
+    private void Update()
+    {
+		ChaseState();
+    }
 
     public void TakeDamage(int damage)
 	{
@@ -68,7 +71,7 @@ public class Enemy : MonoBehaviour
 		if (currentState == newState) return;
 
 		//play the animation
-		animator.Play(newState, 1);
+		animator.Play(newState, 0);
 
 		//reassing the current state
 		currentState = newState;
@@ -89,17 +92,20 @@ public class Enemy : MonoBehaviour
 		{
 			ChangeAnimationState(IDLE);
 		}
-        else
+        else if(Vector2.Distance(this.transform.transform.position, Player.transform.position) < playerRange)
         {
-			transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.position, 10f);
-			ChangeAnimationState(CHASE);
+				ChangeAnimationState(CHASE);
+				transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.position, speed);
 		}
-						
-			
 	}
 
 	void AttackState()
     {
+		if(Vector2.Distance(this.transform.transform.position, Player.transform.position) < attackRange)
+        {
+			ChangeAnimationState(ATTACK);
+			//attack function;
+        }
 		//Monster should attack within range and should stop when moving when attacking
 		//if player is within range, activate attackState
 		//if attackState activated, stop moving then attack
