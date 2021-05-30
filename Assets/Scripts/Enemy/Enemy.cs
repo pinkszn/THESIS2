@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float damage;
 	Vector2 movement;
-	float playerRange;
+	float playerRange = 10f;
 	float attackRange;
 
     public bool Decomposable, NonDecomposable, Recyclable;
