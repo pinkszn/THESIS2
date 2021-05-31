@@ -17,11 +17,15 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float maxHealth = 10;
     [SerializeField] float currentHealth;
-	public Transform Player;
-    public float speed;
-    public float damage;
+
+	public GameObject Player;
 	Vector2 movement;
-	float playerRange = 10f;
+
+	public float moveSpeed = 5f;
+    public float damage;
+
+	float distanceFromPlayer;
+	float playerRange = 2f;
 	float attackRange;
 
     public bool Decomposable, NonDecomposable, Recyclable;
@@ -31,18 +35,22 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
 		animator = GetComponent<Animator>();
-		//Player = GetComponent<Transform>();
     }
 
     private void Start()
 	{
 		currentHealth = maxHealth;
+		Player = GameObject.FindGameObjectWithTag("PLAYER");
 	}
 
     private void Update()
     {
 		ChaseState();
-    }
+
+		distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
+
+		Debug.Log(distanceFromPlayer);
+	}
 
     public void TakeDamage(int damage)
 	{
@@ -79,29 +87,38 @@ public class Enemy : MonoBehaviour
 
 	void ChaseState()
     {
+		movement = Player.transform.position - transform.position;
+
 		if (movement.x < 0)//Left
 		{
 			transform.localScale = new Vector2(-1, 1);
 		}
-		else if (movement.x > 0)//Right
+		if (movement.x > 0)//Right
 		{
 			transform.localScale = new Vector2(1, 1);
 		}
 
-		if (transform.localPosition.x == 0 && transform.localPosition.y == 0)
-		{
-			ChangeAnimationState(IDLE);
-		}
-        else if(Vector2.Distance(this.transform.transform.position, Player.transform.position) < playerRange)
+		//if (transform.localPosition.x == 0 && transform.localPosition.y == 0)
+		//{
+		//	ChangeAnimationState(IDLE);
+		//}
+
+        if(distanceFromPlayer > playerRange)
         {
-				ChangeAnimationState(CHASE);
-				transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.position, speed);
+			ChangeAnimationState(CHASE);
+
+			transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
+
+			//rb.MovePosition((Vector2)transform.position + (movement * moveSpeed * Time.deltaTime));
 		}
+
+
+		
 	}
 
 	void AttackState()
     {
-		if(Vector2.Distance(this.transform.transform.position, Player.transform.position) < attackRange)
+		if(distanceFromPlayer < attackRange)
         {
 			ChangeAnimationState(ATTACK);
 			//attack function;

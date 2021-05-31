@@ -218,14 +218,18 @@ public class PLAYER_CONTROL : MonoBehaviour
     #region ANIMATOR HELL
     void ChangeAnimationState(string newState)
     {
-        //stop the same animation from interrupting itself
-        if (currentState == newState) return;
+        if (newState != null)
+		{
+            //stop the same animation from interrupting itself
+            if (currentState == newState) 
+                return;
 
-        //play the animation
-        animator.Play(newState, 0);
+            //reassing the current state
+            currentState = newState;
 
-        //reassing the current state
-        currentState = newState;
+            //play the animation
+            animator.Play(newState, 0);
+        }
     }
 
     void MovementAnimator()
