@@ -49,7 +49,6 @@ public class Enemy : MonoBehaviour
 
 		distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
-		Debug.Log(distanceFromPlayer);
 	}
 
     public void TakeDamage(int damage)
