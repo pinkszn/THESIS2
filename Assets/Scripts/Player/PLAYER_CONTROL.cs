@@ -258,23 +258,36 @@ public class PLAYER_CONTROL : MonoBehaviour
     {
         if (attackStateCounter == 0)
         {
+            AttackHit();
             ChangeAnimationState(PLAYER_ATTACK1);
             attackStateCounter++;
             return;
         }
         if (attackStateCounter == 1)
         {
+            AttackHit();
             ChangeAnimationState(PLAYER_ATTACK2);
             attackStateCounter++;
             return;
         }
         if (attackStateCounter == 2)
         {
+            AttackHit();
             ChangeAnimationState(PLAYER_ATTACK3);
             attackStateCounter = 0;
             return;
         }
     }
+
+    void AttackHit()
+	{
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange,enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies)
+		{
+            Debug.Log("We hit " + enemy.name);
+		}
+	}
 
 
         #endregion
