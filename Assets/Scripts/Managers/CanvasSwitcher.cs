@@ -16,6 +16,7 @@ public class CanvasSwitcher : MonoBehaviour
         canvasManager = CanvasManager.Instance;
     }
 
+
     void OnButtonClicked()//Switches both scene and canvas
     {
         /*
@@ -27,4 +28,14 @@ public class CanvasSwitcher : MonoBehaviour
         SceneController.LoadScene(1, 1, 2);
         canvasManager.SwitchCanvas(desiredCanvasType);
     }
+
+    /*
+     * To Do:
+     * 1. Set a system for different buttons
+     * Types of buttons
+     * Recycling UI
+     * Go Back
+     * Quit Application
+     * Retry Level
+     */
 }

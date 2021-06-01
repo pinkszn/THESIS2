@@ -17,6 +17,7 @@ public class CanvasManager : Singleton<CanvasManager>
 {
     List<CanvasController> canvasControllerList;
     CanvasController lastActiveCanvas;
+    CanvasController secondaryActiveCanvas;
 
     protected override void Awake()
     {
@@ -40,6 +41,20 @@ public class CanvasManager : Singleton<CanvasManager>
             desiredCanvas.gameObject.SetActive(true);
             lastActiveCanvas = desiredCanvas;
         }
-        else { Debug.LogWarning("The desired canvas was not found!"); }
+        else  Debug.LogWarning("The desired canvas was not found!");
+    }
+
+    public void SecondaryCanvas(CanvasType _type)
+    {
+        if(secondaryActiveCanvas != null)
+        {
+            secondaryActiveCanvas.gameObject.SetActive(false);
+        }
+        CanvasController desiredSecondaryCanvas = canvasControllerList.Find(x => x.canvasType == _type);
+        if (desiredSecondaryCanvas != null)
+        {
+            desiredSecondaryCanvas.gameObject.SetActive(true);
+            secondaryActiveCanvas = desiredSecondaryCanvas;
+        }
     }
 }
