@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum SceneType
+{
+    Game,
+    EndScreen,
+    MainMenu
+}
+
 public class SceneController : Singleton<SceneController>
 {
     public Image fader;

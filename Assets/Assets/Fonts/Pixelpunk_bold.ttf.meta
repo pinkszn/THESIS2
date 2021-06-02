@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 380544066eb4a6449bccaa656d4a6420
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - pixelpunk
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8430d307e53f3014a9aecbe785f47f00, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

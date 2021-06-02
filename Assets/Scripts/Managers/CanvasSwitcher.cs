@@ -5,9 +5,13 @@ using UnityEngine.UI;
 public class CanvasSwitcher : MonoBehaviour
 {
     public CanvasType desiredCanvasType;
+    public SceneType sceneType;
 
     CanvasManager canvasManager;
     Button menuButton;
+
+    string sceneName;
+    int index;
 
     private void Start()
     {
@@ -15,7 +19,6 @@ public class CanvasSwitcher : MonoBehaviour
         menuButton.onClick.AddListener(OnButtonClicked);
         canvasManager = CanvasManager.Instance;
     }
-
 
     void OnButtonClicked()//Switches both scene and canvas
     {
@@ -25,11 +28,18 @@ public class CanvasSwitcher : MonoBehaviour
          * 2. IF scene DOES NOT require change scene, just switch canvas
          */
 
-        SceneController.LoadScene(1, 1, 2);
+        SceneChanger(index);
         canvasManager.SwitchCanvas(desiredCanvasType);
     }
 
-    /*
+
+
+    void SceneChanger(int index)
+    {
+        SceneController.LoadScene(index, 1, 1);
+    }
+
+    /*  
      * To Do:
      * 1. Set a system for different buttons
      * Types of buttons
