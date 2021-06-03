@@ -13,7 +13,6 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         Debug.Log("I AM THE OBJECT POOL MANAGER");
     }
 
-
     private void Start()
     {
         pooledObjects = new List<GameObject>();

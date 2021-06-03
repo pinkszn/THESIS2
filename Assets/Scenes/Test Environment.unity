@@ -825,10 +825,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1232418801}
   - component: {fileID: 1232418800}
-  - component: {fileID: 1232418802}
   - component: {fileID: 1232418803}
   - component: {fileID: 1232418804}
   - component: {fileID: 1232418805}
+  - component: {fileID: 1232418802}
+  - component: {fileID: 1232418808}
+  - component: {fileID: 1232418807}
+  - component: {fileID: 1232418806}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: PLAYER
@@ -909,24 +912,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232418799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697031a217661054da713a139694df25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
-  CurrentHealth: 0
-  GameOverCanvas: {fileID: 0}
-  currentMoveSpeed: 5
-  attackPoint: {fileID: 2011389588}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  attackRange: 0.51
-  attackDamage: 0
-  attackRate: 2
-  attackResetRate: 1
-  selectedWeapon: 0
 --- !u!50 &1232418803
 Rigidbody2D:
   serializedVersion: 4
@@ -993,6 +983,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1232418806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232418799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b889cdd751e8248a6a8a61be2f0415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoveSpeed: 5
+--- !u!114 &1232418807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232418799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583524e7014759447bcbf6e7bbb9c276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  CurrentHealth: 10
+--- !u!114 &1232418808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232418799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5ee005e4b07e847a4b99b71cc592a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 0.5
+  attackDamage: 0
+  attackRate: 2
+  attackPoint: {fileID: 2011389588}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1300529302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8614522167206222119, guid: 57111a5ae39894348a5bae27df16c711,
@@ -1238,7 +1274,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011389587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
 	const string MUTATE = "Mutate";
 	const string IDLE = "idle";
 
-
     [SerializeField] float maxHealth = 10;
     [SerializeField] float currentHealth;
 
