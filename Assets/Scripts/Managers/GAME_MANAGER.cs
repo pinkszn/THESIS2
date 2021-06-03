@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GAME_MANAGER
+public class GAME_MANAGER:Singleton<GAME_MANAGER>
 {
     public float timerAmount = 120f;
     public bool isPaused = false;

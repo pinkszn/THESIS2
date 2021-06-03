@@ -27,16 +27,26 @@ public class SimpleSceneChanger : MonoBehaviour
             yield return null;
         }
         fader.gameObject.SetActive(false);
-        CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
     }
 
     public void StartGame()
     {
         StartCoroutine(FadeScene(1,1,1));
+        CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void MainMenu()
+    {
+        StartCoroutine(FadeScene(0, 1, 1));
+    }
+
+    public void RetryLevel()
+    {
+        StartCoroutine(FadeScene(1, 1, 1));
     }
 }
