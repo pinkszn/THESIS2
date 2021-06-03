@@ -18,19 +18,21 @@ public class SimpleSceneChanger : MonoBehaviour
         }
 
         yield return new WaitForSeconds(waitTime);
+
         SceneManager.LoadScene(index);
+
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, t));
             yield return null;
         }
         fader.gameObject.SetActive(false);
+        CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
     }
 
     public void StartGame()
     {
         StartCoroutine(FadeScene(1,1,1));
-        CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
     }
 
     public void QuitGame()
