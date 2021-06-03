@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class CanvasSwitcher : MonoBehaviour
 {
     public CanvasType desiredCanvasType;
-    public SceneType sceneType;
 
     CanvasManager canvasManager;
     Button menuButton;

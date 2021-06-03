@@ -4,13 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum SceneType
-{
-    Game,
-    EndScreen,
-    MainMenu
-}
-
 public class SceneController : Singleton<SceneController>
 {
     public Image fader;
@@ -36,7 +29,7 @@ public class SceneController : Singleton<SceneController>
             fader.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, t));
             yield return null;
         }
-         
+
         SceneManager.LoadScene(index);
 
         yield return new WaitForSeconds(waitTime);
@@ -47,5 +40,5 @@ public class SceneController : Singleton<SceneController>
             yield return null;
         }
         fader.gameObject.SetActive(false);
-    } 
+    }
 }
