@@ -60,7 +60,7 @@ public class PLAYER_CONTROL : MonoBehaviour
         }
         else
         {
-            GameOverCanvas.SetActive(true);
+            CanvasManager.Instance.SecondaryCanvas(CanvasType.GameOver);
             return;
         }
 

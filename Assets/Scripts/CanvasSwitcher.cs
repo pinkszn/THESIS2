@@ -1,21 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class CanvasSwitcher : MonoBehaviour
 {
     public CanvasType desiredCanvasType;
 
     CanvasManager canvasManager;
-    Button menuButton;
 
     string sceneName;
     int index;
 
     private void Start()
     {
-        menuButton = GetComponent<Button>();
-        menuButton.onClick.AddListener(OnButtonClicked);
         canvasManager = CanvasManager.Instance;
     }
 
