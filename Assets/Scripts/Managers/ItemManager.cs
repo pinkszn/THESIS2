@@ -24,12 +24,10 @@ public class ItemManager : Singleton<ItemManager>
     public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
 	{
         //if statement ng amount of raw materials na kelangan sa pag craft ng item na ito
-
-        if (Plastic > 1)
+        if (Plastic > 1) //values subject to change
         {
-            //
-            Plastic -= 1; //
-            EcoBricks += 1; //
+            Plastic -= 1;
+            EcoBricks += 1;
             return;
         }
         else
