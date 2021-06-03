@@ -16,6 +16,18 @@ public class GAME_MANAGER
         return true;
 	}
 
+    public void Pause()
+	{
+        if(isPaused)
+		{
+
+		}
+        else
+		{
+
+		}
+	}
+
     /*
      * THINGS TO SETUP
      * 1. TIMER
