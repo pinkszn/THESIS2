@@ -6,6 +6,9 @@ using TMPro;
 
 public class ItemManager : Singleton<ItemManager>
 {
+    [SerializeField] TextMeshProUGUI[] CraftingText; //UI for values of crafting
+    [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
+
     public int Plastic; //eto yung mga amount ng raw materials na napipickup
     public int item02; //names will change depending sa pangalan ng mga raw materials (design team)
 
