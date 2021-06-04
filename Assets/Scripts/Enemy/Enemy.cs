@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
 	const string ATTACK = "Attack";
 	const string DIE = "Die";
 	const string MUTATE = "Mutate";
-	const string IDLE = "idle";
+	const string IDLE = "Idle";
 
-    [SerializeField] float maxHealth = 10;
+    [SerializeField] float maxHealth = 3;
     [SerializeField] float currentHealth;
 
 	public GameObject Player;
@@ -24,8 +24,8 @@ public class Enemy : MonoBehaviour
     public float damage;
 
 	float distanceFromPlayer;
-	float playerRange = 2f;
-	float attackRange;
+	[SerializeField] float playerRange = 3f;
+	[SerializeField] float attackRange;
 
     public bool Decomposable, NonDecomposable, Recyclable;
 	bool isMoving;
@@ -34,23 +34,23 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
 		animator = GetComponent<Animator>();
-    }
+		currentHealth = maxHealth;
+	}
 
     private void Start()
 	{
-		currentHealth = maxHealth;
 		Player = GameObject.FindGameObjectWithTag("PLAYER");
 	}
 
     private void Update()
     {
-		ChaseState();
-
 		distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
+		ChaseState();
+		
 	}
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
 
@@ -60,14 +60,15 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-    public void Die()
+    private void Die()
 	{
 		Debug.Log("Enemy Died");
 
-		animator.SetBool("IsDead", true);
+		//animator.SetBool("IsDead", true);
+		//GetComponent<Collider2D>().enabled = false;
+		//gameObject.SetActive(false);
 
-		GetComponent<Collider2D>().enabled = false;
-		this.enabled = false;
+		Destroy(gameObject);
 	}
 
     #region ANIMATOR HELL
@@ -101,7 +102,7 @@ public class Enemy : MonoBehaviour
 		//	ChangeAnimationState(IDLE);
 		//}
 
-        if(distanceFromPlayer > playerRange)
+        if(distanceFromPlayer < playerRange && distanceFromPlayer > attackRange)
         {
 			ChangeAnimationState(CHASE);
 
@@ -109,9 +110,6 @@ public class Enemy : MonoBehaviour
 
 			//rb.MovePosition((Vector2)transform.position + (movement * moveSpeed * Time.deltaTime));
 		}
-
-
-		
 	}
 
 	void AttackState()
@@ -139,8 +137,14 @@ public class Enemy : MonoBehaviour
 	void DieState()
 	{
 		//Die animation
-		gameObject.SetActive(false);
+		
 	}
 
-    #endregion
+	#endregion
+
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.DrawWireSphere(transform.position, playerRange);
+		Gizmos.DrawWireSphere(transform.position, attackRange);
+	}
 }

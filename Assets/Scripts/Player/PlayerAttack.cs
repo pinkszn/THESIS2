@@ -75,7 +75,8 @@ public class PlayerAttack : Player
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("We hit " + enemy.name);
-            //Put here the damage to the enemy
+
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
 

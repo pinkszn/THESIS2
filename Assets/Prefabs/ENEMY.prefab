@@ -124,11 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79c8ec820592f94686a300da31aa6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 6
+  currentHealth: 0
   Player: {fileID: 0}
   moveSpeed: 2
   damage: 10
+  playerRange: 3
+  attackRange: 1.5
   Decomposable: 0
   NonDecomposable: 0
   Recyclable: 0
