@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class GAME_MANAGER:Singleton<GAME_MANAGER>
 {
+    public static GAME_MANAGER instance;
+
     public float timerAmount = 120f;
     public bool isPaused = false;
 
-    public bool isAlive()
+	protected override void Awake()
+	{
+        instance = this;
+	}
+
+	public bool isAlive()
 	{
         //if health is 0 or other various conditions
         // return false

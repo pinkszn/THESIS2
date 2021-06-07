@@ -6,6 +6,8 @@ using TMPro;
 
 public class ItemManager : Singleton<ItemManager>
 {
+    public static ItemManager instance;
+
     [SerializeField] TextMeshProUGUI[] CraftingText; //UI for values of crafting
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
 
@@ -18,7 +20,12 @@ public class ItemManager : Singleton<ItemManager>
     public int SkateBoard;
     public int Soap;
 
-    public void InitializeData() //call this function when starting a level
+	protected override void Awake()
+	{
+        instance = this;
+	}
+
+	public void InitializeData() //call this function when starting a level
 	{
         //item01 = PlayerPrefs.GetInt("Item01");
 	}

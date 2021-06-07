@@ -8,7 +8,7 @@ public class SimpleSceneChanger : MonoBehaviour
 {
     public Image fader;
 
-    private IEnumerator FadeScene(int index,float duration, float waitTime)
+	private IEnumerator FadeScene(int index,float duration, float waitTime)
     {
         fader.gameObject.SetActive(true);
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
@@ -33,6 +33,8 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         StartCoroutine(FadeScene(1,1,1));
         CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
+
+        BGMManager.instance.Play("BGM01");
     }
 
     public void QuitGame()
