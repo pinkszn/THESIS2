@@ -11,12 +11,15 @@ public class PlayerHealth : Player
 	{
         CurrentHealth = MaxHealth;
 	}
-
+    private void Update()
+    {
+        IsAlive();
+    }
     void IsAlive()
     {
         if (CurrentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            CanvasManager.Instance.SecondaryCanvas(CanvasType.GameOver);
         }
         else
             return;
