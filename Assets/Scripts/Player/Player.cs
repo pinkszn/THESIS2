@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Animator animator;
+    protected Animator animator;
     protected Rigidbody2D rb;
 
     private string currentState;

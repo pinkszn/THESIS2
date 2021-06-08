@@ -25,36 +25,34 @@ public class PlayerMovement : Player
 
     void MovementAnimator()
     {
-        if (movement.x < 0)//Left LOCAL POSITION
-        {
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else if (movement.x > 0)//Right LOCAL POSITION
-        {
-            transform.localScale = new Vector2(1, 1);
-        }
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
 
+        
+        
+        transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
 
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             ChangeAnimationState(PLAYER_IDLE);
         }
-        else if (Input.GetAxisRaw("Horizontal") != 0) // Temporary Solution for sprite
-        {
-            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
-            ChangeAnimationState(PLAYER_RUN_HORIZONTAL);
-
-        }
-        else if(Input.GetAxisRaw("Vertical") == 1) // Animatoin is stuck
-        {
-            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
-            ChangeAnimationState(PLAYER_RUN_UP);
-        }
-        else if (Input.GetAxisRaw("Vertical") == -1) // Animatoin is stuck
-        {
-            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
-            ChangeAnimationState(PLAYER_RUN_DOWN);
-        }
+        //else if (Input.GetAxisRaw("Horizontal") != 0) // Temporary Solution for sprite
+        //{
+        //    transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+        //    ChangeAnimationState(PLAYER_RUN_HORIZONTAL);
+        //}
+        
+        //else if(Input.GetAxisRaw("Vertical") == 1   ) // Animatoin is stuck
+        //{
+        //    transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+        //    ChangeAnimationState(PLAYER_RUN_UP);
+        //}
+        //else if (Input.GetAxisRaw("Vertical") == -1) // Animatoin is stuck
+        //{
+        //    transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+        //    ChangeAnimationState(PLAYER_RUN_DOWN);
+        //}
 
     }
 }

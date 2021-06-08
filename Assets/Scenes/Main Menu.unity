@@ -3568,7 +3568,7 @@ MonoBehaviour:
   sounds:
   - name: BGM01
     clip: {fileID: 8300000, guid: 2a9fef6846fe7724884ad34e5ac7bf0c, type: 3}
-    volume: 1
+    volume: 0.259
     pitch: 1
     panStereo: 0
     playOnAwake: 0
