@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class BGMManager : Singleton<BGMManager>
 {
-	public static BGMManager instance;
-
 	public Sound[] sounds;
 	protected override void Awake()
 	{
-		instance = this;
-
+		base.Awake();
 		foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();

@@ -9,11 +9,6 @@ public class GAME_MANAGER:Singleton<GAME_MANAGER>
     public float timerAmount = 120f;
     public bool isPaused = false;
 
-	protected override void Awake()
-	{
-        instance = this;
-	}
-
 	public bool isAlive()
 	{
         //if health is 0 or other various conditions

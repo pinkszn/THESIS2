@@ -9,6 +9,7 @@ public class PickupObject : MonoBehaviour
 		if(collision.gameObject.tag == "PLAYER")
 		{
 			//Pickup object then add the amount of items in the item manager
+			ItemManager.Instance.plastic += 1; //only works once
 			Debug.Log("pickup item");
 			Destroy(gameObject);
 		}

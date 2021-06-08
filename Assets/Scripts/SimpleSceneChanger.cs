@@ -27,13 +27,14 @@ public class SimpleSceneChanger : MonoBehaviour
             yield return null;
             CanvasManager.Instance.SwitchCanvas(_canvasType);
             fader.gameObject.SetActive(false);
+
         }
     }
 
     public void StartGame()
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
-        BGMManager.instance.Play("BGM01");
+        BGMManager.Instance.Play("BGM01");
     }
 
     public void QuitGame()
@@ -44,8 +45,8 @@ public class SimpleSceneChanger : MonoBehaviour
     public void MainMenu()
     {
         StartCoroutine(FadeScene(0, 0.2f, 0.3f, CanvasType.MainMenu));
-        GAME_MANAGER.instance.ResumeGame();
-        BGMManager.instance.Stop("BGM01");
+        GAME_MANAGER.Instance.ResumeGame();
+        BGMManager.Instance.Stop("BGM01");
     }
 
     public void RetryLevel()
