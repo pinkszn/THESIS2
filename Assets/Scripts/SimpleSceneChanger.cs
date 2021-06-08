@@ -33,7 +33,6 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         StartCoroutine(FadeScene(1,1,1));
         CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
-
         BGMManager.instance.Play("BGM01");
     }
 
@@ -45,6 +44,9 @@ public class SimpleSceneChanger : MonoBehaviour
     public void MainMenu()
     {
         StartCoroutine(FadeScene(0, 1, 1));
+        GAME_MANAGER.instance.ResumeGame();
+        CanvasManager.Instance.SwitchCanvas(CanvasType.MainMenu);
+        BGMManager.instance.Stop("BGM01");
     }
 
     public void RetryLevel()

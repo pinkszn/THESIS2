@@ -23,17 +23,41 @@ public class GAME_MANAGER:Singleton<GAME_MANAGER>
         return true;
 	}
 
-    public void Pause()
-	{
-        if(isPaused)
-		{
+    private void Update()
+    {
+        PauseKey();
 
-		}
-        else
-		{
+    }
 
-		}
-	}
+    public void PauseButton()
+    {
+        PauseGame();
+    }
+
+    public void PauseKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+        {
+            PauseGame();
+        }else if (Input.GetKeyDown(KeyCode.Escape) && isPaused == true)
+        {
+            ResumeGame();
+        }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        CanvasManager.Instance.SecondaryCanvas(CanvasType.Pause);
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Pause);
+        isPaused = false;
+    }
 
     /*
      * THINGS TO SETUP

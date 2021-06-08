@@ -51,10 +51,15 @@ public class CanvasManager : Singleton<CanvasManager>
             secondaryActiveCanvas.gameObject.SetActive(false);
         }
         CanvasController desiredSecondaryCanvas = canvasControllerList.Find(x => x.canvasType == _type);
-        if (desiredSecondaryCanvas != null)
+        if (desiredSecondaryCanvas != null || desiredSecondaryCanvas == null)
         {
             desiredSecondaryCanvas.gameObject.SetActive(true);
             secondaryActiveCanvas = desiredSecondaryCanvas;
         }
+    }
+
+    public void TurnOffSecondaryCanvas(CanvasType _canvasType)
+    {
+        secondaryActiveCanvas.gameObject.SetActive(false);
     }
 }
