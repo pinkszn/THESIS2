@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GAME_MANAGER:Singleton<GAME_MANAGER>
 {
-    public static GAME_MANAGER instance;
-
     public float timerAmount = 120f;
     public bool isPaused = false;
 
