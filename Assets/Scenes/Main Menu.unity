@@ -3571,7 +3571,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     panStereo: 0
-    playOnAwake: 1
+    playOnAwake: 0
     minDistance: 0
     maxDistance: 1
     loop: 1
