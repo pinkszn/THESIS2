@@ -8,7 +8,7 @@ public class SimpleSceneChanger : MonoBehaviour
 {
     public Image fader;
 
-	private IEnumerator FadeScene(int index,float duration, float waitTime)
+    private IEnumerator FadeScene(int index, float duration, float waitTime, CanvasType _canvasType)
     {
         fader.gameObject.SetActive(true);
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
@@ -25,14 +25,14 @@ public class SimpleSceneChanger : MonoBehaviour
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, t));
             yield return null;
+            CanvasManager.Instance.SwitchCanvas(_canvasType);
+            fader.gameObject.SetActive(false);
         }
-        fader.gameObject.SetActive(false);
     }
 
     public void StartGame()
     {
-        StartCoroutine(FadeScene(1,1,1));
-        CanvasManager.Instance.SwitchCanvas(CanvasType.GameUI);
+        StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
         BGMManager.instance.Play("BGM01");
     }
 
@@ -43,14 +43,13 @@ public class SimpleSceneChanger : MonoBehaviour
 
     public void MainMenu()
     {
-        StartCoroutine(FadeScene(0, 1, 1));
+        StartCoroutine(FadeScene(0, 0.2f, 0.3f, CanvasType.MainMenu));
         GAME_MANAGER.instance.ResumeGame();
-        CanvasManager.Instance.SwitchCanvas(CanvasType.MainMenu);
         BGMManager.instance.Stop("BGM01");
     }
 
     public void RetryLevel()
     {
-        StartCoroutine(FadeScene(1, 1, 1));
+        //StartCoroutine(FadeScene(1, 1, 1));
     }
 }
