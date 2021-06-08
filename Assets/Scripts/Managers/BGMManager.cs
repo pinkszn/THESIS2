@@ -38,7 +38,6 @@ public class BGMManager : Singleton<BGMManager>
 		{
 			s.source.Stop();
 		}
-
 	}
 }
 
