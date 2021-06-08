@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GAME_MANAGER:Singleton<GAME_MANAGER>
 {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     public float timerAmount = 120f;
     public bool isPaused = false;
 

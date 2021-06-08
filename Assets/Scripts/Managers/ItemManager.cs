@@ -9,14 +9,16 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] TextMeshProUGUI[] CraftingText; //UI for values of crafting
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
 
+    //ITEM PICKUPS /FROM COMPOUND
     public int plastic;
     public int aluminum;
     public int recycledPlastic;
     public int recycledAluminum;
     public int ruinedPlastic;
-    public int ruinedAluminum; 
+    public int ruinedAluminum;
 
-    public int EcoBricks; //amount of the crafted usable items, yung mga eco bombs and stuff, dagdag nlang 
+    //amount of the crafted usable items, yung mga eco bombs and stuff, dagdag nlang
+    public int EcoBricks;  
     public int Carpet;
     public int UltraBin;
     public int SkateBoard;

@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
     protected const string PLAYER_THROW = "Player_throw";
 
     protected const string PLAYER_IDLE = "Player_idle";
-    protected const string PLAYER_RUN_VERTICAL = "Player_run_VERTICAL";
-    protected const string PLAYER_RUN_HORIZONTAL = "Player_run_HORIZONTAL";
     protected const string PLAYER_RUN_R = "Player_Run_R";
     protected const string PLAYER_RUN_L = "Player_Run_L";
     protected const string PLAYER_RUN_UP = "Player_Run_UP";
