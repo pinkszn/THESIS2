@@ -34,14 +34,27 @@ public class PlayerMovement : Player
             transform.localScale = new Vector2(1, 1);
         }
 
+
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             ChangeAnimationState(PLAYER_IDLE);
         }
-        else
+        else if (Input.GetAxisRaw("Horizontal") != 0) // Temporary Solution for sprite
         {
             transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
-            ChangeAnimationState(PLAYER_RUN);
+            ChangeAnimationState(PLAYER_RUN_HORIZONTAL);
+
         }
+        else if(Input.GetAxisRaw("Vertical") == 1) // Animatoin is stuck
+        {
+            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+            ChangeAnimationState(PLAYER_RUN_UP);
+        }
+        else if (Input.GetAxisRaw("Vertical") == -1) // Animatoin is stuck
+        {
+            transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
+            ChangeAnimationState(PLAYER_RUN_DOWN);
+        }
+
     }
 }
