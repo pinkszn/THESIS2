@@ -6,8 +6,6 @@ using TMPro;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public static ItemManager instance;
-
     [SerializeField] TextMeshProUGUI[] CraftingText; //UI for values of crafting
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
 
@@ -26,7 +24,7 @@ public class ItemManager : Singleton<ItemManager>
 
 	protected override void Awake()
 	{
-        instance = this;
+        base.Awake();
 	}
 
 	public void InitializeData() //call this function when starting a level

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-	public static AudioManager instance;
 
 	public Sound[] sounds;
 	protected override void Awake()
 	{
-		instance = this;
+		base.Awake();
 
 		foreach (Sound s in sounds)
 		{
