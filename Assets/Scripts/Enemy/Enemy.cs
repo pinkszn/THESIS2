@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float currentHealth;
 
 	public GameObject Player;
+	Rigidbody2D rb;
 	Vector2 movement;
 
 	public float moveSpeed = 5f;
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
     private void Start()
 	{
 		Player = GameObject.FindGameObjectWithTag("PLAYER");
+		rb = GetComponent<Rigidbody2D>();
 	}
 
     private void Update()
@@ -47,17 +49,31 @@ public class Enemy : MonoBehaviour
 		distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
 		ChaseState();
+	}
+
+	private void FixedUpdate()
+	{
 		
 	}
 
-    public void TakeDamage(float damage)
+	public void TakeDamage(float damage, float knockbackStrength)
 	{
 		currentHealth -= damage;
 
-		if(currentHealth <= 0)
+		Vector2 direction = Player.transform.position - transform.position;
+		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+
+		Invoke("ResetKnockBack", 0.25f);
+
+		if (currentHealth <= 0)
 		{
 			Die();
 		}
+	}
+
+	void ResetKnockBack()
+	{
+		rb.velocity = Vector2.zero;
 	}
 
     private void Die()

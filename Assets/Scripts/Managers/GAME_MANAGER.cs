@@ -1,24 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class GAME_MANAGER:Singleton<GAME_MANAGER>
+public class GAME_MANAGER : Singleton<GAME_MANAGER>
 {
+    [SerializeField] TextMeshProUGUI[] SummaryText;
+
     public float timerAmount = 120f;
     public bool isPaused = false;
 
-	public bool isAlive()
-	{
+    public float enemiesMutated;
+    public float enemiesDisposed;
+    public float materialsRecycled;
+    public float materialsSeperated;
+
+    public bool isAlive()
+    {
         //if health is 0 or other various conditions
         // return false
 
         //else
         return true;
-	}
+    }
 
     private void Update()
     {
         PauseKey();
+    }
+
+    public void SetSummaryText()
+    {
+        //SummaryText[0].SetText(enemiesMutated.ToString()); //Set the UI texts after enabling UI for summary
+        //SummaryText[1].SetText(enemiesDisposed.ToString()); //Set the UI texts after enabling UI for summary
+        SummaryText[2].SetText(materialsRecycled.ToString()); //Set the UI texts after enabling UI for summary
+        //SummaryText[3].SetText(materialsSeperated.ToString()); //Set the UI texts after enabling UI for summary
     }
 
     #region Pause
@@ -57,7 +73,6 @@ public class GAME_MANAGER:Singleton<GAME_MANAGER>
     void OpenRecyclingUI()
     {
         CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
-        
     }
 
 

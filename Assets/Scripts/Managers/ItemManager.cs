@@ -8,6 +8,7 @@ public class ItemManager : Singleton<ItemManager>
 {
     [SerializeField] TextMeshProUGUI[] CraftingText; //UI for values of crafting
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
+    [SerializeField] Button[] CraftingButtons;
 
     //ITEM PICKUPS /FROM COMPOUND
     public int plastic;
@@ -31,11 +32,10 @@ public class ItemManager : Singleton<ItemManager>
 		aluminum = PlayerPrefs.GetInt("aluminum");
     }
 
-    
-
 	private void Update()
 	{
         UpdateUI();
+        ControlButtons();
 	}
 
 	void UpdateUI() // Hard Code ko muna
@@ -46,6 +46,20 @@ public class ItemManager : Singleton<ItemManager>
         ItemText[3].SetText("x" + SkateBoard.ToString());
         ItemText[4].SetText("x" + Soap.ToString());
 	}
+
+    void ControlButtons() //Hard Code rin muna to, looking for a better solution
+	{
+        if(plastic > 0)
+		{
+            CraftingButtons[0].interactable = true;
+            //CraftingButtons[0].image.overrideSprite = buttonActive; //Use this pag may button sprites na tayo
+		}
+        else
+		{
+            CraftingButtons[0].interactable = false;
+            //CraftingButtons[0].image.overrideSprite = buttonInactive; //Use this pag may button sprites na tayo
+        }
+    }
 
 	//name of function subject to change
 
@@ -58,6 +72,7 @@ public class ItemManager : Singleton<ItemManager>
             plastic -= 1;
             //recycledPlastic -= 2;
             EcoBricks += 1;
+            GAME_MANAGER.instance.materialsRecycled += 1;
             return;
         }
         else

@@ -14,6 +14,8 @@ public class PlayerAttack : Player
 
     int attackStateCounter = 0;
 
+    float knockbackStrength = 1.5f;
+
     [SerializeField] Transform attackPoint;
     [SerializeField] LayerMask enemyLayers;
     
@@ -36,7 +38,6 @@ public class PlayerAttack : Player
 		{
             attackPoint.transform.position = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y);
 		}
-
         if (Input.GetAxisRaw("Vertical") >= 0.01)
         {
             attackPoint.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
@@ -110,7 +111,7 @@ public class PlayerAttack : Player
         {
             Debug.Log("We hit " + enemy.name);
 
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage,knockbackStrength);
         }
     }
 
