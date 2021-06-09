@@ -18,7 +18,7 @@ public class ItemManager : Singleton<ItemManager>
     public int ruinedAluminum;
 
     //amount of the crafted usable items, yung mga eco bombs and stuff, dagdag nlang
-    public int EcoBricks;  
+    public int EcoBricks;
     public int Carpet;
     public int UltraBin;
     public int SkateBoard;
@@ -28,16 +28,31 @@ public class ItemManager : Singleton<ItemManager>
 	{
         //item01 = PlayerPrefs.GetInt("Item01");
         plastic = PlayerPrefs.GetInt("plastic");
-        aluminum = PlayerPrefs.GetInt("aluminum");
+		aluminum = PlayerPrefs.GetInt("aluminum");
     }
 
-    //name of function subject to change
-    public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
+	private void Update()
+	{
+        UpdateUI();
+	}
+
+	void UpdateUI() // Hard Code ko muna
+	{
+        ItemText[0].SetText("x" + EcoBricks.ToString());
+        ItemText[1].SetText("x" + Carpet.ToString());
+        ItemText[2].SetText("x" + UltraBin.ToString());
+        ItemText[3].SetText("x" + SkateBoard.ToString());
+        ItemText[4].SetText("x" + Soap.ToString());
+	}
+
+	//name of function subject to change
+	public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
 	{
         //if statement ng amount of raw materials na kelangan sa pag craft ng item na ito
         if (plastic > 1) //values subject to change
         {
-            recycledPlastic -= 2;
+            plastic -= 1;
+            //recycledPlastic -= 2;
             EcoBricks += 1;
             return;
         }
