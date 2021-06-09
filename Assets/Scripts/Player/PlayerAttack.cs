@@ -63,7 +63,19 @@ public class PlayerAttack : Player
                 attackStateCounter = 0;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.E) && ItemManager.instance.EcoBricks > 0)
+		{
+            Debug.Log("Eco Brick Used");
+            ThrowEcoBrick();
+            ItemManager.instance.EcoBricks -= 1;
+		}
     }        
+
+    void ThrowEcoBrick() //Di ko pa alam kung paano icode ito
+	{
+
+	}
 
     void AttackState()
     {
