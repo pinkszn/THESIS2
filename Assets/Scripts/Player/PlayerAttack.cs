@@ -21,9 +21,31 @@ public class PlayerAttack : Player
 
     private void Update()
 	{
+        AttackPosition();
         CheckAttackInput();// This should check your inputs.
         WeaponSwitch();
 	}
+
+    void AttackPosition()
+	{
+        if (Input.GetAxisRaw("Horizontal") >= 0.01)
+		{
+            attackPoint.transform.position = new Vector2(this.transform.position.x + 0.5f,this.transform.position.y);
+		}
+        if (Input.GetAxisRaw("Horizontal") <= -0.01)
+		{
+            attackPoint.transform.position = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y);
+		}
+
+        if (Input.GetAxisRaw("Vertical") >= 0.01)
+        {
+            attackPoint.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
+        }
+        if (Input.GetAxisRaw("Vertical") <= -0.01)
+        {
+            attackPoint.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.5f);
+        }
+    }
 
     void CheckAttackInput()
 	{
