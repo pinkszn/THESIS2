@@ -42,7 +42,8 @@ public class ButtonScript : MonoBehaviour
     }
     void CodexButton()
     {
-
+        //show codex panel
+        //show material and what can be done to recycle it
     }
     #endregion
 
@@ -56,10 +57,4 @@ public class ButtonScript : MonoBehaviour
 
     }
     #endregion
-
-    #region Crafting Buttons
-    void CraftBaseball() { }
-    #endregion
-
-
 }

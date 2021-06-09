@@ -46,18 +46,25 @@ public class ItemManager : Singleton<ItemManager>
 	}
 
 	//name of function subject to change
+
+    void buttonDisable()
+    {
+        GetComponent<Button>().interactable = false;
+    }
 	public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
 	{
         //if statement ng amount of raw materials na kelangan sa pag craft ng item na ito
-        if (plastic > 1) //values subject to change
+        if (plastic > 0) //values subject to change
         {
+            //FindObjectOfType<Button>().interactable = true;
             plastic -= 1;
             //recycledPlastic -= 2;
             EcoBricks += 1;
             return;
         }
         else
-            return;
+            //FindObjectOfType<Button>().interactable = false;
+        return;
         //if kulang ng materials, disable button or just do nothing
         //if enough materials, add one to the amount of craftedItem amount, tas bawasan ang raw materials
 	}

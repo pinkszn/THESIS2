@@ -10,7 +10,8 @@ public enum CanvasType
     EndScreen,
     GameOver,
     Pause,
-    Recycling
+    Recycling,
+    CommunityScreen
 }
 
 public class CanvasManager : Singleton<CanvasManager>

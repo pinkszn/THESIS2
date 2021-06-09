@@ -19,9 +19,9 @@ public class GAME_MANAGER:Singleton<GAME_MANAGER>
     private void Update()
     {
         PauseKey();
-
     }
 
+    #region Pause
     public void PauseButton()
     {
         PauseGame();
@@ -51,7 +51,17 @@ public class GAME_MANAGER:Singleton<GAME_MANAGER>
         CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Pause);
         isPaused = false;
     }
+    #endregion Pause
 
+    #region Recycling
+    void OpenRecyclingUI()
+    {
+        CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
+        
+    }
+
+
+    #endregion Recycling
     /*
      * THINGS TO SETUP
      * 1. TIMER
