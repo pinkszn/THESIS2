@@ -31,6 +31,8 @@ public class ItemManager : Singleton<ItemManager>
 		aluminum = PlayerPrefs.GetInt("aluminum");
     }
 
+    
+
 	private void Update()
 	{
         UpdateUI();
@@ -47,10 +49,6 @@ public class ItemManager : Singleton<ItemManager>
 
 	//name of function subject to change
 
-    void buttonDisable()
-    {
-        GetComponent<Button>().interactable = false;
-    }
 	public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
 	{
         //if statement ng amount of raw materials na kelangan sa pag craft ng item na ito
