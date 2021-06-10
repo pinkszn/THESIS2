@@ -117,13 +117,14 @@ public class ItemManager : Singleton<ItemManager>
         {
             plastic -= 1;
             washedPlastic += 1;
+            Debug.Log("Plastic is washed");
         }
         else
         {
             plastic -= 1;
             ruinedPlastic += 1;
+            Debug.Log("Plastic is ruined");
         }
-
     }
     public void ShredButton()//hard coded muna
     {
@@ -131,11 +132,13 @@ public class ItemManager : Singleton<ItemManager>
         {
             washedPlastic -= 1;
             shredPlastic += 1;
+            Debug.Log("Plastic is shreded");
         }
         else
         {
             plastic -= 1;
             ruinedPlastic += 1;
+            Debug.Log("Plastic is ruined");
         }
     }
     public void SeparateButton()
@@ -158,6 +161,7 @@ public class ItemManager : Singleton<ItemManager>
         {
             shredPlastic -= 1;
             recycledPlastic += 1;
+            Debug.Log("Recycled Plastic complete");
         }
     }
     public void CodexButton()
