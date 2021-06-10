@@ -53,4 +53,14 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         //StartCoroutine(FadeScene(1, 1, 1));
     }
+
+    public void SummaryScreen()
+    {
+        StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
+    }
+
+    public void CommunityScreen()
+    {
+        StartCoroutine(FadeScene(4, 0.2f, 0.3f, CanvasType.CommunityScreen));
+    }
 }

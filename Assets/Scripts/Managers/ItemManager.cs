@@ -61,9 +61,9 @@ public class ItemManager : Singleton<ItemManager>
         }
     }
 
-	//name of function subject to change
-
-	public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
+    //name of function subject to change
+    #region Crafting Buttons
+    public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
 	{
         //if statement ng amount of raw materials na kelangan sa pag craft ng item na ito
         if (plastic > 0) //values subject to change
@@ -81,4 +81,64 @@ public class ItemManager : Singleton<ItemManager>
         //if kulang ng materials, disable button or just do nothing
         //if enough materials, add one to the amount of craftedItem amount, tas bawasan ang raw materials
 	}
+    #endregion
+
+    #region Recycling Buttons
+    void SeperateButton()
+    {
+        /*
+         * take seperated item out of player's inventory
+         * add new materials to player's inventory
+         * 
+        */
+    }
+    public void CrushButton()
+    {
+        /*
+         * take seperated item out of player's inventory
+         * add new materials to player's inventory
+        */
+    }
+    public void WashButton()
+    {
+        /*
+         * take seperated item out of player's inventory
+         * add new materials to player's inventory
+        */
+    }
+    public void ShredButton()
+    {
+        /*
+         * take seperated item out of player's inventory
+         * add new materials to player's inventory
+        */
+    }
+    public void SeparateButton()
+    {
+        /*
+         * take seperated item out of player's inventory
+         * add new materials to player's inventory
+        */
+    }
+    public void TrashButton()
+    {
+        /*
+        * take seperated item out of player's inventory
+        * add new materials to player's inventory
+        */
+    }
+    public void ReuseButton()
+    {
+        /*
+        * take seperated item out of player's inventory
+        * add new materials to player's inventory
+        */
+    }
+    public void CodexButton()
+    {
+        //show codex panel
+        //show material and what can be done to recycle it
+    }
+    #endregion
+
 }
