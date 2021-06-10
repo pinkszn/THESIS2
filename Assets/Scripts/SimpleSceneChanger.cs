@@ -51,7 +51,7 @@ public class SimpleSceneChanger : MonoBehaviour
 
     public void RetryLevel()
     {
-        //StartCoroutine(FadeScene(1, 1, 1));
+        StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
     }
 
     private void Update()
