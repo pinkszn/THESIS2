@@ -27,10 +27,15 @@ public class SimpleSceneChanger : MonoBehaviour
             yield return null;
             CanvasManager.Instance.SwitchCanvas(_canvasType);
             fader.gameObject.SetActive(false);
-
         }
     }
 
+    private void Update()
+    {
+        SummaryScreen();
+        CommunityScreen();
+    }
+    #region Scenes
     public void StartGame()
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
@@ -53,13 +58,6 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
     }
-
-    private void Update()
-    {
-        SummaryScreen();
-        CommunityScreen();
-    }
-
     public void SummaryScreen()
     {
         if (Input.GetKeyDown(KeyCode.N))
@@ -75,4 +73,5 @@ public class SimpleSceneChanger : MonoBehaviour
             StartCoroutine(FadeScene(4, 0.2f, 0.3f, CanvasType.CommunityScreen));
         }
     }
+    #endregion
 }

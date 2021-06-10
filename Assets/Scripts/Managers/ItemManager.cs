@@ -10,11 +10,17 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
     [SerializeField] Button[] CraftingButtons;
 
-    //ITEM PICKUPS /FROM COMPOUND
+    //ITEM PICKUPS
     public int plastic;
     public int aluminum;
+
+    //RECYCLING ITEM OUTPUTS
+    public int washedPlastic;
+    public int shredPlastic;
+
     public int recycledPlastic;
     public int recycledAluminum;
+
     public int ruinedPlastic;
     public int ruinedAluminum;
 
@@ -84,12 +90,18 @@ public class ItemManager : Singleton<ItemManager>
     #endregion
 
     #region Recycling Buttons
+    void ItemToRecycle()
+    {
+        /*
+         * 
+         */
+    }
+
     void SeperateButton()
     {
         /*
          * take seperated item out of player's inventory
          * add new materials to player's inventory
-         * 
         */
     }
     public void CrushButton()
@@ -99,19 +111,32 @@ public class ItemManager : Singleton<ItemManager>
          * add new materials to player's inventory
         */
     }
-    public void WashButton()
+    public void WashButton()//hard coded muna
     {
-        /*
-         * take seperated item out of player's inventory
-         * add new materials to player's inventory
-        */
+        if (plastic > 0)
+        {
+            plastic -= 1;
+            washedPlastic += 1;
+        }
+        else
+        {
+            plastic -= 1;
+            ruinedPlastic += 1;
+        }
+
     }
-    public void ShredButton()
+    public void ShredButton()//hard coded muna
     {
-        /*
-         * take seperated item out of player's inventory
-         * add new materials to player's inventory
-        */
+        if (washedPlastic > 0)
+        {
+            washedPlastic -= 1;
+            shredPlastic += 1;
+        }
+        else
+        {
+            plastic -= 1;
+            ruinedPlastic += 1;
+        }
     }
     public void SeparateButton()
     {
@@ -127,12 +152,13 @@ public class ItemManager : Singleton<ItemManager>
         * add new materials to player's inventory
         */
     }
-    public void ReuseButton()
+    public void ReuseButton()//hard coded muna
     {
-        /*
-        * take seperated item out of player's inventory
-        * add new materials to player's inventory
-        */
+        if (shredPlastic > 0)
+        {
+            shredPlastic -= 1;
+            recycledPlastic += 1;
+        }
     }
     public void CodexButton()
     {
