@@ -21,6 +21,8 @@ public class PlayerAttack : Player
     
     int selectedWeapon = 0;
 
+    [SerializeField] Transform EcoBrickProjectile;
+
     private void Update()
 	{
         AttackPosition();
@@ -75,7 +77,10 @@ public class PlayerAttack : Player
 
     void ThrowEcoBrick() //Di ko pa alam kung paano icode ito
 	{
+        Transform bulletTransform = Instantiate(EcoBrickProjectile, attackPoint.position, Quaternion.identity);
 
+        Vector3 shootDir = (attackPoint.position - this.transform.position).normalized;
+        bulletTransform.GetComponent<EcoBrickBehavior>().Setup(shootDir);
 	}
 
     void AttackState()

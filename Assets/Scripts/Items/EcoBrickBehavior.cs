@@ -5,33 +5,57 @@ using UnityEngine;
 public class EcoBrickBehavior : MonoBehaviour
 {
     public float speed = 4f;
-    public Vector3 LaunchOffSet;
-    public bool thrown;
+	float DestroyTime = 2.5f;
+	[SerializeField] float explosionRadius = 2;
+	[SerializeField] LayerMask enemyLayers;
 
-	int DestroyTime = 5;
+	float knockbackStrength = 1.5f;
+
+	Vector3 shootDir;
 
 	private void Start()
 	{
-		if(thrown) //Still thinking about the logic of the projectile
-		{
-			//var direction = -transform.right + Vector3.up;
-			//GetComponent<Rigidbody2D>().AddForce(direction * speed, ForceMode2D.Impulse);
-		}
-		transform.Translate(LaunchOffSet);
-
+		//transform.Translate(LaunchOffSet)
 		Destroy(gameObject, DestroyTime);
 	}
-
+	public void Setup(Vector3 shootDir)
+	{
+		this.shootDir = shootDir;
+	}
 	public void Update()
 	{
-		if(!thrown)
+		transform.position += shootDir * speed * Time.deltaTime; //Gotta Change the way projectile works\
+
+	}
+
+	private void OnDestroy()
+	{
+		ExplosionRadius();
+	}
+
+	void ExplosionRadius()
+	{
+		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayers);
+
+		if(hitEnemies != null)
 		{
-			//transform.position += -transform.right * speed * Time.deltaTime;
-		}	
+			foreach (Collider2D enemy in hitEnemies)
+			{
+
+				//Debug.Log("We hit " + enemy.name);
+
+				enemy.GetComponent<Enemy>().EcoBrickKnockBack(this.gameObject, knockbackStrength);
+			}
+		}
+
+		Destroy(gameObject);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		//Need to consult what will happen
+		if(collision.gameObject.CompareTag("ENEMY"))
+		{
+			ExplosionRadius();
+		}
 	}
 }

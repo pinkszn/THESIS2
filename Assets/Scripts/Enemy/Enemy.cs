@@ -71,6 +71,14 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+	public void EcoBrickKnockBack(GameObject EcoBrick, float knockbackStrength)
+	{
+		Vector2 direction = EcoBrick.transform.position - transform.position;
+		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+
+		Invoke("ResetKnockBack", 0.25f);
+	}
+
 	void ResetKnockBack()
 	{
 		rb.velocity = Vector2.zero;
