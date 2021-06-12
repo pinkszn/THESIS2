@@ -11,6 +11,7 @@ public enum CanvasType
     GameOver,
     Pause,
     Recycling,
+    Codex,
     CommunityScreen
 }
 

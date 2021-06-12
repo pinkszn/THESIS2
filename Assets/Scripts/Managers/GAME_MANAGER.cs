@@ -10,16 +10,15 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     public float timerAmount = 120f;
     public bool isPaused = false;
 
-    public float enemiesMutated;
-    public float enemiesDisposed;
-    public float materialsRecycled;
-    public float materialsSeperated;
+    public int enemiesMutated;
+    public int enemiesDisposed;
+    public int materialsRecycled;
+    public int materialsSeperated;
 
     public bool isAlive()
     {
         //if health is 0 or other various conditions
         // return false
-
         //else
         return true;
     }
@@ -74,8 +73,6 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     {
         CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
     }
-
-
     #endregion Recycling
     /*
      * THINGS TO SETUP

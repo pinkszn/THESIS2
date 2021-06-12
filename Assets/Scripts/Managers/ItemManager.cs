@@ -10,10 +10,19 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
     [SerializeField] Button[] CraftingButtons;
 
+    [Space]
+    [SerializeField] TextMeshProUGUI codexMaterialDescription;
+    [SerializeField] TextMeshProUGUI codexMaterialName;
+    [SerializeField] Sprite codexMaterialprite;
+    [Space]
+
     //ITEM PICKUPS
     public int plastic;
     public int aluminum;
+    public int glass;
+    public int paper;
 
+    [Space]
     //RECYCLING ITEM OUTPUTS
     public int washedPlastic;
     public int shredPlastic;
@@ -25,6 +34,7 @@ public class ItemManager : Singleton<ItemManager>
     public int ruinedAluminum;
 
     //amount of the crafted usable items, yung mga eco bombs and stuff, dagdag nlang
+    [Space]
     public int EcoBricks;
     public int Carpet;
     public int UltraBin;
@@ -90,14 +100,14 @@ public class ItemManager : Singleton<ItemManager>
     #endregion
 
     #region Recycling Buttons
-    void ItemToRecycle()
+    public void ItemToRecycle()
     {
         /*
          * 
          */
     }
 
-    void SeperateButton()
+    public void SeperateButton()
     {
         /*
          * take seperated item out of player's inventory
@@ -134,7 +144,7 @@ public class ItemManager : Singleton<ItemManager>
             shredPlastic += 1;
             Debug.Log("Plastic is shreded");
         }
-        else
+        else 
         {
             plastic -= 1;
             ruinedPlastic += 1;
@@ -151,7 +161,7 @@ public class ItemManager : Singleton<ItemManager>
     public void TrashButton()
     {
         /*
-        * take seperated item out of player's inventory
+        * material -=1 or max
         * add new materials to player's inventory
         */
     }
@@ -164,11 +174,20 @@ public class ItemManager : Singleton<ItemManager>
             Debug.Log("Recycled Plastic complete");
         }
     }
-    public void CodexButton()
-    {
-        //show codex panel
-        //show material and what can be done to recycle it
-    }
     #endregion
 
+    #region Community Screen
+    public void Donate()//Hard Code Muna
+    {
+        if (plastic > 0)
+        {
+            plastic -= 1;
+        }
+        /*
+         * Show Item (sprite)
+         * Donate Item Quantity (to follow)
+         * Button that functions to sell whatever the data is above it
+         */
+    }
+    #endregion
 }
