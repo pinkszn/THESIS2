@@ -4,18 +4,5 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    #region Recycling Compound Buttons
-    
-    #endregion
-
-    #region EndScreen Buttons()
-    void RecycleButton()
-    {
-
-    }
-    void ContinueButton()
-    {
-
-    }
-    #endregion
+    [SerializeField] RecycleItems recycleItems;
 }

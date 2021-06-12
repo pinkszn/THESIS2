@@ -71,7 +71,11 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     #region Recycling
     void OpenRecyclingUI()
     {
-        CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
+        }
+
     }
     #endregion Recycling
     /*

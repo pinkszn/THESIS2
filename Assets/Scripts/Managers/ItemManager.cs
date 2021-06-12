@@ -11,14 +11,14 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] Button[] CraftingButtons;
 
     [Space]
-    [SerializeField] ScriptableObject RecycleItem;
+    [SerializeField] RecycleItems recycleItem;
 
     [Space]
     [SerializeField] TextMeshProUGUI codexMaterialDescription;
     [SerializeField] TextMeshProUGUI codexMaterialName;
     [SerializeField] Sprite codexMaterialSprite;
-    [Space]
 
+    [Space]
     //ITEM PICKUPS
     public int plastic;
     public int aluminum;
@@ -55,6 +55,7 @@ public class ItemManager : Singleton<ItemManager>
 	{
         UpdateUI();
         ControlButtons();
+        CodexMaterial();
 	}
 
 	void UpdateUI() // Hard Code ko muna
@@ -109,7 +110,6 @@ public class ItemManager : Singleton<ItemManager>
          * 
          */
     }
-
     public void SeperateButton()
     {
         /*
@@ -177,10 +177,42 @@ public class ItemManager : Singleton<ItemManager>
             Debug.Log("Recycled Plastic complete");
         }
     }
-    #endregion
+
+    public void CodexMaterial()
+    {
+        if (recycleItem != null)
+        {
+            codexMaterialDescription.text = recycleItem.description;
+            codexMaterialName.text = recycleItem.name;
+            codexMaterialSprite = recycleItem.icon;
+        }
+        else return;
+    }
+
+    public void PlasticButton()
+    {
+
+    }
+
+    public void AluminumButton()
+    {
+
+    }
+
+    public void GlassButton()
+    {
+
+    }
+
+    public void PaperButton()
+    {
+
+    }
+
+        #endregion
 
     #region Community Screen
-    public void Donate()//Hard Code Muna
+        public void Donate()//Hard Code Muna
     {
         if (plastic > 0)
         {
