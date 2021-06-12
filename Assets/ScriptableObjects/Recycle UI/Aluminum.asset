@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cceb32228807b64482b9fa739798616, type: 3}
+  m_Script: {fileID: 11500000, guid: 35ebe8a6de104e24198016d1aaf25d9a, type: 3}
   m_Name: Aluminum
   m_EditorClassIdentifier: 
-  icon: {fileID: 1195458779362535816, guid: e8c5a64100d513f44997b67ea3e9bb48, type: 3}
+  icon: {fileID: 0}
   name: Aluminum
-  description: Aluminum test
+  description: 

@@ -11,7 +11,7 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] Button[] CraftingButtons;
 
     [Space]
-    [SerializeField] RecycleItems recycleItem;
+    public RecycleItemsBase recycleItem;
 
     [Space]
     [SerializeField] TextMeshProUGUI codexMaterialDescription;
@@ -112,70 +112,31 @@ public class ItemManager : Singleton<ItemManager>
     }
     public void SeperateButton()
     {
-        /*
-         * take seperated item out of player's inventory
-         * add new materials to player's inventory
-        */
+        recycleItem.Seperate();
     }
     public void CrushButton()
     {
-        /*
-         * take seperated item out of player's inventory
-         * add new materials to player's inventory
-        */
+        recycleItem.Crush();
     }
     public void WashButton()//hard coded muna
     {
-        if (plastic > 0)
-        {
-            plastic -= 1;
-            washedPlastic += 1;
-            Debug.Log("Plastic is washed");
-        }
-        else
-        {
-            plastic -= 1;
-            ruinedPlastic += 1;
-            Debug.Log("Plastic is ruined");
-        }
+        recycleItem.Wash();
     }
     public void ShredButton()//hard coded muna
     {
-        if (washedPlastic > 0)
-        {
-            washedPlastic -= 1;
-            shredPlastic += 1;
-            Debug.Log("Plastic is shreded");
-        }
-        else 
-        {
-            plastic -= 1;
-            ruinedPlastic += 1;
-            Debug.Log("Plastic is ruined");
-        }
+        recycleItem.Shred();
     }
     public void SeparateButton()
     {
-        /*
-         * take seperated item out of player's inventory
-         * add new materials to player's inventory
-        */
+        recycleItem.Seperate();
     }
     public void TrashButton()
     {
-        /*
-        * material -=1 or max
-        * add new materials to player's inventory
-        */
+        recycleItem.Trash();
     }
     public void ReuseButton()//hard coded muna
     {
-        if (shredPlastic > 0)
-        {
-            shredPlastic -= 1;
-            recycledPlastic += 1;
-            Debug.Log("Recycled Plastic complete");
-        }
+        recycleItem.Reuse();
     }
 
     public void CodexMaterial()
@@ -188,31 +149,10 @@ public class ItemManager : Singleton<ItemManager>
         }
         else return;
     }
-
-    public void PlasticButton()
-    {
-
-    }
-
-    public void AluminumButton()
-    {
-
-    }
-
-    public void GlassButton()
-    {
-
-    }
-
-    public void PaperButton()
-    {
-
-    }
-
         #endregion
 
     #region Community Screen
-        public void Donate()//Hard Code Muna
+    public void Donate()//Hard Code Muna
     {
         if (plastic > 0)
         {
