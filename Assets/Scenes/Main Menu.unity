@@ -3605,7 +3605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 368.3387, y: -357.14276}
+  m_AnchoredPosition: {x: 368.44666, y: -357.0213}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496865968
@@ -5829,7 +5829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1105.0161, y: -357.14276}
+  m_AnchoredPosition: {x: 1105.34, y: -357.0213}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008443195
@@ -7762,7 +7762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.000076, y: 0}
+  m_AnchoredPosition: {x: -23.000061, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1346379960
@@ -10576,12 +10576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersist: 0
-  CraftingText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   ItemText:
   - {fileID: 828956205}
   - {fileID: 1807274046}
@@ -10592,7 +10586,7 @@ MonoBehaviour:
   - {fileID: 13427895}
   codexMaterialDescription: {fileID: 0}
   codexMaterialName: {fileID: 0}
-  codexMaterialprite: {fileID: 0}
+  codexMaterialSprite: {fileID: 0}
   plastic: 0
   aluminum: 0
   glass: 0
@@ -10644,7 +10638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 103.23999, y: -76.13}
+  m_AnchoredPosition: {x: 103.23998, y: -76.13}
   m_SizeDelta: {x: 171.14, y: 97.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1746626434
