@@ -22,6 +22,7 @@ public class ItemManager : Singleton<ItemManager>
     //ITEM PICKUPS
     public int plastic;
     public int aluminum;
+
     public int glass;
     public int paper;
 
@@ -104,6 +105,12 @@ public class ItemManager : Singleton<ItemManager>
     #endregion
 
     #region Recycling Buttons
+    public void ExitRecycling()//Not working as intended not sure kung ano sira???
+    {
+        CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Recycling);
+    }
+
+
     public void ItemToRecycle()
     {
         /*

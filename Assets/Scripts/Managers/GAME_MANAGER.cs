@@ -26,6 +26,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     private void Update()
     {
         PauseKey();
+        OpenRecyclingUI();
     }
 
     public void SetSummaryText()
@@ -75,7 +76,12 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         {
             CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
         }
-
+        /*
+         * TO DO
+         * OPEN RECYCLE PAUSE GAME (DO CRAFTING FUNCTIONS ON A COROUTINE)
+         * CLOSE RECYCLE UI IF PLAYER IS DONE USING WITH A CLOSE BUTTON USE CANVAS MANAGER.CLOSECANVAS
+         * 
+         */
     }
     #endregion Recycling
     /*
