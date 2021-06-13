@@ -45,6 +45,13 @@ public class ItemManager : Singleton<ItemManager>
     public int SkateBoard;
     public int Soap;
 
+    [Space]
+    public int DonatedEcoBricksAmount;
+    public int DonatedCarpetAmount;
+    public int DonatedUltraBinAmount;
+    public int DonatedSkateBoardAmount;
+    public int DonatedSoapAmount;
+
 	public void InitializeData() //call this function when starting a level
 	{
         //item01 = PlayerPrefs.GetInt("Item01");
@@ -93,7 +100,7 @@ public class ItemManager : Singleton<ItemManager>
             plastic -= 1;
             //recycledPlastic -= 2;
             EcoBricks += 1;
-            GAME_MANAGER.instance.materialsRecycled += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 1;
             return;
         }
         else
@@ -141,10 +148,10 @@ public class ItemManager : Singleton<ItemManager>
     {
         recycleItem.Trash();
     }
-    public void ReuseButton()//hard coded muna
-    {
-        recycleItem.Reuse();
-    }
+    //public void ReuseButton()//hard coded muna
+    //{
+    //    recycleItem.Reuse();
+    //}
 
     public void CodexMaterial()
     {
@@ -156,20 +163,60 @@ public class ItemManager : Singleton<ItemManager>
         }
         else return;
     }
-        #endregion
+    #endregion
 
     #region Community Screen
-    public void Donate()//Hard Code Muna
+    public void DonateEcoBrick()//Hard Code Muna
     {
-        if (plastic > 0)
+        if (EcoBricks > 0)
         {
-            plastic -= 1;
+            DonatedEcoBricksAmount += EcoBricks;
+            EcoBricks = 0;
+            Debug.Log("Donated all Eco Bricks");
+            AudioManager.instance.Play("DonateTemp");
         }
-        /*
-         * Show Item (sprite)
-         * Donate Item Quantity (to follow)
-         * Button that functions to sell whatever the data is above it
-         */
+    }
+    public void DonateCarpet()//Hard Code Muna
+    {
+        if (Carpet > 0)
+        {
+            DonatedCarpetAmount += Carpet;
+            Carpet = 0;
+            Debug.Log("Donated all Carpet");
+            AudioManager.instance.Play("DonateTemp");
+        }
+    }
+    public void DonateUltraBin()//Hard Code Muna
+    {
+        if (UltraBin > 0)
+        {
+            DonatedUltraBinAmount += UltraBin;
+            UltraBin = 0;
+            Debug.Log("Donated all Ultra Bins");
+            AudioManager.instance.Play("DonateTemp");
+        }
+    }
+    public void DonateSkateBoard()//Hard Code Muna
+    {
+        if (SkateBoard > 0)
+        {
+            DonatedSkateBoardAmount += SkateBoard;
+            SkateBoard = 0;
+            Debug.Log("Donated all Skate Boards");
+            AudioManager.instance.Play("DonateTemp");
+        }
+    }
+    public void DonateSoap()//Hard Code Muna
+    {
+        if (Soap > 0)
+        {
+            DonatedSoapAmount += Soap;
+            Soap = 0;
+            Debug.Log("Donated all Soap");
+            AudioManager.instance.Play("DonateTemp");
+        }
     }
     #endregion
+
+
 }

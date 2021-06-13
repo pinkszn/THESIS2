@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf9e9958204a534c957aa8cab8f3a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasType: 6
+  canvasType: 7
 --- !u!114 &21142484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +647,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 38113048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1746048880}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: DonateCarpet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &38113048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1216,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 150695571}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1746048880}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: DonateSoap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &150695571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3200,7 +3224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Donate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6af7baeb8fdea643a69f582a8833e4d, type: 2}
   m_sharedMaterial: {fileID: 1740427349260641103, guid: d6af7baeb8fdea643a69f582a8833e4d,
@@ -3360,7 +3384,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 445223520}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1746048880}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: DonateUltraBin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &445223520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5414,7 +5450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Donate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6af7baeb8fdea643a69f582a8833e4d, type: 2}
   m_sharedMaterial: {fileID: 1740427349260641103, guid: d6af7baeb8fdea643a69f582a8833e4d,
@@ -5683,7 +5719,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersist: 0
-  sounds: []
+  sounds:
+  - name: DonateTemp
+    clip: {fileID: 8300000, guid: 23232b51dd62a3246a5333a1ac469046, type: 3}
+    volume: 1
+    pitch: 1
+    panStereo: 0
+    playOnAwake: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &818368755
 GameObject:
   m_ObjectHideFlags: 0
@@ -6129,7 +6175,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618605864}
         m_TargetAssemblyTypeName: SimpleSceneChanger, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: CommunityScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8834,7 +8880,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Donate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6af7baeb8fdea643a69f582a8833e4d, type: 2}
   m_sharedMaterial: {fileID: 1740427349260641103, guid: d6af7baeb8fdea643a69f582a8833e4d,
@@ -10330,7 +10376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Donate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6af7baeb8fdea643a69f582a8833e4d, type: 2}
   m_sharedMaterial: {fileID: 1740427349260641103, guid: d6af7baeb8fdea643a69f582a8833e4d,
@@ -10453,16 +10499,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersist: 0
   SummaryText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 290505302}
+  - {fileID: 1414801374}
+  - {fileID: 930273585}
+  - {fileID: 49629020}
   timerAmount: 120
   isPaused: 0
-  enemiesMutated: 0
-  enemiesDisposed: 0
-  materialsRecycled: 0
-  materialsSeperated: 0
+  currentEnemiesMutated: 0
+  TotalEnemiesMutated: 0
+  currentEnemiesDisposed: 0
+  TotalEnemiesDisposed: 0
+  currentMaterialsRecycled: 0
+  TotalMaterialsRecycled: 0
+  currentMaterialsSeperated: 0
+  TotalMaterialsSeperated: 0
 --- !u!1 &1527655818
 GameObject:
   m_ObjectHideFlags: 0
@@ -10942,7 +10992,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1583386455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1746048880}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: DonateSkateBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1583386455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11038,7 +11100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Donate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6af7baeb8fdea643a69f582a8833e4d, type: 2}
   m_sharedMaterial: {fileID: 1740427349260641103, guid: d6af7baeb8fdea643a69f582a8833e4d,
@@ -11589,7 +11651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1672151225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1746048880}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: DonateEcoBrick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1672151225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11963,6 +12037,11 @@ MonoBehaviour:
   UltraBin: 0
   SkateBoard: 0
   Soap: 0
+  DonatedEcoBricksAmount: 0
+  DonatedCarpetAmount: 0
+  DonatedUltraBinAmount: 0
+  DonatedSkateBoardAmount: 0
+  DonatedSoapAmount: 0
 --- !u!1 &1746626431
 GameObject:
   m_ObjectHideFlags: 0

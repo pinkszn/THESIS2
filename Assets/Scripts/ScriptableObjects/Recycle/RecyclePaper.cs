@@ -25,8 +25,13 @@ public class RecyclePaper : RecycleItemsBase
 	{
 		Debug.Log("Trashed " + name);
 	}
-	public override void Reuse()
+	//public override void Reuse()
+	//{
+	//	Debug.Log("Reused " + name);
+	//}
+
+	protected override void ResetRecycleProcess()
 	{
-		Debug.Log("Reused " + name);
+
 	}
 }

@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 	Animator animator;
 	private string currentState;
 
+	[SerializeField] EnemyScriptableObjectBase enemy;
+
 	//ANIMATION STATES
 	const string CHASE = "Chase";
 	const string ATTACK = "Attack";
@@ -28,7 +30,8 @@ public class Enemy : MonoBehaviour
 	[SerializeField] float playerRange = 3f;
 	[SerializeField] float attackRange;
 
-    public bool Decomposable, NonDecomposable, Recyclable;
+	[SerializeField] string EnemyType; //Decomposable, NonDecomposable, Recyclable
+
 	bool isMoving;
 	bool isAttacking;
 
@@ -56,14 +59,22 @@ public class Enemy : MonoBehaviour
 		
 	}
 
-	public void TakeDamage(float damage, float knockbackStrength)
+	public void TakeDamage(float damage, float knockbackStrength,string PlayerAttackType)
 	{
-		currentHealth -= damage;
-
 		Vector2 direction = Player.transform.position - transform.position;
-		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 
-		Invoke("ResetKnockBack", 0.25f);
+		if (EnemyType == PlayerAttackType)
+		{
+			currentHealth -= damage;
+			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+
+			Invoke("ResetKnockBack", 0.25f);
+		}
+		else
+		{
+			//Function ng Mutation;
+			Debug.Log("Enemy Mutated");
+		}
 
 		if (currentHealth <= 0)
 		{
@@ -92,6 +103,7 @@ public class Enemy : MonoBehaviour
 		//GetComponent<Collider2D>().enabled = false;
 		//gameObject.SetActive(false);
 
+		GAME_MANAGER.instance.currentEnemiesDisposed += 1;
 		Destroy(gameObject);
 	}
 

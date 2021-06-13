@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Aluminum", menuName = "RecycleItem/Aluminum")]
 public class RecycleAluminum : RecycleItemsBase
 {
+	
+
 	public override void Seperate()
 	{
 		Debug.Log("Seperated " + name);
@@ -25,8 +27,13 @@ public class RecycleAluminum : RecycleItemsBase
 	{
 		Debug.Log("Trashed" + name);
 	}
-	public override void Reuse()
+	//public override void Reuse()
+	//{
+	//	Debug.Log("Reused" + name);
+	//}
+
+	protected override void ResetRecycleProcess()
 	{
-		Debug.Log("Reused" + name);
+
 	}
 }

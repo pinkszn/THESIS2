@@ -10,10 +10,14 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     public float timerAmount = 120f;
     public bool isPaused = false;
 
-    public int enemiesMutated;
-    public int enemiesDisposed;
-    public int materialsRecycled;
-    public int materialsSeperated;
+    [Space]
+    public int currentEnemiesMutated, TotalEnemiesMutated;
+    [Space]
+    public int currentEnemiesDisposed, TotalEnemiesDisposed;
+    [Space]
+    public int currentMaterialsRecycled, TotalMaterialsRecycled;
+    [Space]
+    public int currentMaterialsSeperated, TotalMaterialsSeperated;
 
     public bool isAlive()
     {
@@ -31,11 +35,28 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
 
     public void SetSummaryText()
     {
-        //SummaryText[0].SetText(enemiesMutated.ToString()); //Set the UI texts after enabling UI for summary
-        //SummaryText[1].SetText(enemiesDisposed.ToString()); //Set the UI texts after enabling UI for summary
-        SummaryText[2].SetText(materialsRecycled.ToString()); //Set the UI texts after enabling UI for summary
-        //SummaryText[3].SetText(materialsSeperated.ToString()); //Set the UI texts after enabling UI for summary
+        SummaryText[0].SetText(currentEnemiesMutated.ToString());
+        SummaryText[1].SetText(currentEnemiesDisposed.ToString());
+        SummaryText[2].SetText(currentMaterialsRecycled.ToString());
+        SummaryText[3].SetText(currentMaterialsSeperated.ToString());
     }
+
+    public void SetTotalSummary() //call this everytime a level ends
+    {
+        TotalEnemiesDisposed += currentEnemiesDisposed;
+        TotalEnemiesMutated += currentEnemiesMutated;
+        TotalMaterialsRecycled += currentMaterialsRecycled;
+        TotalMaterialsSeperated += currentMaterialsSeperated;
+    }
+
+    public void ResetCurrentSummary() //call this when starting a new level
+	{
+        currentEnemiesDisposed = 0;
+        currentEnemiesMutated = 0;
+        currentMaterialsRecycled = 0;
+        currentMaterialsSeperated = 0;
+	}
+
 
     #region Pause
     public void PauseButton()

@@ -17,5 +17,7 @@ public abstract class RecycleItemsBase : ScriptableObject
     public abstract void Wash();
     public abstract void Shred();
     public abstract void Trash();
-    public abstract void Reuse();
+    //public abstract void Reuse(); //
+
+    protected abstract void ResetRecycleProcess();
 }
