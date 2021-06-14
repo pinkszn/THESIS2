@@ -1997,7 +1997,7 @@ GameObject:
   - component: {fileID: 1085658956}
   - component: {fileID: 1085658957}
   m_Layer: 0
-  m_Name: weapon (2)
+  m_Name: NonDecomposable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2011,10 +2011,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085658955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41199994, y: -0.0026670098, z: 0}
-  m_LocalScale: {x: 0.3136858, y: 0.25572577, z: 1}
+  m_LocalPosition: {x: -0.042999983, y: -0.007000026, z: 0}
+  m_LocalScale: {x: 0.3136858, y: 0.67119634, z: 1}
   m_Children: []
-  m_Father: {fileID: 1232418801}
+  m_Father: {fileID: 2011389588}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1085658957
@@ -2156,9 +2156,6 @@ Transform:
   m_LocalPosition: {x: -2.46, y: -0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1507390306}
-  - {fileID: 2142754101}
-  - {fileID: 1085658956}
   - {fileID: 2011389588}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2496,7 +2493,7 @@ GameObject:
   - component: {fileID: 1507390306}
   - component: {fileID: 1507390307}
   m_Layer: 0
-  m_Name: weapon
+  m_Name: Recyclable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2510,10 +2507,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507390305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41199994, y: -0.0026670098, z: 0}
-  m_LocalScale: {x: 0.3136858, y: 0.25572577, z: 1}
+  m_LocalPosition: {x: -0.042999983, y: -0.007000026, z: 0}
+  m_LocalScale: {x: 0.3136858, y: 0.6711963, z: 1}
   m_Children: []
-  m_Father: {fileID: 1232418801}
+  m_Father: {fileID: 2011389588}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1507390307
@@ -2594,9 +2591,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.45499992, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.381, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1507390306}
+  - {fileID: 2142754101}
+  - {fileID: 1085658956}
   m_Father: {fileID: 1232418801}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2024046145
 GameObject:
@@ -2763,7 +2763,7 @@ GameObject:
   - component: {fileID: 2142754101}
   - component: {fileID: 2142754102}
   m_Layer: 0
-  m_Name: weapon (1)
+  m_Name: Decomposable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2777,10 +2777,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142754100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41199994, y: -0.0026670098, z: 0}
-  m_LocalScale: {x: 0.3136858, y: 0.25572577, z: 1}
+  m_LocalPosition: {x: -0.042999983, y: -0.007000026, z: 0}
+  m_LocalScale: {x: 0.3136858, y: 0.67119634, z: 1}
   m_Children: []
-  m_Father: {fileID: 1232418801}
+  m_Father: {fileID: 2011389588}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2142754102
