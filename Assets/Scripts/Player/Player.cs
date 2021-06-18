@@ -9,18 +9,18 @@ public class Player : MonoBehaviour
 
     private string currentState;
 
-    protected const string PLAYER_ATTACK1 = "Player_attack_1";
-    protected const string PLAYER_ATTACK2 = "Player_attack_2";
-    protected const string PLAYER_ATTACK3 = "Player_attack_3";
-    protected const string PLAYER_THROW = "Player_throw";
+    public const string PLAYER_ATTACK1 = "Player_attack_1";
+    public const string PLAYER_ATTACK2 = "Player_attack_2";
+    public const string PLAYER_ATTACK3 = "Player_attack_3";
+    public const string PLAYER_THROW = "Player_throw";
 
-    protected const string PLAYER_IDLE = "Player_idle";
-    protected const string PLAYER_RUN_R = "Player_Run_R";
-    protected const string PLAYER_RUN_L = "Player_Run_L";
-    protected const string PLAYER_RUN_UP = "Player_Run_UP";
-    protected const string PLAYER_RUN_DOWN = "Player_Run_DOWN";
-    protected const string PLAYER_DODGE = "Player_dodge";
-    protected const string PLAYER_DIE = "Player_die";
+    public const string PLAYER_IDLE = "Player_idle";
+    public const string PLAYER_RUN_R = "Player_Run_R";
+    public const string PLAYER_RUN_L = "Player_Run_L";
+    public const string PLAYER_RUN_UP = "Player_Run_UP";
+    public const string PLAYER_RUN_DOWN = "Player_Run_DOWN";
+    public const string PLAYER_DODGE = "Player_dodge";
+    public const string PLAYER_DIE = "Player_die";
 
     //[SerializeField] GameObject GameOverCanvas;
     

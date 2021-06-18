@@ -6,7 +6,6 @@ using UnityEngine;
 public class RecyclePlastic : RecycleItemsBase
 {
 	bool isWashed = false;
-	bool isShreded = false;
 
     public override void Seperate()
 	{
@@ -72,6 +71,5 @@ public class RecyclePlastic : RecycleItemsBase
 	protected override void ResetRecycleProcess()
 	{
 		isWashed = false;
-		isShreded = false;
 	}
 }

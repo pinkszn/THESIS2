@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+	enum EnemyType
+	{
+		Recyclable,
+		Decomposable,
+		NonDecomposable
+	};
+
+	[SerializeField] EnemyType enemyType;
+
 	Animator animator;
 	private string currentState;
 
@@ -29,8 +38,6 @@ public class Enemy : MonoBehaviour
 	float distanceFromPlayer;
 	[SerializeField] float playerRange = 3f;
 	[SerializeField] float attackRange;
-
-	[SerializeField] string EnemyType; //Decomposable, NonDecomposable, Recyclable
 
 	bool isMoving;
 	bool isAttacking;
@@ -63,7 +70,7 @@ public class Enemy : MonoBehaviour
 	{
 		Vector2 direction = Player.transform.position - transform.position;
 
-		if (EnemyType == PlayerAttackType)
+		if (enemyType.ToString() == PlayerAttackType)
 		{
 			currentHealth -= damage;
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
