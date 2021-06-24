@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class RecycleItemsBase : ScriptableObject
 {
@@ -12,6 +13,8 @@ public abstract class RecycleItemsBase : ScriptableObject
     [TextArea]
     public string description;
 
+    protected bool isProcessing = false;
+
     public abstract void Seperate();
     public abstract void Crush();
     public abstract void Wash();
@@ -19,5 +22,7 @@ public abstract class RecycleItemsBase : ScriptableObject
     public abstract void Trash();
     //public abstract void Reuse(); //
 
+    public abstract void SetActiveButtons();
+    protected abstract void DisableButtons();
     protected abstract void ResetRecycleProcess();
 }

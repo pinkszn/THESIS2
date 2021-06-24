@@ -8,6 +8,7 @@ public class ButtonScript : MonoBehaviour
 
     public void SetRecycleObject()
 	{
-		ItemManager.instance.recycleItem = recycleItems;
+		RecycleManager.instance.recycleItem = recycleItems;
+		recycleItems.SetActiveButtons();
 	}        
 }

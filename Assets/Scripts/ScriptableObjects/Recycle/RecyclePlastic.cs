@@ -5,71 +5,85 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Plastic", menuName = "RecycleItem/Plastic")]
 public class RecyclePlastic : RecycleItemsBase
 {
-	bool isWashed = false;
-
-    public override void Seperate()
+	public override void Seperate()
 	{
-		Debug.Log("Seperated Plastic");
+		if (isProcessing)
+		{
+			ItemManager.instance.recycledPlastic += 1;
+			ResetRecycleProcess();
+			Debug.Log("Plastic is seperated");
+		}
 	}
-    public override void Crush()
+	public override void Crush(){}
+	public override void Wash()
 	{
-		Debug.Log("Crushed Plastic");
-		Debug.Log("Nothing Happened");
-	}
-    public override void Wash()
-	{
-		Debug.Log("Washed Plastic");
-
 		if (ItemManager.instance.plastic > 0)
 		{
 			ItemManager.instance.plastic -= 1;
-			ItemManager.instance.washedPlastic += 1;
-			isWashed = true;
+			isProcessing = true;
+			DisableButtons();
+			RecycleManager.instance.ProcessButtons[0].interactable = false;
+			RecycleManager.instance.ProcessButtons[3].interactable = true;
 			Debug.Log("Plastic is washed");
 		}
 		else
 		{
-			ItemManager.instance.plastic -= 1;
-			ItemManager.instance.ruinedPlastic += 1;
-			Debug.Log("Plastic is ruined");
+			Debug.Log("Not Enough Items");
 		}
 	}
-	public override void Shred()
-	{
-		Debug.Log("Shreded Plastic");
-
-		if (ItemManager.instance.washedPlastic > 0 && isWashed)
-		{
-			ItemManager.instance.washedPlastic -= 1;
-			ItemManager.instance.shredPlastic += 1;
-			Debug.Log("Plastic is shreded");
-		}
-		else
-		{
-			ItemManager.instance.plastic -= 1;
-			ItemManager.instance.ruinedPlastic += 1;
-			ResetRecycleProcess();
-			Debug.Log("Plastic is ruined");
-		}
-	}
-    public override void Trash()
-	{
-		Debug.Log("Plastic is ruined");
-	}
- //   public override void Reuse()
+	public override void Shred(){}
+	public override void Trash(){}
+	//   public override void Reuse()
 	//{
 	//	Debug.Log("Reused Plastic");
 
-	//	if (ItemManager.instance.shredPlastic > 0)
+	//	if (RecycleManager.instance.shredPlastic > 0)
 	//	{
-	//		ItemManager.instance.shredPlastic -= 1;
-	//		ItemManager.instance.recycledPlastic += 1;
+	//		RecycleManager.instance.shredPlastic -= 1;
+	//		RecycleManager.instance.recycledPlastic += 1;
 	//		Debug.Log("Recycled Plastic complete");
 	//	}
 	//}
 
+	public override void SetActiveButtons()
+	{
+		RecycleManager.instance.ReuseUIButton.gameObject.SetActive(true);
+		RecycleManager.instance.TrashUIButton.gameObject.SetActive(true);
+
+		for (int i = 0; i <= RecycleManager.instance.ProcessButtons.Length - 1; i++)
+		{
+			RecycleManager.instance.ProcessButtons[i].gameObject.SetActive(false);
+		}
+
+		RecycleManager.instance.ProcessButtons[0].gameObject.SetActive(true);
+		RecycleManager.instance.ProcessButtons[3].gameObject.SetActive(true);
+
+		RecycleManager.instance.ProcessButtons[0].interactable = true;
+		RecycleManager.instance.ProcessButtons[3].interactable = false;
+	}
+
+	protected override void DisableButtons()
+	{
+		for (int i = 0; i <= RecycleManager.instance.MaterialButtons.Length - 1; i++)
+		{
+			RecycleManager.instance.MaterialButtons[i].interactable = false;
+		}
+
+		RecycleManager.instance.ExitRecyclingUIButton.interactable = false;
+	}
+
 	protected override void ResetRecycleProcess()
 	{
-		isWashed = false;
+		isProcessing = false;
+
+		for (int i = 0; i <= RecycleManager.instance.MaterialButtons.Length - 1; i++)
+		{
+			RecycleManager.instance.MaterialButtons[i].interactable = true;
+		}
+
+		RecycleManager.instance.ExitRecyclingUIButton.interactable = true;
+
+		RecycleManager.instance.ProcessButtons[0].interactable = true;
+		RecycleManager.instance.ProcessButtons[3].interactable = false;
 	}
 }

@@ -11,31 +11,18 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] Button[] CraftingButtons;
 
     [Space]
-    public RecycleItemsBase recycleItem;
-
-    [Space]
-    [SerializeField] TextMeshProUGUI codexMaterialDescription;
-    [SerializeField] TextMeshProUGUI codexMaterialName;
-    [SerializeField] Sprite codexMaterialSprite;
-
-    [Space]
     //ITEM PICKUPS
     public int plastic;
     public int aluminum;
-
     public int glass;
     public int paper;
 
     [Space]
     //RECYCLING ITEM OUTPUTS
-    public int washedPlastic;
-    public int shredPlastic;
-
     public int recycledPlastic;
     public int recycledAluminum;
-
-    public int ruinedPlastic;
-    public int ruinedAluminum;
+    public int recycledPaper;
+    public int recycledGlass;
 
     //amount of the crafted usable items, yung mga eco bombs and stuff, dagdag nlang
     [Space]
@@ -61,12 +48,11 @@ public class ItemManager : Singleton<ItemManager>
 
 	private void Update()
 	{
-        UpdateUI();
+        UpdateGameUI();
         ControlButtons();
-        CodexMaterial();
 	}
 
-	void UpdateUI() // Hard Code ko muna
+	void UpdateGameUI() // Hard Code ko muna
 	{
         ItemText[0].SetText("x" + EcoBricks.ToString());
         ItemText[1].SetText("x" + Carpet.ToString());
@@ -109,60 +95,6 @@ public class ItemManager : Singleton<ItemManager>
         //if kulang ng materials, disable button or just do nothing
         //if enough materials, add one to the amount of craftedItem amount, tas bawasan ang raw materials
 	}
-    #endregion
-
-    #region Recycling Buttons
-    public void ExitRecycling()//Not working as intended not sure kung ano sira???
-    {
-        CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Recycling);
-    }
-
-
-    public void ItemToRecycle()
-    {
-        /*
-         * 
-         */
-    }
-    public void SeperateButton()
-    {
-        recycleItem.Seperate();
-    }
-    public void CrushButton()
-    {
-        recycleItem.Crush();
-    }
-    public void WashButton()//hard coded muna
-    {
-        recycleItem.Wash();
-    }
-    public void ShredButton()//hard coded muna
-    {
-        recycleItem.Shred();
-    }
-    public void SeparateButton()
-    {
-        recycleItem.Seperate();
-    }
-    public void TrashButton()
-    {
-        recycleItem.Trash();
-    }
-    //public void ReuseButton()//hard coded muna
-    //{
-    //    recycleItem.Reuse();
-    //}
-
-    public void CodexMaterial()
-    {
-        if (recycleItem != null)
-        {
-            codexMaterialDescription.text = recycleItem.description;
-            codexMaterialName.text = recycleItem.name;
-            codexMaterialSprite = recycleItem.icon;
-        }
-        else return;
-    }
     #endregion
 
     #region Community Screen
