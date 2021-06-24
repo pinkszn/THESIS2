@@ -40,24 +40,6 @@ public class BinSwitch : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && transform.childCount >= 1) // Recyclable Bin
-        {
-            selectedWeapon = 0;
-            //attackType = "Recyclable";
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2) //Decomposable Bin
-        {
-            selectedWeapon = 1;
-            //attackType = "Decomposable";
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3) // Non Decomposable Bin
-        {
-            selectedWeapon = 2;
-            //attackType = "NonDecomposable";
-        }
-
         if (previousSelectedWeapon != selectedWeapon)
         {
             SelectWeapon();

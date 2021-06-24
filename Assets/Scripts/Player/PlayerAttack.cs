@@ -19,12 +19,9 @@ public class PlayerAttack : Player
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
-    [SerializeField] Transform EcoBrickProjectile;
-
     private void Update()
 	{
         AttackPosition();
-        CheckAttackInput();// This should check your inputs.
 	}
 
     void AttackPosition()
@@ -45,25 +42,7 @@ public class PlayerAttack : Player
         {
             attackPoint.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.5f);
         }
-    }
-
-    void CheckAttackInput()
-	{
-        if(Input.GetMouseButtonDown(1) && ItemManager.instance.EcoBricks > 0)
-		{
-            Debug.Log("Eco Brick Used");
-            ThrowEcoBrick();
-            ItemManager.instance.EcoBricks -= 1;
-		}
-    }        
-
-    void ThrowEcoBrick() //Di ko pa alam kung paano icode ito
-	{
-        Transform bulletTransform = Instantiate(EcoBrickProjectile, attackPoint.position, Quaternion.identity);
-
-        Vector3 shootDir = (attackPoint.position - this.transform.position).normalized;
-        bulletTransform.GetComponent<EcoBrickBehavior>().Setup(shootDir);
-	}
+    }    
 
     private void OnDrawGizmosSelected()
     {

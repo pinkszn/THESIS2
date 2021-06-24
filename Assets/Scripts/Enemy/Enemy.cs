@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 	Rigidbody2D rb;
 	Vector2 movement;
 
-	public float moveSpeed = 5f;
+	public float moveSpeed;
     public float damage;
 
 	float distanceFromPlayer;
@@ -102,7 +102,17 @@ public class Enemy : MonoBehaviour
 		rb.velocity = Vector2.zero;
 	}
 
-    private void Die()
+	public void CarpetSlowDown(float slowAmount)
+	{
+		moveSpeed = moveSpeed * (1f - slowAmount);
+	}
+
+	public void ResetSlowDown()
+	{
+		moveSpeed = 2f;
+	}
+
+	private void Die()
 	{
 		Debug.Log("Enemy Died");
 
