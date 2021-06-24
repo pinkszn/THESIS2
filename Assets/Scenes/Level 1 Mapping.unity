@@ -23125,10 +23125,16 @@ MonoBehaviour:
   attackRange: 0.5
   attackDamage: 2
   attackRate: 2
+  attackResetRate: 1
+  nextAttackTime: 1
+  AttackResetTime: 1
+  attackStateCounter: 0
+  knockbackStrength: 1.5
   attackPoint: {fileID: 2011389588}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  EcoBrickProjectile: {fileID: 0}
 --- !u!1 &1269191633
 GameObject:
   m_ObjectHideFlags: 0
