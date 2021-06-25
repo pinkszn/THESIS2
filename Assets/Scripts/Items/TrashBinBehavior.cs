@@ -33,15 +33,18 @@ public class TrashBinBehavior : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                AttackState(); //Do Attack Function
+                AttackState(); //Do Attack Function\
+                playerAttack.isAttacking = true;
                 playerAttack.nextAttackTime = Time.time + 1f / playerAttack.attackRate; //sets the interval of the next attack anim
                 playerAttack.AttackResetTime = Time.time + playerAttack.attackResetRate; //sets the reset time to first attack anim
             }
             if (Time.time >= playerAttack.AttackResetTime)
             {
-                //playerAttack.ChangeAnimationState(playerAttack.PLAYER_IDLE);
+                playerAttack.isAttacking = false;
                 playerAttack.attackStateCounter = 0;
             }
+
+
         }
     }
 
@@ -50,22 +53,24 @@ public class TrashBinBehavior : MonoBehaviour
         if (playerAttack.attackStateCounter == 0)
         {
             AttackHit();
-            //playerAttack.ChangeAnimationState(playerAttack.PLAYER_ATTACK2);
             playerAttack.attackStateCounter++;
             return;
         }
         if (playerAttack.attackStateCounter == 1)
         {
             AttackHit();
-            //playerAttack.ChangeAnimationState(playerAttack.PLAYER_ATTACK2);
             playerAttack.attackStateCounter++;
             return;
         }
         if (playerAttack.attackStateCounter == 2)
         {
             AttackHit();
-            //playerAttack.ChangeAnimationState(playerAttack.PLAYER_ATTACK3);
-            playerAttack.attackStateCounter = 0;
+            playerAttack.attackStateCounter++;
+            return;
+        }
+        if (playerAttack.attackStateCounter == 3)
+        {
+            playerAttack.attackStateCounter = 1;
             return;
         }
     }

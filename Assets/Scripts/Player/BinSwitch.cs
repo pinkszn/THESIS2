@@ -5,18 +5,24 @@ using UnityEngine;
 public class BinSwitch : MonoBehaviour
 {
     int selectedWeapon = 0;
+    PlayerAttack playerAttack;
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+        playerAttack = GetComponentInParent<PlayerAttack>();
+	}
+
+	void Update()
     {
         WeaponSwitch();
+        BinColorSwitch();
     }
 
-    void WeaponSwitch()  // might do some cleaning up with the if statements //Papalitan ko rin yung mga attackPoint.transform
+    void WeaponSwitch()
     {
         int previousSelectedWeapon = selectedWeapon;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !playerAttack.isAttacking)
         {
             if (selectedWeapon <= 0)
             {
@@ -28,7 +34,7 @@ public class BinSwitch : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !playerAttack.isAttacking)
         {
             if (selectedWeapon >= transform.childCount - 1)
             {
@@ -46,6 +52,28 @@ public class BinSwitch : MonoBehaviour
         }
 
     }
+
+    void BinColorSwitch()
+	{
+        switch(selectedWeapon)
+		{
+            case 0: // Green Bin
+                playerAttack.GreenBin = true;
+                playerAttack.BlueBin = false;
+                playerAttack.RedBin = false;
+                break;
+            case 1:
+                playerAttack.GreenBin = false;
+                playerAttack.BlueBin = true;
+                playerAttack.RedBin = false;
+                break;
+            case 2:
+                playerAttack.GreenBin = false;
+                playerAttack.BlueBin = false;
+                playerAttack.RedBin = true;
+                break;
+        }
+	}
 
     void SelectWeapon()
     {
