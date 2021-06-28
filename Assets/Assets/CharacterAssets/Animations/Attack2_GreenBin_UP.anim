@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack2_GreenBin_UP
+  m_Name: Attack2_GreenBin_Up
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -44,7 +44,7 @@ AnimationClip:
       value: {fileID: -5675360734189625157, guid: 22089d66ca29e2e47b324e92f032f698,
         type: 3}
     - time: 0.33333334
-      value: {fileID: -7414808611326607269, guid: 22089d66ca29e2e47b324e92f032f698,
+      value: {fileID: 5635112394352883607, guid: 22089d66ca29e2e47b324e92f032f698,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -73,7 +73,7 @@ AnimationClip:
     - {fileID: 6525179112502467040, guid: 22089d66ca29e2e47b324e92f032f698, type: 3}
     - {fileID: -1045790857049307516, guid: 22089d66ca29e2e47b324e92f032f698, type: 3}
     - {fileID: -5675360734189625157, guid: 22089d66ca29e2e47b324e92f032f698, type: 3}
-    - {fileID: -7414808611326607269, guid: 22089d66ca29e2e47b324e92f032f698, type: 3}
+    - {fileID: 5635112394352883607, guid: 22089d66ca29e2e47b324e92f032f698, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
