@@ -28,9 +28,12 @@ public class ItemManager : Singleton<ItemManager>
     [Space]
     public int EcoBricks;
     public int Carpet;
-    public int UltraBin;
-    public int SkateBoard;
+    public int BaseballBat;
     public int Soap;
+
+    [Space]
+    public int SkateBoard;
+    public int UltraBin;
 
     [Space]
     public int DonatedEcoBricksAmount;
@@ -56,9 +59,8 @@ public class ItemManager : Singleton<ItemManager>
 	{
         ItemText[0].SetText("x" + EcoBricks.ToString());
         ItemText[1].SetText("x" + Carpet.ToString());
-        ItemText[2].SetText("x" + UltraBin.ToString());
-        ItemText[3].SetText("x" + SkateBoard.ToString());
-        ItemText[4].SetText("x" + Soap.ToString());
+        ItemText[2].SetText("x" + BaseballBat.ToString());
+        ItemText[3].SetText("x" + Soap.ToString());
 	}
 
     void ControlButtons() //Hard Code rin muna to, looking for a better solution

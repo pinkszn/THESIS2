@@ -6,11 +6,6 @@ public class PlayerAttack : Player
 {
     public float attackRange;
     public float attackDamage;
-    public float attackRate = 2f; //The interval of attack animation to do when you spam the left click
-
-    public float attackResetRate = 0.7f; //Seconds of not attacking to reset to first attack animation
-    public float nextAttackTime = 0.5f;
-    public float AttackResetTime;
 
     [HideInInspector] public int attackStateCounter = 0;
 
@@ -24,11 +19,11 @@ public class PlayerAttack : Player
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
-    private void Update()
-	{
+    void Update()
+    {
         AttackPosition();
         AnimatorSetValues();
-	}
+    }
 
     void AttackPosition()
 	{

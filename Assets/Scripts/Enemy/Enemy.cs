@@ -65,7 +65,6 @@ public class Enemy : MonoBehaviour
 	{
 		
 	}
-
 	public void TakeDamage(float damage, float knockbackStrength,string PlayerAttackType)
 	{
 		Vector2 direction = Player.transform.position - transform.position;
@@ -79,10 +78,24 @@ public class Enemy : MonoBehaviour
 		}
 		else
 		{
-			//Function ng Mutation;
-			Debug.Log("Enemy Mutated");
+			
 		}
 
+		if (currentHealth <= 0)
+		{
+			Die();
+		}
+	}
+	
+	public void BaseballBatDamage(float damage, float knockbackStrength)
+	{
+		Vector2 direction = Player.transform.position - transform.position;
+
+		currentHealth -= damage;
+		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+
+		Invoke("ResetKnockBack", 0.25f);
+		
 		if (currentHealth <= 0)
 		{
 			Die();

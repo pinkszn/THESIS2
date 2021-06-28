@@ -62,7 +62,7 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.EndScreen));
+            StartCoroutine(FadeScene(2, 0.2f, 0.3f, CanvasType.EndScreen));
         }
     }
 
@@ -70,7 +70,7 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            StartCoroutine(FadeScene(4, 0.2f, 0.3f, CanvasType.CommunityScreen));
+            StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
         }
     }
     #endregion
