@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : Player
 {
-    [SerializeField] protected float MaxHealth = 10.0f;
-    [SerializeField] protected float CurrentHealth;
+    public int MaxHealth;
+    public int CurrentHealth;
+    int CardboardHealth;
 
 	private void Start()
 	{
@@ -13,19 +15,27 @@ public class PlayerHealth : Player
 	}
     private void Update()
     {
+        CardboardHealth = ItemManager.instance.CardboardHeart;
         IsAlive();
     }
+
     void IsAlive()
     {
         if (CurrentHealth <= 0)
         {
+            Destroy(gameObject);
             CanvasManager.Instance.SecondaryCanvas(CanvasType.GameOver);
         }
         else
             return;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TakeDamage()
+	{
+
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("COLLISSION WITH " + collision.name);
         if (collision.CompareTag("ENEMY"))

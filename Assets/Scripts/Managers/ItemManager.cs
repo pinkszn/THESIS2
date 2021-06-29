@@ -31,9 +31,9 @@ public class ItemManager : Singleton<ItemManager>
     public int BaseballBat;
     public int Soap;
 
-    [Space]
+    [Space] //Passive Powerups;
     public int SkateBoard;
-    public int UltraBin;
+    public int CardboardHeart, MaxCardboardHeart;
 
     [Space]
     public int DonatedEcoBricksAmount;
@@ -120,16 +120,7 @@ public class ItemManager : Singleton<ItemManager>
             AudioManager.instance.Play("DonateTemp");
         }
     }
-    public void DonateUltraBin()//Hard Code Muna
-    {
-        if (UltraBin > 0)
-        {
-            DonatedUltraBinAmount += UltraBin;
-            UltraBin = 0;
-            Debug.Log("Donated all Ultra Bins");
-            AudioManager.instance.Play("DonateTemp");
-        }
-    }
+
     public void DonateSkateBoard()//Hard Code Muna
     {
         if (SkateBoard > 0)
