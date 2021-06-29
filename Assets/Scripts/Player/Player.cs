@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -27,11 +25,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        //Checks input for swapping weapons
-        //SelectWeapon(); //Swaps the weapon corresponding the input of WeaponSwitch
-
-        //Debug.Log(nextAttackTime);
-        //Debug.Log(AttackResetTime);
+        
     }
 
     private void Start()
