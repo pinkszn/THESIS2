@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 3403738300279594458}
   - component: {fileID: 5265065860026594465}
   - component: {fileID: 7043232568203345524}
-  - component: {fileID: 903464797544420203}
+  - component: {fileID: 3886856637885406725}
+  - component: {fileID: 6938496474571294413}
+  - component: {fileID: 7665698805121030311}
   m_Layer: 7
   m_Name: ENEMY
   m_TagString: ENEMY
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3671438182394916758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.12, y: 1.43, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -152,7 +154,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &903464797544420203
+--- !u!114 &3886856637885406725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,15 +163,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 3671438182394916758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcfecbc6a0ea15544b19629bdf759076, type: 3}
+  m_Script: {fileID: 11500000, guid: dd88f953ba0cb004f9bf3b5e7e9e5583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  damage: 1
+--- !u!114 &6938496474571294413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671438182394916758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbc867454143114b9f2e7b4d57f89a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
   maxHealth: 3
-  currentHealth: 0
-  Player: {fileID: 0}
+  currentHealth: 3
+--- !u!114 &7665698805121030311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671438182394916758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d08b92d90e2a4942bc25c2be61939cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   moveSpeed: 2
-  damage: 0
-  playerRange: 2
-  attackRange: 1
-  EnemyType: 
+  detectPlayerRange: 2
+  attackPlayerRange: 1

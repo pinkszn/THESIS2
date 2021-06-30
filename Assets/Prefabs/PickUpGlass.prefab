@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6089427340132505196}
   - component: {fileID: 1300529303}
   m_Layer: 0
-  m_Name: ITEM 2
+  m_Name: PickUpGlass
   m_TagString: ITEM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 99721d29ce60d9747a09a474eb595155,
     type: 3}
-  m_Color: {r: 1, g: 0.7384023, b: 0, a: 1}
+  m_Color: {r: 0.11517811, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af118fbdb51525c4b954ee93cacbb269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialType: 1
 --- !u!70 &1300529303
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

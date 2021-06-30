@@ -15,7 +15,6 @@ public class EcoBrickBehavior : MonoBehaviour
 
 	private void Start()
 	{
-		//transform.Translate(LaunchOffSet)
 		Destroy(gameObject, DestroyTime);
 	}
 	public void Setup(Vector3 shootDir)
@@ -24,7 +23,7 @@ public class EcoBrickBehavior : MonoBehaviour
 	}
 	public void Update()
 	{
-		transform.position += shootDir * speed * Time.deltaTime; //Gotta Change the way projectile works\
+		transform.position += shootDir * speed * Time.deltaTime;
 
 	}
 
@@ -41,10 +40,7 @@ public class EcoBrickBehavior : MonoBehaviour
 		{
 			foreach (Collider2D enemy in hitEnemies)
 			{
-
-				//Debug.Log("We hit " + enemy.name);
-
-				enemy.GetComponent<Enemy>().EcoBrickKnockBack(this.gameObject, knockbackStrength);
+				enemy.GetComponent<EnemyHealth>().EcoBrickKnockBack(this.gameObject, knockbackStrength);
 			}
 		}
 

@@ -18,7 +18,7 @@ public class CarpetBehaviour : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("ENEMY"))
 		{
-			collision.GetComponent<Enemy>().CarpetSlowDown(slowAmount);
+			collision.GetComponent<EnemyMovement>().CarpetSlowDown(slowAmount);
 		}
 	}
 
@@ -26,7 +26,7 @@ public class CarpetBehaviour : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("ENEMY"))
 		{
-			collision.GetComponent<Enemy>().ResetSlowDown();
+			collision.GetComponent<EnemyMovement>().ResetSlowDown();
 		}
 	}
 
@@ -43,7 +43,7 @@ public class CarpetBehaviour : MonoBehaviour
 		{
 			foreach (Collider2D enemy in hitEnemies)
 			{
-				enemy.GetComponent<Enemy>().ResetSlowDown();
+				enemy.GetComponent<EnemyMovement>().ResetSlowDown();
 			}
 		}
 	}

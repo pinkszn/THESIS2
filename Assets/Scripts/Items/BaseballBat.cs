@@ -31,7 +31,7 @@ public class BaseballBat : MonoBehaviour
 
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			enemy.GetComponent<Enemy>().BaseballBatDamage(attackDamage, knockbackStrength);
+			enemy.GetComponent<EnemyHealth>().BaseballBatDamage(attackDamage, knockbackStrength);
 		}
 	}
 
