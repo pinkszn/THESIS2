@@ -42,7 +42,6 @@ public class ItemManager : Singleton<ItemManager>
 
 	public void InitializeData() //call this function when starting a level
 	{
-        //item01 = PlayerPrefs.GetInt("Item01");
         plastic = PlayerPrefs.GetInt("plastic");
 		aluminum = PlayerPrefs.GetInt("aluminum");
     }

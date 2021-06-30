@@ -8,10 +8,12 @@ public class PlayerMovement : Player
     Vector2 moveDir;
     Vector2 lastMoveDir;
     [SerializeField] float currentMoveSpeed = 5.0f;
+    float percentIncrease = 0.05f;
 
 	private void Update()
 	{
         Movement();
+        //Debug.Log(currentMoveSpeed + (percentIncrease * ItemManager.instance.SkateBoard));
     }
 
 
@@ -33,7 +35,7 @@ public class PlayerMovement : Player
 		if(!isIdle)
 		{
             lastMoveDir = moveDir;
-            transform.Translate(moveDir * currentMoveSpeed * Time.deltaTime);
+            transform.Translate(moveDir * (currentMoveSpeed + (percentIncrease * ItemManager.instance.SkateBoard)) * Time.deltaTime);
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetBool("isMoving", true);
