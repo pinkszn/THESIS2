@@ -39,6 +39,7 @@ public class SimpleSceneChanger : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
+        AudioManager.instance.Play("GameStart");
         BGMManager.Instance.Play("BGM01");
     }
 

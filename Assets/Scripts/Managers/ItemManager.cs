@@ -58,20 +58,17 @@ public class ItemManager : Singleton<ItemManager>
         ItemText[0].SetText("x" + EcoBricks.ToString());
         ItemText[1].SetText("x" + Carpet.ToString());
         ItemText[2].SetText("x" + BaseballBat.ToString());
-        ItemText[3].SetText("x" + Soap.ToString());
 	}
 
     void ControlButtons() //Hard Code rin muna to, looking for a better solution
 	{
-        if(plastic > 0)
+        if(plastic > 2 && glass > 1)
 		{
             CraftingButtons[0].interactable = true;
-            //CraftingButtons[0].image.overrideSprite = buttonActive; //Use this pag may button sprites na tayo
 		}
         else
 		{
             CraftingButtons[0].interactable = false;
-            //CraftingButtons[0].image.overrideSprite = buttonInactive; //Use this pag may button sprites na tayo
         }
     }
 
@@ -85,6 +82,7 @@ public class ItemManager : Singleton<ItemManager>
             glass -= 1;
             EcoBricks += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            AudioManager.instance.Play("CraftedItem");
             return;
         }
 	}
@@ -95,6 +93,7 @@ public class ItemManager : Singleton<ItemManager>
             plastic -= 3;
             Carpet += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            AudioManager.instance.Play("CraftedItem");
             return;
         }
 	}
@@ -106,6 +105,7 @@ public class ItemManager : Singleton<ItemManager>
             aluminum -= 2;
             SkateBoard += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 4;
+            AudioManager.instance.Play("CraftedItem");
             return;
         }
 	}
@@ -116,6 +116,7 @@ public class ItemManager : Singleton<ItemManager>
             aluminum -= 2;
             BaseballBat += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 2;
+            AudioManager.instance.Play("CraftedItem");
             return;
         }
 	}
@@ -126,6 +127,7 @@ public class ItemManager : Singleton<ItemManager>
             paper -= 3;
             CardboardHeart += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            AudioManager.instance.Play("CraftedItem");
             return;
         }
 	}
@@ -139,7 +141,7 @@ public class ItemManager : Singleton<ItemManager>
             DonatedEcoBricksAmount += EcoBricks;
             EcoBricks = 0;
             Debug.Log("Donated all Eco Bricks");
-            AudioManager.instance.Play("DonateTemp");
+            //AudioManager.instance.Play("DonateTemp");
         }
     }
     public void DonateCarpet()//Hard Code Muna
@@ -149,7 +151,7 @@ public class ItemManager : Singleton<ItemManager>
             DonatedCarpetAmount += Carpet;
             Carpet = 0;
             Debug.Log("Donated all Carpet");
-            AudioManager.instance.Play("DonateTemp");
+            //AudioManager.instance.Play("DonateTemp");
         }
     }
 
@@ -160,7 +162,7 @@ public class ItemManager : Singleton<ItemManager>
             DonatedSkateBoardAmount += SkateBoard;
             SkateBoard = 0;
             Debug.Log("Donated all Skate Boards");
-            AudioManager.instance.Play("DonateTemp");
+            //AudioManager.instance.Play("DonateTemp");
         }
     }
     #endregion

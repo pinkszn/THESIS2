@@ -80,6 +80,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         Time.timeScale = 0;
         CanvasManager.Instance.SecondaryCanvas(CanvasType.Pause);
         isPaused = true;
+        AudioManager.instance.Play("Paused");
     }
 
     public void ResumeGame()
@@ -87,6 +88,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         Time.timeScale = 1;
         CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Pause);
         isPaused = false;
+        AudioManager.instance.Play("Unpaused");
     }
     #endregion Pause
 

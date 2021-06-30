@@ -74,6 +74,7 @@ public class TrashBinBehavior : MonoBehaviour
         }
         if (playerAttack.attackStateCounter == 3)
         {
+            AttackHit();
             playerAttack.attackStateCounter = 1;
             return;
         }
@@ -86,6 +87,9 @@ public class TrashBinBehavior : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(playerAttack.attackDamage, playerAttack.knockbackStrength, attackType.ToString());
+            AudioManager.instance.Play("HitEnemy");
         }
+
+        AudioManager.instance.Play("TrashBinHit");
     }
 }

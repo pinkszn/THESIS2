@@ -10,6 +10,7 @@ public class PickupObject : MonoBehaviour
 		{
 			//Pickup object then add the amount of items in the item manager
 			ItemManager.Instance.plastic += 1; //only works once
+			AudioManager.instance.Play("GetItem");
 			Debug.Log("pickup item");
 			Destroy(gameObject);
 		}
