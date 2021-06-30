@@ -38,9 +38,7 @@ public class ItemManager : Singleton<ItemManager>
     [Space]
     public int DonatedEcoBricksAmount;
     public int DonatedCarpetAmount;
-    public int DonatedUltraBinAmount;
     public int DonatedSkateBoardAmount;
-    public int DonatedSoapAmount;
 
 	public void InitializeData() //call this function when starting a level
 	{
@@ -79,23 +77,57 @@ public class ItemManager : Singleton<ItemManager>
 
     //name of function subject to change
     #region Crafting Buttons
-    public void CraftEcoBricks() //eto yung icoconect dun sa button UI ng pag craft //copy paste nlang buong function pag mayroon pang ibang recipes
+    public void CraftEcoBricks()
 	{
-        //if statement ng amount of raw materials na kelangan sa pag craft ng item na ito
-        if (plastic > 0) //values subject to change
+        if (plastic > 2 && glass > 1)
         {
-            //FindObjectOfType<Button>().interactable = true;
-            plastic -= 1;
-            //recycledPlastic -= 2;
+            plastic -= 2;
+            glass -= 1;
             EcoBricks += 1;
-            GAME_MANAGER.instance.currentMaterialsRecycled += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 3;
             return;
         }
-        else
-            //FindObjectOfType<Button>().interactable = false;
-        return;
-        //if kulang ng materials, disable button or just do nothing
-        //if enough materials, add one to the amount of craftedItem amount, tas bawasan ang raw materials
+	}
+    public void CraftCarpet()
+	{
+        if (plastic > 3)
+        {
+            plastic -= 3;
+            Carpet += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            return;
+        }
+	}
+    public void CraftSkateBoard()
+	{
+        if (plastic > 2 && aluminum > 2)
+        {
+            plastic -= 2;
+            aluminum -= 2;
+            SkateBoard += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 4;
+            return;
+        }
+	}
+    public void CraftBaseballBat()
+	{
+        if (aluminum > 2)
+        {
+            aluminum -= 2;
+            BaseballBat += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 2;
+            return;
+        }
+	}
+    public void CraftCardboardHeart()
+	{
+        if (paper > 3 && CardboardHeart < MaxCardboardHeart)
+        {
+            paper -= 3;
+            CardboardHeart += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            return;
+        }
 	}
     #endregion
 
@@ -128,16 +160,6 @@ public class ItemManager : Singleton<ItemManager>
             DonatedSkateBoardAmount += SkateBoard;
             SkateBoard = 0;
             Debug.Log("Donated all Skate Boards");
-            AudioManager.instance.Play("DonateTemp");
-        }
-    }
-    public void DonateSoap()//Hard Code Muna
-    {
-        if (Soap > 0)
-        {
-            DonatedSoapAmount += Soap;
-            Soap = 0;
-            Debug.Log("Donated all Soap");
             AudioManager.instance.Play("DonateTemp");
         }
     }
