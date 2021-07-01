@@ -9,7 +9,8 @@ public class EnemyHealth : Enemy
 	{
 		Recyclable,
 		Decomposable,
-		NonDecomposable
+		NonDecomposable,
+		Mutated
 	};
 	[SerializeField] EnemyType enemyType;
 	#endregion
