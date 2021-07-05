@@ -30,19 +30,26 @@ public class PlayerHealth : Player
             return;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
 	{
+        if(CardboardHealth > 0)
+		{
+            CardboardHealth -= damage;
+		}
+		else
+		{
+            CurrentHealth -= damage;
+        }
+    }
 
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("COLLISSION WITH " + collision.name);
-        if (collision.CompareTag("ENEMY"))
+        if (collision.gameObject.CompareTag("ENEMY"))
         {
-            CurrentHealth -= 1;
+            TakeDamage(1);
             IsAlive(); //check if player has 0 health
-            Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
+            //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
         }
     }
 }

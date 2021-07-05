@@ -31,6 +31,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     {
         PauseKey();
         OpenRecyclingUI();
+        SetSummaryText();
     }
 
     public void SetSummaryText()
