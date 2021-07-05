@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SimpleSceneChanger : MonoBehaviour
+public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 {
     public Image fader;
 
-    private IEnumerator FadeScene(int index, float duration, float waitTime, CanvasType _canvasType)
+    public IEnumerator FadeScene(int index, float duration, float waitTime, CanvasType _canvasType)
     {
         fader.gameObject.SetActive(true);
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
@@ -32,7 +32,6 @@ public class SimpleSceneChanger : MonoBehaviour
 
     private void Update()
     {
-        SummaryScreen();
         CommunityScreen();
     }
     #region Scenes
@@ -59,12 +58,9 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
     }
-    public void SummaryScreen()
+    public static void SummaryScreen()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            StartCoroutine(FadeScene(2, 0.2f, 0.3f, CanvasType.EndScreen));
-        }
+        instance.StartCoroutine(instance.FadeScene(2, 0.2f, 0.3f, CanvasType.EndScreen));
     }
 
     public void CommunityScreen()
