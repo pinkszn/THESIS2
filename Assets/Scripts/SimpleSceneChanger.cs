@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SimpleSceneChanger : MonoBehaviour
+public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 {
     public Image fader;
 
@@ -32,8 +32,7 @@ public class SimpleSceneChanger : MonoBehaviour
 
     private void Update()
     {
-        SummaryScreen();
-        CommunityScreen();
+
     }
     #region Scenes
     public void StartGame()
@@ -59,20 +58,14 @@ public class SimpleSceneChanger : MonoBehaviour
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
     }
-    public void SummaryScreen()
+    public static void SummaryScreen(int levelIndex)
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            StartCoroutine(FadeScene(2, 0.2f, 0.3f, CanvasType.EndScreen));
-        }
+        instance.StartCoroutine(instance.FadeScene(levelIndex, 0.2f, 0.3f, CanvasType.EndScreen));
     }
 
     public void CommunityScreen()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
-        }
+        StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
     }
     #endregion
 }
