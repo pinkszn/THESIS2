@@ -39,8 +39,8 @@ public class TrashBinBehavior : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate; //sets the interval of the next attack anim
                 AttackResetTime = Time.time + attackResetRate; //sets the reset time to first attack anim
 
-                Debug.Log("Attack Rate: " + 1f / attackRate);
-                Debug.Log("Reset Rate: " + attackResetRate);
+                //Debug.Log("Attack Rate: " + 1f / attackRate);
+                //Debug.Log("Reset Rate: " + attackResetRate);
             }
             if (Time.time >= AttackResetTime)
             {

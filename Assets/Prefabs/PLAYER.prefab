@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 7426094485240648132}
   - component: {fileID: 7426094485240648139}
   - component: {fileID: 7426094485240648138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PLAYER
   m_TagString: PLAYER
   m_Icon: {fileID: 0}
@@ -411,22 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583524e7014759447bcbf6e7bbb9c276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  cardboardHearts: []
-  fullHearth: {fileID: 4750289851513194051, guid: b666c678ca31dd2448aebe1756e6337c,
-    type: 3}
-  cardboardHearth: {fileID: 3737313427054955191, guid: b666c678ca31dd2448aebe1756e6337c,
-    type: 3}
-  emptyHearth: {fileID: -3467991668497930666, guid: b666c678ca31dd2448aebe1756e6337c,
-    type: 3}
   MaxHealth: 3
   CurrentHealth: 3
-  CardboardHealth: 2
 --- !u!114 &7426094485240648138
 MonoBehaviour:
   m_ObjectHideFlags: 0

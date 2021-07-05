@@ -15,15 +15,15 @@ public class EnemyHealth : Enemy
 	[SerializeField] EnemyType enemyType;
 	#endregion
 
-	[SerializeField] float maxHealth = 3;
-    [SerializeField] float currentHealth;
+	[SerializeField] int maxHealth = 3;
+    [SerializeField] int currentHealth;
 
 	private void Awake()
 	{
 		currentHealth = maxHealth;
 	}
 
-	public void TakeDamage(float damage, float knockbackStrength, string PlayerAttackType)
+	public void TakeDamage(int damage, float knockbackStrength, string PlayerAttackType)
 	{
 		Vector2 direction = Player.transform.position - transform.position;
 
@@ -48,7 +48,7 @@ public class EnemyHealth : Enemy
 		Invoke("ResetKnockBack", 0.25f);
 	}
 
-	public void BaseballBatDamage(float damage, float knockbackStrength)
+	public void BaseballBatDamage(int damage, float knockbackStrength)
 	{
 		Vector2 direction = Player.transform.position - transform.position;
 

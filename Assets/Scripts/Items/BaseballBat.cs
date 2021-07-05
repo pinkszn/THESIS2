@@ -6,7 +6,7 @@ public class BaseballBat : MonoBehaviour
 {
 	[SerializeField] Transform player;
 
-	[SerializeField] float attackDamage;
+	[SerializeField] int attackDamage;
 	[SerializeField] float attackRange;
 	[SerializeField] float knockbackStrength;
 	[SerializeField] LayerMask enemyLayers;

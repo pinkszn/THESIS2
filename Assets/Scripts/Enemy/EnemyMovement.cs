@@ -6,9 +6,10 @@ public class EnemyMovement : Enemy
 {
 	[SerializeField] float moveSpeed;
 
+	[SerializeField] protected float detectPlayerRange = 2f;
+	[SerializeField] protected float attackPlayerRange = 1f;
+
 	float distanceFromPlayer;
-	[SerializeField] float detectPlayerRange = 3f;
-	[SerializeField] float attackPlayerRange;
 
 	private void Update()
 	{

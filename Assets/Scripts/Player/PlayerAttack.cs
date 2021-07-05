@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : Player
 {
     public float attackRange;
-    public float attackDamage;
+    public int attackDamage;
 
     [HideInInspector] public int attackStateCounter = 0;
 

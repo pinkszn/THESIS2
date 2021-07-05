@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 	protected bool isMoving;
 	protected bool isAttacking;
 
-    private void Start()
+	private void Start()
 	{
 		animator = GetComponent<Animator>();
 		Player = GameObject.FindGameObjectWithTag("PLAYER");
