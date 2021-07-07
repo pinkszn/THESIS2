@@ -19,28 +19,19 @@ public class ItemSwitch : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.Alpha1) && transform.childCount >= 1) // Eco Brick
         {
             selectedWeapon = 0;
-            //attackType = "Recyclable";
+            BottomBarUI.instance.HighlightItem(0);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2) //Carpet
         {
             selectedWeapon = 1;
-            //attackType = "Decomposable";
+            BottomBarUI.instance.HighlightItem(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3) //Soap
+        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3) //Baseball Bat
         {
             selectedWeapon = 2;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4) //Soap
-        {
-            selectedWeapon = 3;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5) && transform.childCount >= 5) //Soap
-        {
-            selectedWeapon = 4;
+            BottomBarUI.instance.HighlightItem(2);
         }
 
         if (previousSelectedWeapon != selectedWeapon)
