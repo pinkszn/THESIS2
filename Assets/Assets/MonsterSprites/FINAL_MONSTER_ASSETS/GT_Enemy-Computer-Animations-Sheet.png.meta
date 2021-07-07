@@ -740,9 +740,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 223
-        y: 43
+        y: 84
         width: 75
-        height: 81
+        height: 40
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -760,12 +760,12 @@ TextureImporter:
       name: GT_Enemy-Computer-Animations-Sheet_26
       rect:
         serializedVersion: 2
-        x: 225
-        y: 85
-        width: 35
-        height: 11
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 238
+        y: 43
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -868,7 +868,7 @@ TextureImporter:
         x: 239
         y: 1
         width: 59
-        height: 42
+        height: 40
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
