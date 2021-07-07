@@ -42,7 +42,17 @@ public class EnemyMovement : Enemy
 
 		if (distanceFromPlayer < detectPlayerRange && distanceFromPlayer > attackPlayerRange)
 		{
+			ChangeAnimationState(MOVE);
 			transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
+		}
+		if (distanceFromPlayer > detectPlayerRange)
+		{
+			ChangeAnimationState(IDLE);
+		}
+
+		if(distanceFromPlayer < attackPlayerRange)
+		{
+			ChangeAnimationState(IDLE);
 		}
 	}
 	private void OnDrawGizmosSelected()

@@ -17,38 +17,39 @@ public class EnemyAttack : Enemy
 
     private void Update()
 	{
-        CheckAttack();
         distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
+        CheckAttack();
     }
 
     void CheckAttack()
     {
         if(distanceFromPlayer < attackRange)
 		{
-            if (Time.time >= nextAttackTime)
+            if (Time.time > nextAttackTime)
             {
-                Debug.Log("Next Attack Time " + nextAttackTime);
-                Debug.Log("Enemy is attacking");
-
-                AttackHit(); //Do Attack Function
-
+                StartCoroutine("AttackHit"); //Do Attack Function
                 nextAttackTime = Time.time + 1f / attackRate; //sets the interval of the next attack anim 
-            }
-        }
+			}
+		}
         if(distanceFromPlayer > attackRange)
 		{
-            nextAttackTime = Time.time;
-		}
-        
+            nextAttackTime = Time.time + 1f / attackRate;
+        }
     }
 
-	void AttackHit()
+	IEnumerator AttackHit()
     {
+        ChangeAnimationState(ATTACK);
+
         Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, attackRange, playerLayers);
 
         if(hitPlayer != null)
 		{
             hitPlayer.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
+
+        yield return new WaitForSecondsRealtime(1f);
+
+        ChangeAnimationState(IDLE);
     }
 }

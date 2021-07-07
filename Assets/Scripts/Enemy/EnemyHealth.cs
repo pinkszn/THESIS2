@@ -31,7 +31,7 @@ public class EnemyHealth : Enemy
 		{
 			currentHealth -= damage;
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
-
+			ChangeAnimationState(HURT);
 			Invoke("ResetKnockBack", 0.25f);
 		}
 
@@ -68,13 +68,14 @@ public class EnemyHealth : Enemy
 	}
 	private void Die()
 	{
-		Debug.Log("Enemy Died");
-
-		//animator.SetBool("IsDead", true);
-		//GetComponent<Collider2D>().enabled = false;
-		//gameObject.SetActive(false);
+		ChangeAnimationState(DIE);
 
 		GAME_MANAGER.instance.currentEnemiesDisposed += 1;
-		Destroy(gameObject);
+
+		gameObject.SetActive(false);
+
+		//Destroy(gameObject);
+
+		//Drop materials from Object pool
 	}
 }

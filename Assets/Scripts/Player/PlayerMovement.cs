@@ -13,7 +13,6 @@ public class PlayerMovement : Player
 	private void Update()
 	{
         Movement();
-        //Debug.Log(currentMoveSpeed + (percentIncrease * ItemManager.instance.SkateBoard));
     }
 
 
@@ -26,10 +25,13 @@ public class PlayerMovement : Player
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
+        //ChangeAnimationState(PLAYER_MOVE);
+
         bool isIdle = Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0;
 
 		if (isIdle)
 		{
+            //ChangeAnimationState(PLAYER_IDLE);
             animator.SetBool("isMoving", false);
 		}
 		if(!isIdle)

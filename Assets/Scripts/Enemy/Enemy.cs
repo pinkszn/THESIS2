@@ -5,13 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	#region Animation States
-	Animator animator;
+	protected Animator animator;
 	private string currentState;
-	const string CHASE = "Chase";
-	const string ATTACK = "Attack";
-	const string DIE = "Die";
-	const string MUTATE = "Mutate";
-	const string IDLE = "Idle";
+
+	protected const string MOVE = "Move";
+	protected const string ATTACK = "Attack";
+	protected const string DIE = "Die";
+	protected const string HURT = "Hurt";
+	protected const string IDLE = "Idle";
 	#endregion
 
 	protected GameObject Player;
@@ -26,10 +27,12 @@ public class Enemy : MonoBehaviour
 		animator = GetComponent<Animator>();
 		Player = GameObject.FindGameObjectWithTag("PLAYER");
 		rb = GetComponent<Rigidbody2D>();
+
+		ChangeAnimationState(IDLE);
 	}
 
 	#region ANIMATOR HELL
-	void ChangeAnimationState(string newState)
+	protected void ChangeAnimationState(string newState)
     {
 		//stop the same animation from interrupting itself
 		if (currentState == newState) return;

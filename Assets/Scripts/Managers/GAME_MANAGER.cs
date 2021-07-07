@@ -7,7 +7,6 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
 {
     [SerializeField] TextMeshProUGUI[] SummaryText;
 
-    public float timerAmount = 120f;
     public bool isPaused = false;
 
     [Space]
