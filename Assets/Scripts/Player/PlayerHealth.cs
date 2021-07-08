@@ -42,14 +42,14 @@ public class PlayerHealth : Player
         }
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Debug.Log("COLLISSION WITH " + collision.name);
-        if (collision.gameObject.CompareTag("ENEMY"))
-        {
-            TakeDamage(1);
-            IsAlive(); //check if player has 0 health
-            //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
-        }
-    }
+	//private void OnCollisionEnter2D(Collision2D collision)
+ //   {
+ //       //Debug.Log("COLLISSION WITH " + collision.name);
+ //       if (collision.gameObject.CompareTag("ENEMY"))
+ //       {
+ //           TakeDamage(1);
+ //           IsAlive(); //check if player has 0 health
+ //           //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
+ //       }
+ //   }
 }

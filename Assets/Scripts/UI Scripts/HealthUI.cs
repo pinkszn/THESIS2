@@ -11,15 +11,10 @@ public class HealthUI : MonoBehaviour
 
     PlayerHealth playerHealth;
 
-    void Start()
-    {
-        playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
-    }
-
     void Update()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
         CheckHealthUI();
-        
     }
 
     void CheckHealthUI()
@@ -51,6 +46,4 @@ public class HealthUI : MonoBehaviour
             }
         }
     }
-
-    
 }

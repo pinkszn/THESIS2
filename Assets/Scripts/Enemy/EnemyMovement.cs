@@ -13,8 +13,11 @@ public class EnemyMovement : Enemy
 
 	private void Update()
 	{
-		distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
-		Chase();
+		if(Player != null)
+		{
+			distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
+			Chase();
+		}
 	}
 
 	public void CarpetSlowDown(float slowAmount)

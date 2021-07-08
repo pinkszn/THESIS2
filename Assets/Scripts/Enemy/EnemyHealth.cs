@@ -62,10 +62,12 @@ public class EnemyHealth : Enemy
 			Die();
 		}
 	}
+
 	void ResetKnockBack()
 	{
 		rb.velocity = Vector2.zero;
 	}
+
 	private void Die()
 	{
 		ChangeAnimationState(DIE);

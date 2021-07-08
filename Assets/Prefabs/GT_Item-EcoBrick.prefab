@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6596475756431281972}
   - component: {fileID: 6190961298156422221}
   - component: {fileID: 6259997636059737349}
+  - component: {fileID: 6232272893120629447}
   m_Layer: 0
   m_Name: GT_Item-EcoBrick
   m_TagString: Untagged
@@ -100,3 +101,42 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+--- !u!60 &6232272893120629447
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962660813627591588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.33621675, y: 0.5002816}
+      - {x: 0.23073131, y: 0.48713017}
+      - {x: -0.3485056, y: -0.09023939}
+      - {x: -0.35066462, y: -0.18485035}
+      - {x: -0.5080368, y: -0.29119906}
+      - {x: -0.5064349, y: -0.39985114}
+      - {x: -0.40025932, y: -0.50321746}
+      - {x: -0.27714416, y: -0.5032174}
+      - {x: -0.17616399, y: -0.3539947}
+      - {x: -0.09646419, y: -0.3559245}
+      - {x: 0.33269307, y: 0.047781393}
+      - {x: 0.48069534, y: 0.20430751}
+      - {x: 0.52514243, y: 0.2987744}
+      - {x: 0.43565118, y: 0.43565112}

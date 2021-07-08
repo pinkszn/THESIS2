@@ -9,37 +9,76 @@ public class EnemyAttack : Enemy
     [SerializeField] protected float attackRange = 1;
 
     private float nextAttackTime;
-    [SerializeField] private float attackRate = 0.25f; //The interval of attack animation to do when you spam the left click
+    [SerializeField] private float attackRate; //The interval of attack animation to do when you spam the left click
+    [SerializeField] private float attackFrame; //the frame before the attack
+
+    [SerializeField] private float attackCooldown;
+    private float initAttackCooldown;
+
+    bool attackCoolingDown = false;
 
     [SerializeField] LayerMask playerLayers;
 
     float distanceFromPlayer;
 
-    private void Update()
+	private new void Start()
 	{
-        distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
-        CheckAttack();
+        base.Start();
+        initAttackCooldown = attackCooldown;
+	}
+
+	private void Update()
+	{
+        if(Player != null)
+		{
+            distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
+            CheckAttack();
+        }
     }
 
     void CheckAttack()
     {
-        if(distanceFromPlayer < attackRange)
+        if(distanceFromPlayer < attackRange && !attackCoolingDown)
 		{
-            if (Time.time > nextAttackTime)
-            {
-                StartCoroutine("AttackHit"); //Do Attack Function
-                nextAttackTime = Time.time + 1f / attackRate; //sets the interval of the next attack anim 
-			}
-		}
-        if(distanceFromPlayer > attackRange)
-		{
-            nextAttackTime = Time.time + 1f / attackRate;
+            StartCoroutine("AttackHit");
+            Debug.Log("Enemy Attacked");
+            
         }
+        if (attackCoolingDown)
+        {
+            Cooldown();
+        }
+
+        if (distanceFromPlayer > attackRange)
+		{
+            attackCooldown = initAttackCooldown;
+            //ChangeAnimationState(MOVE);
+            StopCoroutine("AttackHit");
+        }
+        
     }
+
+    void Cooldown()
+	{
+        attackCooldown -= Time.deltaTime;
+
+        Debug.Log("Cooling Down");
+
+        if (attackCooldown <= 0 && attackCoolingDown)
+		{
+            attackCoolingDown = false;
+            attackCooldown = initAttackCooldown;
+		}
+	}
 
 	IEnumerator AttackHit()
     {
+        attackCoolingDown = true;
+        yield return new WaitForSeconds(0.1f);
+
         ChangeAnimationState(ATTACK);
+
+        yield return new WaitForSecondsRealtime(attackFrame);
 
         Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, attackRange, playerLayers);
 
@@ -48,8 +87,7 @@ public class EnemyAttack : Enemy
             hitPlayer.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
 
-        yield return new WaitForSecondsRealtime(1f);
-
+        yield return new WaitForSeconds(0.5f);
         ChangeAnimationState(IDLE);
     }
 }

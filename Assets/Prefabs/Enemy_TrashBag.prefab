@@ -170,6 +170,8 @@ MonoBehaviour:
   damage: 1
   attackRange: 1
   attackRate: 0.25
+  attackFrame: 0.4
+  attackCooldown: 3
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -185,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbc867454143114b9f2e7b4d57f89a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 1
   maxHealth: 3
   currentHealth: 3
 --- !u!114 &5155411419887866515

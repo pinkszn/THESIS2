@@ -170,6 +170,8 @@ MonoBehaviour:
   damage: 1
   attackRange: 1
   attackRate: 0.25
+  attackFrame: 0.35
+  attackCooldown: 3
   playerLayers:
     serializedVersion: 2
     m_Bits: 64

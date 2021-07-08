@@ -69,7 +69,8 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
     public void RetryLevel()
     {
-        StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
+        StartCoroutine(FadeScene(SceneManager.GetActiveScene().buildIndex, 0.2f, 0.3f, CanvasType.GameUI));
+        CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.GameOver);
     }
     public static void SummaryScreen(int levelIndex)
     {
