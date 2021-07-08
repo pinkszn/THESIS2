@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a39560065b78ad4ab5cbebd58f0f3b2, type: 3}
   m_Name: Paper
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 7705932005410163240, guid: 31cc2dc508de6c246aa6b038d0351819, type: 3}
   name: Paper
   description: This is Paper
+  currentCraftValue: 0
