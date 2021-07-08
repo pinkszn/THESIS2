@@ -43,7 +43,7 @@ public class EnemyAttack : Enemy
         if(distanceFromPlayer < attackRange && !attackCoolingDown)
 		{
             StartCoroutine("AttackHit");
-            Debug.Log("Enemy Attacked");
+            //Debug.Log("Enemy Attacked");
             
         }
         if (attackCoolingDown)
@@ -64,7 +64,7 @@ public class EnemyAttack : Enemy
 	{
         attackCooldown -= Time.deltaTime;
 
-        Debug.Log("Cooling Down");
+        //Debug.Log("Cooling Down");
 
         if (attackCooldown <= 0 && attackCoolingDown)
 		{

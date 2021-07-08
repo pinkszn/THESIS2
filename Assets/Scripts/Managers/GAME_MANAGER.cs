@@ -10,6 +10,10 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     public bool isPaused = false;
 
     public bool playerDead = false;
+    public bool afterScreen = false;
+
+    public bool Level01Clear = false;
+    public bool Level02Clear = false;
 
     [Space]
     public int currentEnemiesMutated, TotalEnemiesMutated;

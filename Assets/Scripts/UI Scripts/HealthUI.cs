@@ -13,7 +13,7 @@ public class HealthUI : MonoBehaviour
 
     void Update()
     {
-        if(!GAME_MANAGER.instance.playerDead && playerHealth == null)
+        if(!GAME_MANAGER.instance.playerDead && playerHealth == null && !GAME_MANAGER.instance.afterScreen)
 		{
             playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
         }           

@@ -8,6 +8,8 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 {
     public Image fader;
 
+    public int LevelIndex;
+
     private IEnumerator FadeScene(int index, float duration, float waitTime, CanvasType _canvasType)
     {
         fader.gameObject.SetActive(true);
@@ -20,6 +22,8 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
         yield return new WaitForSeconds(waitTime);
 
         SceneManager.LoadScene(index);
+
+        GAME_MANAGER.instance.afterScreen = false;
 
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
         {
@@ -34,7 +38,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     public void StartGame()
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
-
+        LevelIndex = 1;
         GAME_MANAGER.instance.playerDead = false;
         AudioManager.instance.Play("GameStart");
         BGMManager.Instance.Play("BGM01");
@@ -42,13 +46,14 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
     public void Level2()
     {
-        StartCoroutine(FadeScene(5, 0.2f, 0.3f, CanvasType.GameUI));
+        StartCoroutine(FadeScene(4, 0.2f, 0.3f, CanvasType.GameUI));
+        LevelIndex = 4;
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
     public void Level3()
     {
-        StartCoroutine(FadeScene(6, 0.2f, 0.3f, CanvasType.GameUI));
+        StartCoroutine(FadeScene(5, 0.2f, 0.3f, CanvasType.GameUI));
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
@@ -80,5 +85,18 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     {
         instance.StartCoroutine(instance.FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
     }
+
+    public void NextLevel()
+	{
+        switch(LevelIndex)
+		{
+            case 1:
+                Level2();
+                break;
+            case 4:
+                Level3();
+                break;
+		}
+	}
     #endregion
 }

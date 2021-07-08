@@ -8,11 +8,10 @@ public class EndPlatform : MonoBehaviour
 	{
 		if(collision.gameObject.CompareTag("PLAYER"))
 		{
+			GAME_MANAGER.instance.afterScreen = true;
 			EndLevel();
 		}
-		
 	}
-
 	void EndLevel()
 	{
 		SimpleSceneChanger.SummaryScreen(LevelIndex);

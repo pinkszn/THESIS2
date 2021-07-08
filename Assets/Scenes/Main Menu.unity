@@ -3516,6 +3516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersist: 0
   fader: {fileID: 586406525}
+  LevelIndex: 0
 --- !u!4 &487681299
 Transform:
   m_ObjectHideFlags: 0
@@ -5451,7 +5452,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 818368758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 487681298}
+        m_TargetAssemblyTypeName: SimpleSceneChanger, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &818368758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9501,6 +9514,8 @@ MonoBehaviour:
   - {fileID: 49629020}
   isPaused: 0
   playerDead: 0
+  Level01Clear: 0
+  Level02Clear: 0
   currentEnemiesMutated: 0
   TotalEnemiesMutated: 0
   currentEnemiesDisposed: 0
