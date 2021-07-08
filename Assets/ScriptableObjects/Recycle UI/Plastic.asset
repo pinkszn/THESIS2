@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6040e48edce1764887ce8acef4c6756, type: 3}
   m_Name: Plastic
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d29c51a1b8628424f8ad7241b9d9ffe6, type: 3}
   name: Plastic
   description: This is plastic
+  currentCraftValue: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ebe8a6de104e24198016d1aaf25d9a, type: 3}
   m_Name: Aluminum
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6fb5fa8923d0fba4eb3ecfa52d7a5a54, type: 3}
   name: Aluminum
   description: This is Aluminum
+  currentCraftValue: 0
