@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  attackRange: 1
+  attackRange: 0.62
   attackRate: 0.25
   attackFrame: 0.6
   attackCooldown: 3
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  ItemToDrop: 0
   maxHealth: 3
   currentHealth: 3
   isKnockBack: 0

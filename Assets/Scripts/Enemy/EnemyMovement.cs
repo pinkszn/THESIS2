@@ -7,7 +7,7 @@ public class EnemyMovement : Enemy
 	[SerializeField] float moveSpeed;
 
 	[SerializeField] protected float detectPlayerRange = 2f;
-	[SerializeField] protected float attackPlayerRange = 1f;
+	private float attackPlayerRange;
 
 	float distanceFromPlayer;
 
@@ -16,6 +16,7 @@ public class EnemyMovement : Enemy
 
 	private new void Update()
 	{
+		attackPlayerRange = GetComponent<EnemyAttack>().attackRange;
 		isKnockBack = GetComponent<EnemyHealth>().isKnockBack;
 
 		if(Player == null)
@@ -71,6 +72,5 @@ public class EnemyMovement : Enemy
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.DrawWireSphere(transform.position, detectPlayerRange);
-		Gizmos.DrawWireSphere(transform.position, attackPlayerRange);
 	}
 }
