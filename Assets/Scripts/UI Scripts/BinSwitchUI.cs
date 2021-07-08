@@ -15,12 +15,10 @@ public class BinSwitchUI : MonoBehaviour
             BinColorSwitch();
         }
 
-        if(binSwitch == null)
+        if(binSwitch == null && !GAME_MANAGER.instance.playerDead)
 		{
             binSwitch = GameObject.FindGameObjectWithTag("PLAYER").GetComponentInChildren<BinSwitch>();
         }            
-
-        
     }
 
 	void BinColorSwitch()

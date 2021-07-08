@@ -25,6 +25,8 @@ public class EnemyHealth : Enemy
 	[SerializeField] ItemDrop ItemToDrop;
 	#endregion
 
+	GameObject dropObject;
+
 	[SerializeField] int maxHealth = 3;
     [SerializeField] int currentHealth;
 
@@ -100,25 +102,31 @@ public class EnemyHealth : Enemy
 
 		GAME_MANAGER.instance.currentEnemiesDisposed += 1;
 
-		gameObject.SetActive(false);
+		int r = Random.Range(1, 5);
 
-		//Destroy(gameObject);
-
-		switch(ItemToDrop)
+		for (int i = 1; i <= r; i++)
 		{
-			case ItemDrop.Aluminum:
-				ObjectPoolManager.Instance.GetPooledObject("PickUpAluminum");
-				break;
-			case ItemDrop.Paper:
-				ObjectPoolManager.Instance.GetPooledObject("PickUpPaper");
-				break;
-			case ItemDrop.Plastic:
-				ObjectPoolManager.Instance.GetPooledObject("PickUpPlastic");
-				break;
-			case ItemDrop.Glass:
-				ObjectPoolManager.Instance.GetPooledObject("PickUpGlass");
-				break;
+			switch (ItemToDrop)
+			{
+				case ItemDrop.Aluminum:
+					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpAluminum");
+					break;
+				case ItemDrop.Paper:
+					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpPaper");
+					break;
+				case ItemDrop.Plastic:
+					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpPlastic");
+					break;
+				case ItemDrop.Glass:
+					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpGlass");
+					break;
+			}
 
+			Vector2 spawnPos = transform.localPosition;
+			dropObject.transform.position = spawnPos;
+			dropObject.SetActive(true);
 		}
+
+		gameObject.SetActive(false);
 	}
 }

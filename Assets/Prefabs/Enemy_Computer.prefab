@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  ItemToDrop: 0
+  ItemToDrop: 3
   maxHealth: 3
   currentHealth: 3
   isKnockBack: 0
