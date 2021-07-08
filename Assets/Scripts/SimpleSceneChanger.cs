@@ -42,6 +42,19 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
         BGMManager.Instance.Play("BGM01");
     }
 
+    public void Level2()
+    {
+        StartCoroutine(FadeScene(5, 0.2f, 0.3f, CanvasType.GameUI));
+        //AudioManager.instance.Play();
+        //BGMManager.instance.Play()
+    }
+    public void Level3()
+    {
+        StartCoroutine(FadeScene(6, 0.2f, 0.3f, CanvasType.GameUI));
+        //AudioManager.instance.Play();
+        //BGMManager.instance.Play()
+    }
+
     public void QuitGame()
     {
         Application.Quit();

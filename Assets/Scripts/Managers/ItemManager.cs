@@ -29,7 +29,7 @@ public class ItemManager : Singleton<ItemManager>
     public int EcoBricks;
     public int Carpet;
     public int BaseballBat;
-    public int Soap;
+    public int Skateboard;
 
     [Space] //Passive Powerups;
     public int SkateBoard;
