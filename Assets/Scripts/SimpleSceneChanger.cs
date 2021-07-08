@@ -8,6 +8,8 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 {
     public Image fader;
 
+    public int LevelIndex;
+
     private IEnumerator FadeScene(int index, float duration, float waitTime, CanvasType _canvasType)
     {
         fader.gameObject.SetActive(true);
@@ -21,6 +23,8 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
         SceneManager.LoadScene(index);
 
+        GAME_MANAGER.instance.afterScreen = false;
+
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, t));
@@ -30,27 +34,26 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
         }
     }
 
-    private void Update()
-    {
-
-    }
     #region Scenes
     public void StartGame()
     {
         StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
+        LevelIndex = 1;
+        GAME_MANAGER.instance.playerDead = false;
         AudioManager.instance.Play("GameStart");
         BGMManager.Instance.Play("BGM01");
     }
 
     public void Level2()
     {
-        StartCoroutine(FadeScene(5, 0.2f, 0.3f, CanvasType.GameUI));
+        StartCoroutine(FadeScene(4, 0.2f, 0.3f, CanvasType.GameUI));
+        LevelIndex = 4;
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
     public void Level3()
     {
-        StartCoroutine(FadeScene(6, 0.2f, 0.3f, CanvasType.GameUI));
+        StartCoroutine(FadeScene(5, 0.2f, 0.3f, CanvasType.GameUI));
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
@@ -62,23 +65,38 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
     public void MainMenu()
     {
-        StartCoroutine(FadeScene(0, 0.2f, 0.3f, CanvasType.MainMenu));
+        instance.StartCoroutine(instance.FadeScene(0, 0.2f, 0.3f, CanvasType.MainMenu));
         GAME_MANAGER.Instance.ResumeGame();
         BGMManager.Instance.Stop("BGM01");
     }
 
     public void RetryLevel()
     {
-        StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.GameUI));
+        StartCoroutine(FadeScene(SceneManager.GetActiveScene().buildIndex, 0.2f, 0.3f, CanvasType.GameUI));
+        GAME_MANAGER.instance.playerDead = false;
+        CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.GameOver);
     }
     public static void SummaryScreen(int levelIndex)
     {
         instance.StartCoroutine(instance.FadeScene(levelIndex, 0.2f, 0.3f, CanvasType.EndScreen));
     }
 
-    public void CommunityScreen()
+    public static void CommunityScreen()
     {
-        StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
+        instance.StartCoroutine(instance.FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
     }
+
+    public void NextLevel()
+	{
+        switch(LevelIndex)
+		{
+            case 1:
+                Level2();
+                break;
+            case 4:
+                Level3();
+                break;
+		}
+	}
     #endregion
 }

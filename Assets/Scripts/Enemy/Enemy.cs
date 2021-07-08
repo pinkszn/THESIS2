@@ -22,13 +22,21 @@ public class Enemy : MonoBehaviour
 	protected bool isMoving;
 	protected bool isAttacking;
 
-	private void Start()
+	protected void Start()
 	{
-		animator = GetComponent<Animator>();
 		Player = GameObject.FindGameObjectWithTag("PLAYER");
+		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 
 		ChangeAnimationState(IDLE);
+	}
+
+	protected void Update()
+	{
+		if(Player == null)
+		{
+			Player = GameObject.FindGameObjectWithTag("PLAYER");
+		}
 	}
 
 	#region ANIMATOR HELL

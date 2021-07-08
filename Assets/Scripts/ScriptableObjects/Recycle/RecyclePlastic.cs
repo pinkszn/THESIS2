@@ -9,7 +9,7 @@ public class RecyclePlastic : RecycleItemsBase
 	{
 		if (isProcessing)
 		{
-			ItemManager.instance.recycledPlastic += 1;
+			ItemManager.instance.recycledPlastic += currentCraftValue;
 			ResetRecycleProcess();
 			Debug.Log("Plastic is seperated");
 		}
@@ -19,7 +19,18 @@ public class RecyclePlastic : RecycleItemsBase
 	{
 		if (ItemManager.instance.plastic > 0)
 		{
-			ItemManager.instance.plastic -= 1;
+			if (ItemManager.instance.plastic <= 5)
+			{
+				currentCraftValue = ItemManager.instance.plastic;
+				ItemManager.instance.plastic -= currentCraftValue;
+			}
+			else
+			{
+				ItemManager.instance.plastic -= 5;
+				currentCraftValue = 5;
+			}
+
+			
 			isProcessing = true;
 			DisableButtons();
 			RecycleManager.instance.ProcessButtons[0].interactable = false;

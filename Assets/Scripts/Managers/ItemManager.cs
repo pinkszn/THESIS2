@@ -39,6 +39,7 @@ public class ItemManager : Singleton<ItemManager>
     public int DonatedEcoBricksAmount;
     public int DonatedCarpetAmount;
     public int DonatedSkateBoardAmount;
+    public int DonatedBaseballBat;
 
 	public void InitializeData() //call this function when starting a level
 	{
@@ -61,7 +62,7 @@ public class ItemManager : Singleton<ItemManager>
 
     void ControlButtons() //Hard Code rin muna to, looking for a better solution
 	{
-        if(plastic > 2 && glass > 1)
+        if(plastic > 2 && glass > 1) //EcoBrick Craft Button
 		{
             CraftingButtons[0].interactable = true;
 		}
@@ -69,6 +70,44 @@ public class ItemManager : Singleton<ItemManager>
 		{
             CraftingButtons[0].interactable = false;
         }
+        
+        if(plastic > 3) //Carpet Button
+		{
+            CraftingButtons[1].interactable = true;
+		}
+        else
+		{
+            CraftingButtons[1].interactable = false;
+        }
+        
+        if(aluminum > 2) //Baseball Bat
+		{
+            CraftingButtons[2].interactable = true;
+		}
+        else
+		{
+            CraftingButtons[2].interactable = false;
+        }
+        
+        if(plastic > 2 && aluminum > 2) //Skateboard
+		{
+            CraftingButtons[3].interactable = true;
+		}
+        else
+		{
+            CraftingButtons[3].interactable = false;
+        }
+        
+        if(paper > 3 && CardboardHeart < MaxCardboardHeart) //Cardboard Heart
+		{
+            CraftingButtons[4].interactable = true;
+		}
+        else
+		{
+            CraftingButtons[4].interactable = false;
+        }
+
+        
     }
 
     //name of function subject to change
@@ -96,18 +135,6 @@ public class ItemManager : Singleton<ItemManager>
             return;
         }
 	}
-    public void CraftSkateBoard()
-	{
-        if (plastic > 2 && aluminum > 2)
-        {
-            plastic -= 2;
-            aluminum -= 2;
-            SkateBoard += 1;
-            GAME_MANAGER.instance.currentMaterialsRecycled += 4;
-            AudioManager.instance.Play("CraftedItem");
-            return;
-        }
-	}
     public void CraftBaseballBat()
 	{
         if (aluminum > 2)
@@ -119,6 +146,18 @@ public class ItemManager : Singleton<ItemManager>
             return;
         }
 	}
+    public void CraftSkateBoard()
+    {
+        if (plastic > 2 && aluminum > 2)
+        {
+            plastic -= 2;
+            aluminum -= 2;
+            SkateBoard += 1;
+            GAME_MANAGER.instance.currentMaterialsRecycled += 4;
+            AudioManager.instance.Play("CraftedItem");
+            return;
+        }
+    }
     public void CraftCardboardHeart()
 	{
         if (paper > 3 && CardboardHeart < MaxCardboardHeart)
@@ -131,40 +170,4 @@ public class ItemManager : Singleton<ItemManager>
         }
 	}
     #endregion
-
-    #region Community Screen
-    public void DonateEcoBrick()//Hard Code Muna
-    {
-        if (EcoBricks > 0)
-        {
-            DonatedEcoBricksAmount += EcoBricks;
-            EcoBricks = 0;
-            Debug.Log("Donated all Eco Bricks");
-            //AudioManager.instance.Play("DonateTemp");
-        }
-    }
-    public void DonateCarpet()//Hard Code Muna
-    {
-        if (Carpet > 0)
-        {
-            DonatedCarpetAmount += Carpet;
-            Carpet = 0;
-            Debug.Log("Donated all Carpet");
-            //AudioManager.instance.Play("DonateTemp");
-        }
-    }
-
-    public void DonateSkateBoard()//Hard Code Muna
-    {
-        if (SkateBoard > 0)
-        {
-            DonatedSkateBoardAmount += SkateBoard;
-            SkateBoard = 0;
-            Debug.Log("Donated all Skate Boards");
-            //AudioManager.instance.Play("DonateTemp");
-        }
-    }
-    #endregion
-
-
 }

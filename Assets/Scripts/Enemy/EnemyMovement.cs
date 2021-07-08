@@ -7,14 +7,28 @@ public class EnemyMovement : Enemy
 	[SerializeField] float moveSpeed;
 
 	[SerializeField] protected float detectPlayerRange = 2f;
-	[SerializeField] protected float attackPlayerRange = 1f;
+	private float attackPlayerRange;
 
 	float distanceFromPlayer;
 
-	private void Update()
+	bool isKnockBack;
+
+
+	private new void Update()
 	{
-		distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
-		Chase();
+		attackPlayerRange = GetComponent<EnemyAttack>().attackRange;
+		isKnockBack = GetComponent<EnemyHealth>().isKnockBack;
+
+		if(Player == null)
+		{
+			Player = GameObject.FindGameObjectWithTag("PLAYER");
+		}
+
+		if(Player != null)
+		{
+			distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
+			Chase();
+		}
 	}
 
 	public void CarpetSlowDown(float slowAmount)
@@ -40,17 +54,17 @@ public class EnemyMovement : Enemy
 			transform.localScale = new Vector2(1, 1);
 		}
 
-		if (distanceFromPlayer < detectPlayerRange && distanceFromPlayer > attackPlayerRange)
+		if (distanceFromPlayer < detectPlayerRange && distanceFromPlayer > attackPlayerRange && isKnockBack == false)
 		{
 			ChangeAnimationState(MOVE);
 			transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
 		}
-		if (distanceFromPlayer > detectPlayerRange)
+		if (distanceFromPlayer > detectPlayerRange && isKnockBack == false)
 		{
 			ChangeAnimationState(IDLE);
 		}
 
-		if(distanceFromPlayer < attackPlayerRange)
+		if(distanceFromPlayer < attackPlayerRange && isKnockBack == false)
 		{
 			ChangeAnimationState(IDLE);
 		}
@@ -58,6 +72,5 @@ public class EnemyMovement : Enemy
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.DrawWireSphere(transform.position, detectPlayerRange);
-		Gizmos.DrawWireSphere(transform.position, attackPlayerRange);
 	}
 }

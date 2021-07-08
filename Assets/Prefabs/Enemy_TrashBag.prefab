@@ -168,8 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  attackRange: 1
+  attackRange: 0.71
   attackRate: 0.25
+  attackFrame: 0.4
+  attackCooldown: 3
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -185,9 +187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbc867454143114b9f2e7b4d57f89a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 1
+  dropObject: {fileID: 8614522167206222119, guid: 57111a5ae39894348a5bae27df16c711,
+    type: 3}
   maxHealth: 3
   currentHealth: 3
+  isKnockBack: 0
 --- !u!114 &5155411419887866515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +205,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d08b92d90e2a4942bc25c2be61939cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectPlayerRange: 2
-  attackPlayerRange: 1
+  moveSpeed: 1
+  detectPlayerRange: 2.5

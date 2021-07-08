@@ -9,7 +9,16 @@ public class RecyclePaper : RecycleItemsBase
 	{
 		if (ItemManager.instance.paper > 0)
 		{
-			ItemManager.instance.paper -= 1;
+			if (ItemManager.instance.paper <= 5)
+			{
+				currentCraftValue = ItemManager.instance.paper;
+				ItemManager.instance.paper -= currentCraftValue;
+			}
+			else
+			{
+				ItemManager.instance.paper -= 5;
+				currentCraftValue = 5;
+			}
 			isProcessing = true;
 			DisableButtons();
 			RecycleManager.instance.ProcessButtons[2].interactable = true;
@@ -25,7 +34,7 @@ public class RecyclePaper : RecycleItemsBase
 	{
 		if (isProcessing)
 		{
-			ItemManager.instance.recycledPaper += 1;
+			ItemManager.instance.recycledPaper += currentCraftValue;
 			ResetRecycleProcess();
 			Debug.Log("Paper is Crushed");
 		}

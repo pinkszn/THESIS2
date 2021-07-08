@@ -12,15 +12,29 @@ public class EnemyHealth : Enemy
 		NonDecomposable,
 		Mutated
 	};
+
+
 	[SerializeField] EnemyType enemyType;
 	#endregion
+
+	[SerializeField] GameObject dropObject;
 
 	[SerializeField] int maxHealth = 3;
     [SerializeField] int currentHealth;
 
+	public bool isKnockBack = false;
+
 	private void Awake()
 	{
 		currentHealth = maxHealth;
+	}
+
+	private new void Update()
+	{
+		if (Player == null)
+		{
+			Player = GameObject.FindGameObjectWithTag("PLAYER");
+		}
 	}
 
 	public void TakeDamage(int damage, float knockbackStrength, string PlayerAttackType)
@@ -32,6 +46,7 @@ public class EnemyHealth : Enemy
 			currentHealth -= damage;
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 			ChangeAnimationState(HURT);
+			isKnockBack = true;
 			Invoke("ResetKnockBack", 0.25f);
 		}
 
@@ -45,6 +60,7 @@ public class EnemyHealth : Enemy
 		Vector2 direction = EcoBrick.transform.position - transform.position;
 		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 
+		isKnockBack = true;
 		Invoke("ResetKnockBack", 0.25f);
 	}
 
@@ -55,6 +71,7 @@ public class EnemyHealth : Enemy
 		currentHealth -= damage;
 		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 
+		isKnockBack = true;
 		Invoke("ResetKnockBack", 0.25f);
 
 		if (currentHealth <= 0)
@@ -62,20 +79,31 @@ public class EnemyHealth : Enemy
 			Die();
 		}
 	}
+
 	void ResetKnockBack()
 	{
 		rb.velocity = Vector2.zero;
+		isKnockBack = false;
 	}
-	private void Die()
+
+	void Die()
 	{
 		ChangeAnimationState(DIE);
 
+		//yield return new WaitForSeconds(1f);
+
 		GAME_MANAGER.instance.currentEnemiesDisposed += 1;
 
-		gameObject.SetActive(false);
+		int r = Random.Range(1, 5);
 
-		//Destroy(gameObject);
+		for (int i = 1; i <= r; i++)
+		{
+			Vector2 spawnPos = transform.localPosition;
+			Instantiate(dropObject, spawnPos, Quaternion.identity);
+			//dropObject.transform.position = spawnPos;
+			//dropObject.SetActive(true);
+		}
 
-		//Drop materials from Object pool
+		Destroy(gameObject);
 	}
 }

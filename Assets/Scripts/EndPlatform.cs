@@ -6,9 +6,12 @@ public class EndPlatform : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		EndLevel();
+		if(collision.gameObject.CompareTag("PLAYER"))
+		{
+			GAME_MANAGER.instance.afterScreen = true;
+			EndLevel();
+		}
 	}
-
 	void EndLevel()
 	{
 		SimpleSceneChanger.SummaryScreen(LevelIndex);

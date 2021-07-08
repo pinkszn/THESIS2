@@ -11,15 +11,16 @@ public class HealthUI : MonoBehaviour
 
     PlayerHealth playerHealth;
 
-    void Start()
-    {
-        playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
-    }
-
     void Update()
     {
-        CheckHealthUI();
-        
+        if(!GAME_MANAGER.instance.playerDead && playerHealth == null && !GAME_MANAGER.instance.afterScreen)
+		{
+            playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
+        }           
+        if (!GAME_MANAGER.instance.playerDead && playerHealth != null)
+		{
+            CheckHealthUI();
+        }
     }
 
     void CheckHealthUI()
@@ -51,6 +52,4 @@ public class HealthUI : MonoBehaviour
             }
         }
     }
-
-    
 }
