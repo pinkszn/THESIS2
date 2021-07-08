@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76595a171346dc24abf1bdf478aa81ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EcoBrickProjectile: {fileID: 1567177929568184711, guid: efde14a43ab06b14d8031c6d8f5d7839,
+  EcoBrickProjectile: {fileID: 6596475756431281972, guid: 59a961e84921a4b4faf20565f8a2e32c,
     type: 3}
 --- !u!1 &7426094484983403869
 GameObject:

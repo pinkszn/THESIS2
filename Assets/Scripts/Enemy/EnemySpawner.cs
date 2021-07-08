@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    enum EnemyType
-	{
-        Recyclable,
-        Decomposable,
-        NonDecomposable,
-        Mutated
-    };
+ //   enum EnemyToSpawn
+	//{
+ //       Computer,
+ //       TrashCan,
+ //       TrashBag,
+ //       Paper
+ //   };
 
-    [SerializeField] EnemyType enemyTypeToSpawn;
+ //   [SerializeField] EnemyToSpawn enemyToSpawn;
+
+    [SerializeField] GameObject enemyObject;
 
     public Vector2 size;
 
@@ -29,9 +31,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!isSpawning &&  numberSpawned != spawnLimit)
+        if (!isSpawning && numberSpawned != spawnLimit)
         {
-            //StartCoroutine(SpawnCoroutine());
+            Debug.Log("Spawning Enemy");
+            StartCoroutine(SpawnCoroutine());
         }
     }
 
@@ -46,12 +49,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject enemyObject = ObjectPoolManager.Instance.GetPooledObject(enemyTypeToSpawn.ToString());
+        //GameObject enemyObject = ObjectPoolManager.Instance.GetPooledObject(enemyToSpawn.ToString());
         if (enemyObject != null)
         {
             Vector2 spawnPos = transform.localPosition + new Vector3(Random.Range(-size.x / 2 , size.x / 2), Random.Range(-size.y / 2, size.y / 2), 0);
-            enemyObject.transform.position = spawnPos;
-            enemyObject.SetActive(true);
+            Instantiate(enemyObject,spawnPos,Quaternion.identity);
+            //enemyObject.transform.position = spawnPos;
+            //enemyObject.SetActive(true);
             numberSpawned++;
         }
     }

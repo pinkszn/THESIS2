@@ -24,6 +24,7 @@ public class PlayerHealth : Player
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+            GAME_MANAGER.instance.playerDead = true;
             CanvasManager.Instance.SecondaryCanvas(CanvasType.GameOver);
         }
         else
@@ -35,21 +36,22 @@ public class PlayerHealth : Player
         if(CardboardHealth > 0)
 		{
             CardboardHealth -= damage;
-		}
+            ItemManager.instance.CardboardHeart -= damage;
+        }
 		else
 		{
             CurrentHealth -= damage;
         }
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Debug.Log("COLLISSION WITH " + collision.name);
-        if (collision.gameObject.CompareTag("ENEMY"))
-        {
-            TakeDamage(1);
-            IsAlive(); //check if player has 0 health
-            //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
-        }
-    }
+	//private void OnCollisionEnter2D(Collision2D collision)
+ //   {
+ //       //Debug.Log("COLLISSION WITH " + collision.name);
+ //       if (collision.gameObject.CompareTag("ENEMY"))
+ //       {
+ //           TakeDamage(1);
+ //           IsAlive(); //check if player has 0 health
+ //           //Debug.Log("Health: " + CurrentHealth + "/" + MaxHealth);
+ //       }
+ //   }
 }

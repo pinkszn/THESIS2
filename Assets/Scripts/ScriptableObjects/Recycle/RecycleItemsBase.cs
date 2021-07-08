@@ -15,6 +15,8 @@ public abstract class RecycleItemsBase : ScriptableObject
 
     protected bool isProcessing = false;
 
+    public int currentCraftValue;
+
     public abstract void Seperate();
     public abstract void Crush();
     public abstract void Wash();

@@ -10,7 +10,17 @@ public class RecycleAluminum : RecycleItemsBase
 	{
 		if (ItemManager.instance.aluminum > 0)
 		{
-			ItemManager.instance.aluminum -= 1;
+			if (ItemManager.instance.aluminum <= 5)
+			{
+				currentCraftValue = ItemManager.instance.aluminum;
+				ItemManager.instance.aluminum -= currentCraftValue;
+			}
+			else
+			{
+				ItemManager.instance.aluminum -= 5;
+				currentCraftValue = 5;
+			}
+
 			isProcessing = true;
 			DisableButtons();
 			RecycleManager.instance.ProcessButtons[1].interactable = true;
@@ -27,7 +37,7 @@ public class RecycleAluminum : RecycleItemsBase
 	{
 		if (isProcessing)
 		{
-			ItemManager.instance.recycledAluminum += 1;
+			ItemManager.instance.recycledAluminum += currentCraftValue;
 			ResetRecycleProcess();
 			Debug.Log("Plastic is seperated");
 		}
