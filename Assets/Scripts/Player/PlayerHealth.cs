@@ -15,6 +15,7 @@ public class PlayerHealth : Player
 	}
     private void Update()
     {
+
         CardboardHealth = ItemManager.instance.CardboardHeart;
         IsAlive();
     }
