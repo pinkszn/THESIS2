@@ -18,15 +18,21 @@ public class EnemyHealth : Enemy
 	#endregion
 
 	[SerializeField] GameObject dropObject;
+	protected SpriteRenderer spriteRenderer;
 
 	[SerializeField] int maxHealth = 3;
     [SerializeField] int currentHealth;
+
+	[SerializeField] int mutatedMaxHealth;
+
+	bool mutatedState = false;
 
 	public bool isKnockBack = false;
 
 	private void Awake()
 	{
 		currentHealth = maxHealth;
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	private new void Update()
@@ -42,6 +48,21 @@ public class EnemyHealth : Enemy
 		Vector2 direction = Player.transform.position - transform.position;
 
 		if (enemyType.ToString() == PlayerAttackType)
+		{
+			currentHealth -= damage;
+			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+			ChangeAnimationState(HURT);
+			isKnockBack = true;
+			Invoke("ResetKnockBack", 0.25f);
+		}
+		if(enemyType.ToString() != PlayerAttackType && !mutatedState)
+		{
+			StartCoroutine("MutatedState");
+			//MutatedState();
+			//Invoke("ResetKnockBack", 0.25f);
+		}
+
+		if(mutatedState)
 		{
 			currentHealth -= damage;
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
@@ -84,6 +105,19 @@ public class EnemyHealth : Enemy
 	{
 		rb.velocity = Vector2.zero;
 		isKnockBack = false;
+		ChangeAnimationState(MOVE);
+	}
+
+	IEnumerator MutatedState()
+	{
+		spriteRenderer.color = Color.red;
+
+		maxHealth = mutatedMaxHealth;
+		currentHealth = mutatedMaxHealth;
+
+		yield return new WaitForSeconds(0.5f);
+
+		mutatedState = true;
 	}
 
 	void Die()

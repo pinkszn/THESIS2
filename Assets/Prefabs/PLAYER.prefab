@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 0.5
-  attackDamage: 2
+  attackDamage: 1
   attackStateCounter: 0
   knockbackStrength: 1.5
   isAttacking: 0
@@ -609,3 +609,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa89869f3f126b4c99a319341996762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedWeapon: 0
