@@ -11,8 +11,13 @@ public class EnemyMovement : Enemy
 
 	float distanceFromPlayer;
 
+	bool isKnockBack;
+
+
 	private void Update()
 	{
+		isKnockBack = GetComponent<EnemyHealth>().isKnockBack;
+
 		if(Player != null)
 		{
 			distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);
@@ -43,17 +48,17 @@ public class EnemyMovement : Enemy
 			transform.localScale = new Vector2(1, 1);
 		}
 
-		if (distanceFromPlayer < detectPlayerRange && distanceFromPlayer > attackPlayerRange)
+		if (distanceFromPlayer < detectPlayerRange && distanceFromPlayer > attackPlayerRange && isKnockBack == false)
 		{
 			ChangeAnimationState(MOVE);
 			transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
 		}
-		if (distanceFromPlayer > detectPlayerRange)
+		if (distanceFromPlayer > detectPlayerRange && isKnockBack == false)
 		{
 			ChangeAnimationState(IDLE);
 		}
 
-		if(distanceFromPlayer < attackPlayerRange)
+		if(distanceFromPlayer < attackPlayerRange && isKnockBack == false)
 		{
 			ChangeAnimationState(IDLE);
 		}

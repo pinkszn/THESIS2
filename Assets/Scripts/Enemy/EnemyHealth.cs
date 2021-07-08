@@ -18,6 +18,8 @@ public class EnemyHealth : Enemy
 	[SerializeField] int maxHealth = 3;
     [SerializeField] int currentHealth;
 
+	public bool isKnockBack = false;
+
 	private void Awake()
 	{
 		currentHealth = maxHealth;
@@ -32,6 +34,7 @@ public class EnemyHealth : Enemy
 			currentHealth -= damage;
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 			ChangeAnimationState(HURT);
+			isKnockBack = true;
 			Invoke("ResetKnockBack", 0.25f);
 		}
 
@@ -45,6 +48,7 @@ public class EnemyHealth : Enemy
 		Vector2 direction = EcoBrick.transform.position - transform.position;
 		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 
+		isKnockBack = true;
 		Invoke("ResetKnockBack", 0.25f);
 	}
 
@@ -55,6 +59,7 @@ public class EnemyHealth : Enemy
 		currentHealth -= damage;
 		rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 
+		isKnockBack = true;
 		Invoke("ResetKnockBack", 0.25f);
 
 		if (currentHealth <= 0)
@@ -66,11 +71,14 @@ public class EnemyHealth : Enemy
 	void ResetKnockBack()
 	{
 		rb.velocity = Vector2.zero;
+		isKnockBack = false;
 	}
 
-	private void Die()
+	void Die()
 	{
 		ChangeAnimationState(DIE);
+
+		//yield return new WaitForSeconds(1f);
 
 		GAME_MANAGER.instance.currentEnemiesDisposed += 1;
 
