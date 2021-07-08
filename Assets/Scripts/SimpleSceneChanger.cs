@@ -79,6 +79,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
     public void CommunityScreen()
     {
+
         StartCoroutine(FadeScene(3, 0.2f, 0.3f, CanvasType.CommunityScreen));
     }
     #endregion
