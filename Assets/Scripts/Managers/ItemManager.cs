@@ -39,6 +39,7 @@ public class ItemManager : Singleton<ItemManager>
     public int DonatedEcoBricksAmount;
     public int DonatedCarpetAmount;
     public int DonatedSkateBoardAmount;
+    public int DonatedBaseballBat;
 
 	public void InitializeData() //call this function when starting a level
 	{
@@ -131,40 +132,4 @@ public class ItemManager : Singleton<ItemManager>
         }
 	}
     #endregion
-
-    #region Community Screen
-    public void DonateEcoBrick()//Hard Code Muna
-    {
-        if (EcoBricks > 0)
-        {
-            DonatedEcoBricksAmount += EcoBricks;
-            EcoBricks = 0;
-            Debug.Log("Donated all Eco Bricks");
-            //AudioManager.instance.Play("DonateTemp");
-        }
-    }
-    public void DonateCarpet()//Hard Code Muna
-    {
-        if (Carpet > 0)
-        {
-            DonatedCarpetAmount += Carpet;
-            Carpet = 0;
-            Debug.Log("Donated all Carpet");
-            //AudioManager.instance.Play("DonateTemp");
-        }
-    }
-
-    public void DonateSkateBoard()//Hard Code Muna
-    {
-        if (SkateBoard > 0)
-        {
-            DonatedSkateBoardAmount += SkateBoard;
-            SkateBoard = 0;
-            Debug.Log("Donated all Skate Boards");
-            //AudioManager.instance.Play("DonateTemp");
-        }
-    }
-    #endregion
-
-
 }
