@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    enum EnemyType
+    enum EnemyToSpawn
 	{
-        Recyclable,
-        Decomposable,
-        NonDecomposable,
-        Mutated
+        Computer,
+        TrashCan,
+        TrashBag,
+        Paper
     };
 
-    [SerializeField] EnemyType enemyTypeToSpawn;
+    [SerializeField] EnemyToSpawn enemyToSpawn;
 
     public Vector2 size;
 
@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!isSpawning &&  numberSpawned != spawnLimit)
         {
-            //StartCoroutine(SpawnCoroutine());
+            StartCoroutine(SpawnCoroutine());
         }
     }
 
@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject enemyObject = ObjectPoolManager.Instance.GetPooledObject(enemyTypeToSpawn.ToString());
+        GameObject enemyObject = ObjectPoolManager.Instance.GetPooledObject(enemyToSpawn.ToString());
         if (enemyObject != null)
         {
             Vector2 spawnPos = transform.localPosition + new Vector3(Random.Range(-size.x / 2 , size.x / 2), Random.Range(-size.y / 2, size.y / 2), 0);

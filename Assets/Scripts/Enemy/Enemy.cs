@@ -31,6 +31,14 @@ public class Enemy : MonoBehaviour
 		ChangeAnimationState(IDLE);
 	}
 
+	protected void Update()
+	{
+		if(Player == null)
+		{
+			Player = GameObject.FindGameObjectWithTag("PLAYER");
+		}
+	}
+
 	#region ANIMATOR HELL
 	protected void ChangeAnimationState(string newState)
     {

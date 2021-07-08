@@ -27,8 +27,10 @@ public class EnemyAttack : Enemy
         initAttackCooldown = attackCooldown;
 	}
 
-	private void Update()
+	new void Update()
 	{
+        base.Update();
+
         if(Player != null)
 		{
             distanceFromPlayer = Vector2.Distance(transform.position, Player.transform.position);

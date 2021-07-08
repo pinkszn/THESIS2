@@ -6,7 +6,11 @@ public class EndPlatform : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		EndLevel();
+		if(collision.gameObject.CompareTag("PLAYER"))
+		{
+			EndLevel();
+		}
+		
 	}
 
 	void EndLevel()

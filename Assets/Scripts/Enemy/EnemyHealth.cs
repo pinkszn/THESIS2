@@ -12,7 +12,17 @@ public class EnemyHealth : Enemy
 		NonDecomposable,
 		Mutated
 	};
+
+	enum ItemDrop
+	{
+		Aluminum,
+		Plastic,
+		Paper,
+		Glass
+	}
+
 	[SerializeField] EnemyType enemyType;
+	[SerializeField] ItemDrop ItemToDrop;
 	#endregion
 
 	[SerializeField] int maxHealth = 3;
@@ -23,6 +33,14 @@ public class EnemyHealth : Enemy
 	private void Awake()
 	{
 		currentHealth = maxHealth;
+	}
+
+	private new void Update()
+	{
+		if (Player == null)
+		{
+			Player = GameObject.FindGameObjectWithTag("PLAYER");
+		}
 	}
 
 	public void TakeDamage(int damage, float knockbackStrength, string PlayerAttackType)
@@ -86,6 +104,21 @@ public class EnemyHealth : Enemy
 
 		//Destroy(gameObject);
 
-		//Drop materials from Object pool
+		switch(ItemToDrop)
+		{
+			case ItemDrop.Aluminum:
+				ObjectPoolManager.Instance.GetPooledObject("PickUpAluminum");
+				break;
+			case ItemDrop.Paper:
+				ObjectPoolManager.Instance.GetPooledObject("PickUpPaper");
+				break;
+			case ItemDrop.Plastic:
+				ObjectPoolManager.Instance.GetPooledObject("PickUpPlastic");
+				break;
+			case ItemDrop.Glass:
+				ObjectPoolManager.Instance.GetPooledObject("PickUpGlass");
+				break;
+
+		}
 	}
 }

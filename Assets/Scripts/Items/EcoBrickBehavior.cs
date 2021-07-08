@@ -9,7 +9,7 @@ public class EcoBrickBehavior : MonoBehaviour
 	[SerializeField] float explosionRadius = 2;
 	[SerializeField] LayerMask enemyLayers;
 
-	float knockbackStrength = 1.5f;
+	[SerializeField] float knockbackStrength = 1.5f;
 
 	Vector3 shootDir;
 

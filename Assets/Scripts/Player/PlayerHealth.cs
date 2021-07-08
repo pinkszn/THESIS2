@@ -24,6 +24,7 @@ public class PlayerHealth : Player
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+            GAME_MANAGER.instance.playerDead = true;
             CanvasManager.Instance.SecondaryCanvas(CanvasType.GameOver);
         }
         else

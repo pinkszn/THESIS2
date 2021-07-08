@@ -190,6 +190,7 @@ MonoBehaviour:
   enemyType: 1
   maxHealth: 3
   currentHealth: 3
+  isKnockBack: 0
 --- !u!114 &5155411419887866515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d08b92d90e2a4942bc25c2be61939cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectPlayerRange: 2
-  attackPlayerRange: 1
+  moveSpeed: 1
+  detectPlayerRange: 2.5
+  attackPlayerRange: 0.71

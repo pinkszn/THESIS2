@@ -14,9 +14,14 @@ public class EnemyMovement : Enemy
 	bool isKnockBack;
 
 
-	private void Update()
+	private new void Update()
 	{
 		isKnockBack = GetComponent<EnemyHealth>().isKnockBack;
+
+		if(Player == null)
+		{
+			Player = GameObject.FindGameObjectWithTag("PLAYER");
+		}
 
 		if(Player != null)
 		{

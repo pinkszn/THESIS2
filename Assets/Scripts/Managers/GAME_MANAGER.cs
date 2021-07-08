@@ -9,6 +9,8 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
 
     public bool isPaused = false;
 
+    public bool playerDead = false;
+
     [Space]
     public int currentEnemiesMutated, TotalEnemiesMutated;
     [Space]

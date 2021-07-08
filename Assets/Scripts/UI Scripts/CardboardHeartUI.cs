@@ -9,7 +9,10 @@ public class CardboardHeartUI : MonoBehaviour
 
     void Update()
     {
-        CheckShieldUI();
+        if (!GAME_MANAGER.instance.playerDead)
+        {
+            CheckShieldUI();
+        }
     }
 
     void CheckShieldUI()

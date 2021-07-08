@@ -13,8 +13,14 @@ public class HealthUI : MonoBehaviour
 
     void Update()
     {
-        playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
-        CheckHealthUI();
+        if(!GAME_MANAGER.instance.playerDead && playerHealth == null)
+		{
+            playerHealth = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerHealth>();
+        }           
+        if (!GAME_MANAGER.instance.playerDead && playerHealth != null)
+		{
+            CheckHealthUI();
+        }
     }
 
     void CheckHealthUI()

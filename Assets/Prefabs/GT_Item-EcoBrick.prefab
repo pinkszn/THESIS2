@@ -101,6 +101,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  knockbackStrength: 3
 --- !u!60 &6232272893120629447
 PolygonCollider2D:
   m_ObjectHideFlags: 0
