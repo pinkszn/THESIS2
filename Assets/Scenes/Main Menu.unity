@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 96502835}
   - component: {fileID: 96502834}
   m_Layer: 5
-  m_Name: Bin (2)
+  m_Name: BlueBin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4181,7 +4181,7 @@ GameObject:
   - component: {fileID: 587192942}
   - component: {fileID: 587192941}
   m_Layer: 5
-  m_Name: Bin
+  m_Name: GreenBin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6625,7 +6625,7 @@ GameObject:
   - component: {fileID: 1023264692}
   - component: {fileID: 1023264691}
   m_Layer: 5
-  m_Name: Bin (1)
+  m_Name: RedBin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11563,6 +11563,7 @@ MonoBehaviour:
   DonatedEcoBricksAmount: 0
   DonatedCarpetAmount: 0
   DonatedSkateBoardAmount: 0
+  DonatedBaseballBat: 0
 --- !u!1 &1746626431
 GameObject:
   m_ObjectHideFlags: 0
