@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BinSwitch : MonoBehaviour
 {
-    int selectedWeapon = 0;
+    public int selectedWeapon = 0;
     PlayerAttack playerAttack;
 
 	private void Start()
@@ -54,26 +54,26 @@ public class BinSwitch : MonoBehaviour
     }
 
     void BinColorSwitch()
-	{
-        switch(selectedWeapon)
-		{
+    {
+        switch (selectedWeapon)
+        {
             case 0: // Green Bin
                 playerAttack.GreenBin = true;
                 playerAttack.BlueBin = false;
                 playerAttack.RedBin = false;
                 break;
-            case 1:
+            case 1: //Red Bin
                 playerAttack.GreenBin = false;
                 playerAttack.BlueBin = true;
                 playerAttack.RedBin = false;
                 break;
-            case 2:
+            case 2: //Blue Bin
                 playerAttack.GreenBin = false;
                 playerAttack.BlueBin = false;
                 playerAttack.RedBin = true;
                 break;
         }
-	}
+    }
 
     void SelectWeapon()
     {
