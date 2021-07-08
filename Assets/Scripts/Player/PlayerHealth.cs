@@ -15,7 +15,6 @@ public class PlayerHealth : Player
 	}
     private void Update()
     {
-
         CardboardHealth = ItemManager.instance.CardboardHeart;
         IsAlive();
     }
@@ -37,7 +36,8 @@ public class PlayerHealth : Player
         if(CardboardHealth > 0)
 		{
             CardboardHealth -= damage;
-		}
+            ItemManager.instance.CardboardHeart -= damage;
+        }
 		else
 		{
             CurrentHealth -= damage;
