@@ -48,6 +48,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     {
         StartCoroutine(FadeScene(4, 0.2f, 0.3f, CanvasType.GameUI));
         LevelIndex = 4;
+
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
@@ -92,11 +93,14 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 		{
             case 1:
                 Level2();
+                
                 break;
             case 4:
                 Level3();
                 break;
 		}
-	}
+
+        GAME_MANAGER.instance.afterScreen = false;
+    }
     #endregion
 }

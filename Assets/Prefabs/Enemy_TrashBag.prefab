@@ -171,7 +171,7 @@ MonoBehaviour:
   attackRange: 0.71
   attackRate: 0.25
   attackFrame: 0.4
-  attackCooldown: 3
+  attackCooldown: 2
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
