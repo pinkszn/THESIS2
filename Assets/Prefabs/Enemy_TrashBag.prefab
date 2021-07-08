@@ -188,7 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
-  ItemToDrop: 0
+  dropObject: {fileID: 8614522167206222119, guid: 57111a5ae39894348a5bae27df16c711,
+    type: 3}
   maxHealth: 3
   currentHealth: 3
   isKnockBack: 0
@@ -206,4 +207,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   detectPlayerRange: 2.5
-  attackPlayerRange: 0.71

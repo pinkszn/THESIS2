@@ -13,19 +13,11 @@ public class EnemyHealth : Enemy
 		Mutated
 	};
 
-	enum ItemDrop
-	{
-		Aluminum,
-		Plastic,
-		Paper,
-		Glass
-	}
 
 	[SerializeField] EnemyType enemyType;
-	[SerializeField] ItemDrop ItemToDrop;
 	#endregion
 
-	GameObject dropObject;
+	[SerializeField] GameObject dropObject;
 
 	[SerializeField] int maxHealth = 3;
     [SerializeField] int currentHealth;
@@ -106,27 +98,12 @@ public class EnemyHealth : Enemy
 
 		for (int i = 1; i <= r; i++)
 		{
-			switch (ItemToDrop)
-			{
-				case ItemDrop.Aluminum:
-					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpAluminum");
-					break;
-				case ItemDrop.Paper:
-					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpPaper");
-					break;
-				case ItemDrop.Plastic:
-					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpPlastic");
-					break;
-				case ItemDrop.Glass:
-					dropObject = ObjectPoolManager.Instance.GetPooledObject("PickUpGlass");
-					break;
-			}
-
 			Vector2 spawnPos = transform.localPosition;
-			dropObject.transform.position = spawnPos;
-			dropObject.SetActive(true);
+			Instantiate(dropObject, spawnPos, Quaternion.identity);
+			//dropObject.transform.position = spawnPos;
+			//dropObject.SetActive(true);
 		}
 
-		gameObject.SetActive(false);
+		Destroy(gameObject);
 	}
 }

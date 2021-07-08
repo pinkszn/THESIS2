@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    enum EnemyToSpawn
-	{
-        Computer,
-        TrashCan,
-        TrashBag,
-        Paper
-    };
+ //   enum EnemyToSpawn
+	//{
+ //       Computer,
+ //       TrashCan,
+ //       TrashBag,
+ //       Paper
+ //   };
 
-    [SerializeField] EnemyToSpawn enemyToSpawn;
+ //   [SerializeField] EnemyToSpawn enemyToSpawn;
+
+    [SerializeField] GameObject enemyObject;
 
     public Vector2 size;
 
@@ -29,8 +31,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!isSpawning &&  numberSpawned != spawnLimit)
+        if (!isSpawning && numberSpawned != spawnLimit)
         {
+            Debug.Log("Spawning Enemy");
             StartCoroutine(SpawnCoroutine());
         }
     }
@@ -46,12 +49,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject enemyObject = ObjectPoolManager.Instance.GetPooledObject(enemyToSpawn.ToString());
+        //GameObject enemyObject = ObjectPoolManager.Instance.GetPooledObject(enemyToSpawn.ToString());
         if (enemyObject != null)
         {
             Vector2 spawnPos = transform.localPosition + new Vector3(Random.Range(-size.x / 2 , size.x / 2), Random.Range(-size.y / 2, size.y / 2), 0);
-            enemyObject.transform.position = spawnPos;
-            enemyObject.SetActive(true);
+            Instantiate(enemyObject,spawnPos,Quaternion.identity);
+            //enemyObject.transform.position = spawnPos;
+            //enemyObject.SetActive(true);
             numberSpawned++;
         }
     }
