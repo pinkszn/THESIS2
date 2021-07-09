@@ -6,9 +6,8 @@ using TMPro;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    //[SerializeField] TextMeshProUGUI[] CraftingText; //UI for values of crafting
     [SerializeField] TextMeshProUGUI[] ItemText; // UI for current values of usable items
-    [SerializeField] Button[] CraftingButtons;
+    [SerializeField] Button[] CraftingButtons; //UI Buttons
 
     [Space]
     //ITEM PICKUPS
