@@ -49,8 +49,8 @@ public class ItemManager : Singleton<ItemManager>
 
     public void InitializeData() //call this function when starting a level
 	{
-        plastic = PlayerPrefs.GetInt("plastic");
-		aluminum = PlayerPrefs.GetInt("aluminum");
+        //plastic = PlayerPrefs.GetInt("plastic");
+		//aluminum = PlayerPrefs.GetInt("aluminum");
     }
 
 	private void Update()
@@ -68,7 +68,7 @@ public class ItemManager : Singleton<ItemManager>
 
     void ControlButtons() //Hard Code rin muna to, looking for a better solution
 	{
-        if(plastic > 2 && glass > 1) //EcoBrick Craft Button
+        if(recycledPlastic > 2 && recycledGlass > 1) //EcoBrick Craft Button
 		{
             CraftingButtons[0].interactable = true;
 		}
@@ -77,7 +77,7 @@ public class ItemManager : Singleton<ItemManager>
             CraftingButtons[0].interactable = false;
         }
         
-        if(plastic > 3) //Carpet Button
+        if(recycledPlastic > 3) //Carpet Button
 		{
             CraftingButtons[1].interactable = true;
 		}
@@ -86,7 +86,7 @@ public class ItemManager : Singleton<ItemManager>
             CraftingButtons[1].interactable = false;
         }
         
-        if(aluminum > 2) //Baseball Bat
+        if(recycledAluminum > 2) //Baseball Bat
 		{
             CraftingButtons[2].interactable = true;
 		}
@@ -95,7 +95,7 @@ public class ItemManager : Singleton<ItemManager>
             CraftingButtons[2].interactable = false;
         }
         
-        if(plastic > 2 && aluminum > 2) //Skateboard
+        if(recycledPlastic > 2 && recycledAluminum > 2) //Skateboard
 		{
             CraftingButtons[3].interactable = true;
 		}
@@ -104,7 +104,7 @@ public class ItemManager : Singleton<ItemManager>
             CraftingButtons[3].interactable = false;
         }
         
-        if(paper > 3 && CardboardHeart < MaxCardboardHeart) //Cardboard Heart
+        if(recycledPaper > 3 && CardboardHeart < MaxCardboardHeart) //Cardboard Heart
 		{
             CraftingButtons[4].interactable = true;
 		}
@@ -120,10 +120,10 @@ public class ItemManager : Singleton<ItemManager>
     #region Crafting Buttons
     public void CraftEcoBricks()
 	{
-        if (plastic > 2 && glass > 1)
+        if (recycledPlastic > 2 && recycledGlass > 1)
         {
-            plastic -= 2;
-            glass -= 1;
+            recycledPlastic -= 2;
+            recycledGlass -= 1;
             EcoBricks += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
             AudioManager.instance.Play("CraftedItem");
@@ -132,9 +132,9 @@ public class ItemManager : Singleton<ItemManager>
 	}
     public void CraftCarpet()
 	{
-        if (plastic > 3)
+        if (recycledPlastic > 3)
         {
-            plastic -= 3;
+            recycledPlastic -= 3;
             Carpet += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
             AudioManager.instance.Play("CraftedItem");
@@ -143,9 +143,9 @@ public class ItemManager : Singleton<ItemManager>
 	}
     public void CraftBaseballBat()
 	{
-        if (aluminum > 2)
+        if (recycledAluminum > 2)
         {
-            aluminum -= 2;
+            recycledAluminum -= 2;
             BaseballBat += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 2;
             AudioManager.instance.Play("CraftedItem");
@@ -154,10 +154,10 @@ public class ItemManager : Singleton<ItemManager>
 	}
     public void CraftSkateBoard()
     {
-        if (plastic > 2 && aluminum > 2)
+        if (recycledPlastic > 2 && recycledAluminum > 2)
         {
-            plastic -= 2;
-            aluminum -= 2;
+            recycledPlastic -= 2;
+            recycledAluminum -= 2;
             SkateBoard += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 4;
             AudioManager.instance.Play("CraftedItem");
@@ -166,9 +166,9 @@ public class ItemManager : Singleton<ItemManager>
     }
     public void CraftCardboardHeart()
 	{
-        if (paper > 3 && CardboardHeart < MaxCardboardHeart)
+        if (recycledPaper > 3 && CardboardHeart < MaxCardboardHeart)
         {
-            paper -= 3;
+            recycledPaper -= 3;
             CardboardHeart += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
             AudioManager.instance.Play("CraftedItem");
