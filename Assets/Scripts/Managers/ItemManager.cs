@@ -35,13 +35,19 @@ public class ItemManager : Singleton<ItemManager>
     public int SkateBoard;
     public int CardboardHeart, MaxCardboardHeart;
 
-    [Space]
+    [Space] //Current Donated Stuff
     public int DonatedEcoBricksAmount;
     public int DonatedCarpetAmount;
     public int DonatedSkateBoardAmount;
     public int DonatedBaseballBat;
 
-	public void InitializeData() //call this function when starting a level
+    [Space] //Maximum Donated Stuff
+    public int MaxDonatedEcoBricksAmount;
+    public int MaxDonatedCarpetAmount;
+    public int MaxDonatedSkateBoardAmount;
+    public int MaxDonatedBaseballBat;
+
+    public void InitializeData() //call this function when starting a level
 	{
         plastic = PlayerPrefs.GetInt("plastic");
 		aluminum = PlayerPrefs.GetInt("aluminum");
@@ -58,7 +64,7 @@ public class ItemManager : Singleton<ItemManager>
         ItemText[0].SetText("x" + EcoBricks.ToString());
         ItemText[1].SetText("x" + Carpet.ToString());
         ItemText[2].SetText("x" + BaseballBat.ToString());
-	}
+	} 
 
     void ControlButtons() //Hard Code rin muna to, looking for a better solution
 	{

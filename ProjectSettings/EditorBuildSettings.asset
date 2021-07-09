@@ -18,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Community.unity
     guid: f9a692795ecf52b49a4e7888b12d21a8
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 969407f81a8f8054898d1dd8b3c752db
+  - enabled: 1
     path: Assets/Scenes/Level 2 Mapping.unity
     guid: aa270c25b9f16ba47a3cebff800dca09
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 562c9f7c4faeadc4bba253af94243c1b
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 969407f81a8f8054898d1dd8b3c752db
   m_configObjects: {}
