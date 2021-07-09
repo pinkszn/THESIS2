@@ -43,6 +43,7 @@ public class CarpetBehaviour : MonoBehaviour
 		{
 			foreach (Collider2D enemy in hitEnemies)
 			{
+				if(enemy!=null)
 				enemy.GetComponent<EnemyMovement>().ResetSlowDown();
 			}
 		}

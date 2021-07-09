@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7705932005410163240, guid: 31cc2dc508de6c246aa6b038d0351819, type: 3}
   name: Paper
-  description: This is Paper
-  currentCraftValue: 0
+  description: a thin piece of sheet that is made from wood, commonly used in cardboard
+    and writing paper
+  currentCraftValue: 5
