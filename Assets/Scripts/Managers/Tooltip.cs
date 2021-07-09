@@ -32,14 +32,23 @@ public class Tooltip : MonoBehaviour
 			headerField.text = header;
 		}
 
-	}
+		contentField.text = content;
 
-	private void Update()
-	{
 		int headerLength = headerField.text.Length;
 		int contentLength = contentField.text.Length;
 
 		layoutElement.enabled = (headerLength > characterWrapLimit || contentLength > characterWrapLimit);
+	}
+
+	private void Update()
+	{
+		if(Application.isEditor)
+		{
+			int headerLength = headerField.text.Length;
+			int contentLength = contentField.text.Length;
+
+			layoutElement.enabled = (headerLength > characterWrapLimit || contentLength > characterWrapLimit);
+		}
 
 		Vector3 position = Input.mousePosition;
 

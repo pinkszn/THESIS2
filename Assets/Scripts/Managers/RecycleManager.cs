@@ -39,6 +39,7 @@ public class RecycleManager : Singleton<RecycleManager>
     public void ExitRecycling()//Not working as intended not sure kung ano sira???
     {
         CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Recycling);
+        Time.timeScale = 1;
     }
 
     public void ItemToRecycle()

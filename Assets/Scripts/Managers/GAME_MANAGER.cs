@@ -94,13 +94,8 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         if (Input.GetKeyDown(KeyCode.O))
         {
             CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
+            Time.timeScale = 0;
         }
-        /*
-         * TO DO
-         * OPEN RECYCLE PAUSE GAME (DO CRAFTING FUNCTIONS ON A COROUTINE)
-         * CLOSE RECYCLE UI IF PLAYER IS DONE USING WITH A CLOSE BUTTON USE CANVAS MANAGER.CLOSECANVAS
-         * 
-         */
     }
     #endregion Recycling
     /*
