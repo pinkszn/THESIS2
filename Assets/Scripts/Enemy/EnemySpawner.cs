@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!isSpawning && numberSpawned != spawnLimit)
         {
-            Debug.Log("Spawning Enemy");
+            //Debug.Log("Spawning Enemy");
             StartCoroutine(SpawnCoroutine());
         }
     }
