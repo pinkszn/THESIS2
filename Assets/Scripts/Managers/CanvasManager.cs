@@ -12,7 +12,8 @@ public enum CanvasType
     Pause,
     Recycling,
     Codex,
-    CommunityScreen
+    CommunityScreen,
+    Controls    
 }
 
 public class CanvasManager : Singleton<CanvasManager>
