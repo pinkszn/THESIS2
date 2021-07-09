@@ -21,8 +21,6 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     public int currentEnemiesDisposed, TotalEnemiesDisposed;
     [Space]
     public int currentMaterialsRecycled, TotalMaterialsRecycled;
-    [Space]
-    public int currentMaterialsSeperated, TotalMaterialsSeperated;
 
     public bool isAlive()
     {
@@ -44,7 +42,6 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         SummaryText[0].SetText(currentEnemiesMutated.ToString());
         SummaryText[1].SetText(currentEnemiesDisposed.ToString());
         SummaryText[2].SetText(currentMaterialsRecycled.ToString());
-        SummaryText[3].SetText(currentMaterialsSeperated.ToString());
     }
 
     public void SetTotalSummary() //call this everytime a level ends
@@ -52,7 +49,6 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         TotalEnemiesDisposed += currentEnemiesDisposed;
         TotalEnemiesMutated += currentEnemiesMutated;
         TotalMaterialsRecycled += currentMaterialsRecycled;
-        TotalMaterialsSeperated += currentMaterialsSeperated;
     }
 
     public void ResetCurrentSummary() //call this when starting a new level
@@ -60,7 +56,6 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         currentEnemiesDisposed = 0;
         currentEnemiesMutated = 0;
         currentMaterialsRecycled = 0;
-        currentMaterialsSeperated = 0;
 	}
 
 
