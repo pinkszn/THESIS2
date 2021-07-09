@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CommunityUI : MonoBehaviour
 {
@@ -9,10 +10,21 @@ public class CommunityUI : MonoBehaviour
 
     [SerializeField] private Slider[] donatedAmmount;
 
+    [SerializeField] private TextMeshProUGUI[] toDonateAmount;
+
 	private void Update()
     {
+        UpdateToDonateAmount();
         UpdateCommunityBarValue();
         ButtonFunctionality();
+    }
+
+    void UpdateToDonateAmount()
+	{
+        toDonateAmount[0].SetText("x " + ItemManager.instance.EcoBricks);
+        toDonateAmount[1].SetText("x " + ItemManager.instance.Carpet);
+        toDonateAmount[2].SetText("x " + ItemManager.instance.BaseballBat);
+        toDonateAmount[3].SetText("x " + ItemManager.instance.SkateBoard);
     }
 
     void UpdateCommunityBarValue()
@@ -62,9 +74,6 @@ public class CommunityUI : MonoBehaviour
         }
     }
 
-
-
-
 	#region Community Screen Button Functions
 	public void DonateEcoBrick()//Hard Code Muna
     {
@@ -76,7 +85,7 @@ public class CommunityUI : MonoBehaviour
             //AudioManager.instance.Play("DonateTemp");
         }
     }
-    public void DonateCarpet()//Hard Code Muna
+    public void DonateCarpet()
     {
         if (ItemManager.instance.Carpet > 20)
         {
@@ -87,7 +96,7 @@ public class CommunityUI : MonoBehaviour
         }
     }
 
-    public void DonateSkateBoard()//Hard Code Muna
+    public void DonateSkateBoard()
     {
         if (ItemManager.instance.SkateBoard > 20)
         {
