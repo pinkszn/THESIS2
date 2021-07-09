@@ -56,6 +56,9 @@ TagManager:
   - name: Items
     uniqueID: 671109547
     locked: 0
+  - name: UI
+    uniqueID: 2917520127
+    locked: 0
   - name: FadeEffect
     uniqueID: 2681076437
     locked: 0
