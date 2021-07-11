@@ -53,6 +53,7 @@ public class EnemyHealth : Enemy
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 			ChangeAnimationState(HURT);
 			isKnockBack = true;
+			spriteRenderer.color = Color.red;
 			Invoke("ResetKnockBack", 0.25f);
 		}
 		if(enemyType.ToString() != PlayerAttackType && !mutatedState)
@@ -105,12 +106,18 @@ public class EnemyHealth : Enemy
 	{
 		rb.velocity = Vector2.zero;
 		isKnockBack = false;
+
+		if(!mutatedState)
+		{
+			spriteRenderer.color = Color.white;
+		}
+
 		ChangeAnimationState(MOVE);
 	}
 
 	IEnumerator MutatedState()
 	{
-		spriteRenderer.color = Color.red;
+		spriteRenderer.color = new Color(1, 0.33f, 0);
 
 		maxHealth = mutatedMaxHealth;
 		currentHealth = mutatedMaxHealth;

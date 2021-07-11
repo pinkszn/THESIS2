@@ -3076,6 +3076,7 @@ GameObject:
   - component: {fileID: 296281145}
   - component: {fileID: 296281147}
   - component: {fileID: 296281146}
+  - component: {fileID: 296281148}
   m_Layer: 5
   m_Name: Plastic
   m_TagString: Untagged
@@ -3141,6 +3142,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296281144}
   m_CullTransparentMesh: 1
+--- !u!114 &296281148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296281144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Raw Plastic
+  content: 
 --- !u!1 &298025410
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3167,7 @@ GameObject:
   - component: {fileID: 298025411}
   - component: {fileID: 298025413}
   - component: {fileID: 298025412}
+  - component: {fileID: 298025414}
   m_Layer: 5
   m_Name: Aluminum
   m_TagString: Untagged
@@ -3217,6 +3233,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298025410}
   m_CullTransparentMesh: 1
+--- !u!114 &298025414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298025410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Raw Aluminum
+  content: 
 --- !u!1 &307817069
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,6 +5371,7 @@ GameObject:
   - component: {fileID: 505024311}
   - component: {fileID: 505024310}
   - component: {fileID: 505024309}
+  - component: {fileID: 505024312}
   m_Layer: 5
   m_Name: BaseballBatPanel
   m_TagString: Untagged
@@ -5451,6 +5482,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505024307}
   m_CullTransparentMesh: 1
+--- !u!114 &505024312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505024307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Baseball Bat
+  content: 
 --- !u!1 &516205867
 GameObject:
   m_ObjectHideFlags: 0
@@ -6483,6 +6528,7 @@ GameObject:
   - component: {fileID: 641783580}
   - component: {fileID: 641783582}
   - component: {fileID: 641783581}
+  - component: {fileID: 641783583}
   m_Layer: 5
   m_Name: Glass
   m_TagString: Untagged
@@ -6549,6 +6595,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641783579}
   m_CullTransparentMesh: 1
+--- !u!114 &641783583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641783579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Raw Glass
+  content: 
 --- !u!1 &661504307
 GameObject:
   m_ObjectHideFlags: 0
@@ -11435,6 +11495,7 @@ GameObject:
   - component: {fileID: 1246540625}
   - component: {fileID: 1246540624}
   - component: {fileID: 1246540623}
+  - component: {fileID: 1246540626}
   m_Layer: 5
   m_Name: CarpetPanel
   m_TagString: Untagged
@@ -11545,6 +11606,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246540621}
   m_CullTransparentMesh: 1
+--- !u!114 &1246540626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246540621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Carpet
+  content: 
 --- !u!1 &1253069004
 GameObject:
   m_ObjectHideFlags: 0
@@ -15183,6 +15258,7 @@ GameObject:
   - component: {fileID: 1746626435}
   - component: {fileID: 1746626434}
   - component: {fileID: 1746626433}
+  - component: {fileID: 1746626436}
   m_Layer: 5
   m_Name: EcoBrickPanel
   m_TagString: Untagged
@@ -15293,6 +15369,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746626431}
   m_CullTransparentMesh: 1
+--- !u!114 &1746626436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746626431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Eco Brick
+  content: 
 --- !u!1 &1757066741
 GameObject:
   m_ObjectHideFlags: 0
@@ -15840,6 +15930,7 @@ GameObject:
   - component: {fileID: 1861840551}
   - component: {fileID: 1861840553}
   - component: {fileID: 1861840552}
+  - component: {fileID: 1861840554}
   m_Layer: 5
   m_Name: Paper
   m_TagString: Untagged
@@ -15906,6 +15997,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861840550}
   m_CullTransparentMesh: 1
+--- !u!114 &1861840554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861840550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd7f58349a0ab049909a866e3bd0a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Raw Paper
+  content: 
 --- !u!1 &1869169900
 GameObject:
   m_ObjectHideFlags: 0
