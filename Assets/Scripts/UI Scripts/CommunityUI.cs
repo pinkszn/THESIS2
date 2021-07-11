@@ -77,20 +77,20 @@ public class CommunityUI : MonoBehaviour
 	#region Community Screen Button Functions
 	public void DonateEcoBrick()//Hard Code Muna
     {
-        if (ItemManager.instance.EcoBricks > 20)
+        if (ItemManager.instance.EcoBricks > 3)
         {
-            ItemManager.instance.DonatedEcoBricksAmount += ItemManager.instance.EcoBricks;
-            ItemManager.instance.EcoBricks -= 20;
+            ItemManager.instance.DonatedEcoBricksAmount += 1;
+            ItemManager.instance.EcoBricks -= 3;
             //Debug.Log("Donated all Eco Bricks");
             //AudioManager.instance.Play("DonateTemp");
         }
     }
     public void DonateCarpet()
     {
-        if (ItemManager.instance.Carpet > 20)
+        if (ItemManager.instance.Carpet > 3)
         {
-            ItemManager.instance.DonatedCarpetAmount += ItemManager.instance.Carpet;
-            ItemManager.instance.Carpet -= 20;
+            ItemManager.instance.DonatedCarpetAmount += 1;
+            ItemManager.instance.Carpet -= 3;
             //Debug.Log("Donated all Carpet");
             //AudioManager.instance.Play("DonateTemp");
         }
@@ -98,10 +98,10 @@ public class CommunityUI : MonoBehaviour
 
     public void DonateSkateBoard()
     {
-        if (ItemManager.instance.SkateBoard > 20)
+        if (ItemManager.instance.SkateBoard > 3)
         {
-            ItemManager.instance.DonatedSkateBoardAmount += ItemManager.instance.SkateBoard;
-            ItemManager.instance.SkateBoard -= 20;
+            ItemManager.instance.DonatedSkateBoardAmount += 1;
+            ItemManager.instance.SkateBoard -= 3;
             //Debug.Log("Donated all Skate Boards");
             //AudioManager.instance.Play("DonateTemp");
         }
@@ -109,10 +109,10 @@ public class CommunityUI : MonoBehaviour
     
     public void DonateBaseballBat()//Hard Code Muna
     {
-        if (ItemManager.instance.BaseballBat > 20)
+        if (ItemManager.instance.BaseballBat > 3)
         {
-            ItemManager.instance.DonatedBaseballBat += ItemManager.instance.BaseballBat;
-            ItemManager.instance.BaseballBat -= 20;
+            ItemManager.instance.DonatedBaseballBat += 1;
+            ItemManager.instance.BaseballBat -= 3;
             //Debug.Log("Donated all Skate Boards");
             //AudioManager.instance.Play("DonateTemp");
         }
