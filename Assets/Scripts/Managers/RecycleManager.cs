@@ -40,6 +40,7 @@ public class RecycleManager : Singleton<RecycleManager>
     {
         CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.Recycling);
         Time.timeScale = 1;
+        GAME_MANAGER.instance.inRecyclingUI = false;
     }
 
     public void ItemToRecycle()
@@ -54,11 +55,11 @@ public class RecycleManager : Singleton<RecycleManager>
     {
         recycleItem.Crush();
     }
-    public void WashButton()//hard coded muna
+    public void WashButton()
     {
         recycleItem.Wash();
     }
-    public void ShredButton()//hard coded muna
+    public void ShredButton()
     {
         recycleItem.Shred();
     }
@@ -66,7 +67,7 @@ public class RecycleManager : Singleton<RecycleManager>
     {
         recycleItem.Trash();
     }
-    public void ReuseButton()//hard coded muna
+    public void ReuseButton()
     {
         //recycleItem.Reuse();
     }

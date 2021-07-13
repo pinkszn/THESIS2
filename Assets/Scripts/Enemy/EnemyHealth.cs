@@ -47,7 +47,7 @@ public class EnemyHealth : Enemy
 	{
 		Vector2 direction = Player.transform.position - transform.position;
 
-		if (enemyType.ToString() == PlayerAttackType)
+		if (enemyType.ToString() == PlayerAttackType && !mutatedState)
 		{
 			currentHealth -= damage;
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
@@ -69,6 +69,7 @@ public class EnemyHealth : Enemy
 			rb.AddForce(-direction.normalized * knockbackStrength, ForceMode2D.Impulse);
 			ChangeAnimationState(HURT);
 			isKnockBack = true;
+			spriteRenderer.color = Color.red;
 			Invoke("ResetKnockBack", 0.25f);
 		}
 
@@ -112,6 +113,11 @@ public class EnemyHealth : Enemy
 			spriteRenderer.color = Color.white;
 		}
 
+		if(mutatedState)
+		{
+			spriteRenderer.color = new Color(1, 0.33f, 0);
+		}
+
 		ChangeAnimationState(MOVE);
 	}
 
@@ -131,19 +137,9 @@ public class EnemyHealth : Enemy
 	{
 		ChangeAnimationState(DIE);
 
-		//yield return new WaitForSeconds(1f);
-
 		GAME_MANAGER.instance.currentEnemiesDisposed += 1;
 
-		int r = Random.Range(1, 5);
-
-		for (int i = 1; i <= r; i++)
-		{
-			Vector2 spawnPos = transform.localPosition;
-			Instantiate(dropObject, spawnPos, Quaternion.identity);
-			//dropObject.transform.position = spawnPos;
-			//dropObject.SetActive(true);
-		}
+		Instantiate(dropObject, transform.localPosition, Quaternion.identity);
 
 		Destroy(gameObject);
 	}

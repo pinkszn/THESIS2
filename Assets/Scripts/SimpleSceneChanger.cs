@@ -39,7 +39,6 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
         }
 
         GAME_MANAGER.instance.playerDead = false;
-        
     }
 
     #region Scenes

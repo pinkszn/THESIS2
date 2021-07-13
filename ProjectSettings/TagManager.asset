@@ -57,6 +57,9 @@ TagManager:
   - name: Items
     uniqueID: 671109547
     locked: 0
+  - name: SignBoard
+    uniqueID: 610390451
+    locked: 0
   - name: UI
     uniqueID: 2917520127
     locked: 0

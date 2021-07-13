@@ -13,6 +13,8 @@ public class PickupObject : MonoBehaviour
 	};
 	[SerializeField] MaterialType materialType;
 
+	[SerializeField] int dropAmount;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if(collision.gameObject.CompareTag("PLAYER"))
@@ -20,19 +22,19 @@ public class PickupObject : MonoBehaviour
 			switch(materialType)
 			{
 				case MaterialType.Aluminum:
-					ItemManager.Instance.aluminum += 1;
+					ItemManager.Instance.aluminum += dropAmount;
 					AudioManager.instance.Play("GetItem");
 					break;
 				case MaterialType.Glass:
-					ItemManager.Instance.glass += 1;
+					ItemManager.Instance.glass += dropAmount;
 					AudioManager.instance.Play("GetItem");
 					break;
 				case MaterialType.Paper:
-					ItemManager.Instance.paper += 1;
+					ItemManager.Instance.paper += dropAmount;
 					AudioManager.instance.Play("GetItem");
 					break;
 				case MaterialType.Plastic:
-					ItemManager.Instance.plastic += 1;
+					ItemManager.Instance.plastic += dropAmount;
 					AudioManager.instance.Play("GetItem");
 					break;
 			}

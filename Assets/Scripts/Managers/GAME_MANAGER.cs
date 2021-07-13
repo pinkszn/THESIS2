@@ -8,6 +8,8 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     [SerializeField] TextMeshProUGUI[] SummaryText;
 
     public bool isPaused = false;
+    public bool MapOpened = false;
+    public bool inRecyclingUI = false;
 
     public bool playerDead = false;
     public bool afterScreen = false;
@@ -34,6 +36,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     {
         PauseKey();
         OpenRecyclingUI();
+        OpenMap();
         SetSummaryText();
     }
 
@@ -62,13 +65,25 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     #region Pause
     public void PauseKey()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused && CheckBeforePausing())
         {
             PauseGame();
-        }else if (Input.GetKeyDown(KeyCode.Escape) && isPaused == true)
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused && CheckBeforePausing())
         {
             ResumeGame();
         }
+    }
+
+    bool CheckBeforePausing()
+    {
+        if (!playerDead && !inRecyclingUI && !MapOpened)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
     public void PauseGame()
@@ -88,22 +103,44 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     }
     #endregion Pause
 
-    #region Recycling
-    void OpenRecyclingUI()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
+    void OpenMap()
+	{
+        if (Input.GetKeyDown(KeyCode.Tab) && NoSecondaryUIOpen())
         {
-            CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
+            CanvasManager.Instance.SecondaryCanvas(CanvasType.MiniMap);
+            MapOpened = true;
             Time.timeScale = 0;
         }
     }
+
+    public void ExitMap()
+    {
+        CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.MiniMap);
+        MapOpened = false;
+        Time.timeScale = 1;
+    }
+
+    #region Recycling
+    void OpenRecyclingUI()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && NoSecondaryUIOpen())
+        {
+            CanvasManager.Instance.SecondaryCanvas(CanvasType.Recycling);
+            Time.timeScale = 0;
+            inRecyclingUI = true;
+        }
+    }
+
+    bool NoSecondaryUIOpen()
+	{
+        if (!isPaused && !playerDead && !inRecyclingUI && !MapOpened)
+        {
+            return true;
+        }
+        else
+            return false;
+	}
+
+    
     #endregion Recycling
-    /*
-     * THINGS TO SETUP
-     * 1. TIMER
-     * 2. PLAYER CONDITION IF ALIVE
-     * 3. PAUSE CONDITIONS
-     * 4. TO BE DISSCUSED WITH DESIGN TEAM
-     * 5. Make this script and the gameobject it is attached Singleton
-     */
 }

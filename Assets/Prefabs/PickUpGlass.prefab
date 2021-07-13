@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialType: 1
+  dropAmount: 1
 --- !u!70 &1300529303
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
