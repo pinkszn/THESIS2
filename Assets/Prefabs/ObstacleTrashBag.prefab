@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 644045824564879014}
   - component: {fileID: 1138258353537521894}
   - component: {fileID: 1234986333444724586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ObstacleTrashBag
-  m_TagString: Untagged
+  m_TagString: ENEMY
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

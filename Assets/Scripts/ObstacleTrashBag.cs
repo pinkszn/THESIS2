@@ -37,7 +37,7 @@ public class ObstacleTrashBag : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(int damage, float knockbackStrength, string PlayerAttackType)
+	public void TakeDamage(string PlayerAttackType)
 	{
 		if(enemyType == EnemyType.Any)
 		{

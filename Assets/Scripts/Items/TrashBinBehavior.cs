@@ -86,7 +86,15 @@ public class TrashBinBehavior : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyHealth>().TakeDamage(playerAttack.attackDamage, playerAttack.knockbackStrength, attackType.ToString());
+            if(enemy.GetComponent<EnemyHealth>() != null)
+			{
+                enemy.GetComponent<EnemyHealth>().TakeDamage(playerAttack.attackDamage, playerAttack.knockbackStrength, attackType.ToString());
+            }
+            if(enemy.GetComponent<ObstacleTrashBag>() != null)
+			{
+                enemy.GetComponent<ObstacleTrashBag>().TakeDamage(attackType.ToString());
+            }
+            
             AudioManager.instance.Play("HitEnemy");
         }
 

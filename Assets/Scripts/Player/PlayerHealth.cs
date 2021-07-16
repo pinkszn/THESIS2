@@ -9,10 +9,13 @@ public class PlayerHealth : Player
     public int CurrentHealth;
     int CardboardHealth;
 
+    private SpriteRenderer spriteRenderer;
+
 	private void Start()
 	{
         CurrentHealth = MaxHealth;
-	}
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     private void Update()
     {
         CardboardHealth = ItemManager.instance.CardboardHeart;
@@ -42,7 +45,15 @@ public class PlayerHealth : Player
 		{
             CurrentHealth -= damage;
         }
+
+        spriteRenderer.color = Color.red;
+        Invoke("ResetColor", 0.25f);
     }
+
+    void ResetColor()
+	{
+        spriteRenderer.color = Color.white;
+	}
 
 	//private void OnCollisionEnter2D(Collision2D collision)
  //   {
