@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbc867454143114b9f2e7b4d57f89a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 2
   dropObject: {fileID: 8614522167206222119, guid: c7aceb6c403bde845a59b199c89bee4e,
     type: 3}
   maxHealth: 3
