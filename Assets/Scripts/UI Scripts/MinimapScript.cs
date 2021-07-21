@@ -22,7 +22,11 @@ public class MinimapScript : MonoBehaviour
 
 	void UpdateScale()
 	{
-		if(SimpleSceneChanger.instance.LevelIndex == 2)
+		if (SimpleSceneChanger.instance.LevelIndex == 1)
+		{
+			playerMinimapIcon.transform.localScale = new Vector3(18.4451637f, 18.4451637f, 0);
+		}
+		if (SimpleSceneChanger.instance.LevelIndex == 2)
 		{
 			playerMinimapIcon.transform.localScale = new Vector3(18.4451637f, 18.4451637f, 0);
 		}

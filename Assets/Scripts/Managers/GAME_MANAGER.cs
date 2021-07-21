@@ -120,6 +120,11 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         Time.timeScale = 1;
     }
 
+    public void OpenControls()
+	{
+        CanvasManager.Instance.SecondaryCanvas(CanvasType.Controls);
+    }
+
     #region Recycling
     void OpenRecyclingUI()
     {
@@ -141,6 +146,5 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
             return false;
 	}
 
-    
     #endregion Recycling
 }

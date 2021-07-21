@@ -246,7 +246,6 @@ Transform:
   - {fileID: 7426094484884750391}
   - {fileID: 7426094485266843502}
   - {fileID: 7426094484589003782}
-  - {fileID: 7426094484707976574}
   m_Father: {fileID: 7426094485240648141}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,36 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc00adc6c82dea4b88b4921c71e1bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7426094484707976573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7426094484707976574}
-  m_Layer: 0
-  m_Name: Soap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7426094484707976574
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7426094484707976573}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7426094484667749384}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7426094484884750390
 GameObject:
   m_ObjectHideFlags: 0

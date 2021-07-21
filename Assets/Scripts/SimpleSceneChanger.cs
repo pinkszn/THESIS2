@@ -8,6 +8,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 {
     public Image fader;
 
+    [SerializeField]  int TutorialIndex;
     [SerializeField]  int Level01Index;
     [SerializeField]  int Level02Index;
     [SerializeField]  int Level03Index;
@@ -42,18 +43,20 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     }
 
     #region Scenes
-    public void StartGame()
-    {
-        StartCoroutine(FadeScene(1, 0.2f, 0.3f, CanvasType.Controls, false));
-        GAME_MANAGER.instance.playerDead = false;
-    }
 
+    public void TutorialLevel()
+    {
+        StartCoroutine(FadeScene(TutorialIndex, 0.2f, 0.3f, CanvasType.GameUI, false));
+        LevelIndex = TutorialIndex;
+        AudioManager.instance.Play("GameStart");
+        BGMManager.Instance.Play("BGM01");
+        //AudioManager.instance.Play();
+        //BGMManager.instance.Play()
+    }
     public void Level1()
     {
         StartCoroutine(FadeScene(Level01Index, 0.2f, 0.3f, CanvasType.GameUI,false));
         LevelIndex = Level01Index;
-        AudioManager.instance.Play("GameStart");
-        BGMManager.Instance.Play("BGM01");
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
@@ -103,6 +106,9 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 	{
         switch(LevelIndex)
 		{
+            case 1:
+                Level1();
+                break;
             case 2:
                 Level2();
                 break;

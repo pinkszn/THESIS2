@@ -18,5 +18,9 @@ public class ItemCounterUI : MonoBehaviour
 		itemCounter[1].SetText("x " + ItemManager.instance.paper.ToString());
 		itemCounter[2].SetText("x " + ItemManager.instance.aluminum.ToString());
 		itemCounter[3].SetText("x " + ItemManager.instance.glass.ToString());
+		itemCounter[4].SetText("x " + ItemManager.instance.recycledPlastic.ToString());
+		itemCounter[5].SetText("x " + ItemManager.instance.recycledPaper.ToString());
+		itemCounter[6].SetText("x " + ItemManager.instance.recycledAluminum.ToString());
+		itemCounter[7].SetText("x " + ItemManager.instance.recycledGlass.ToString());
 	}
 }
