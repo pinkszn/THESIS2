@@ -125,6 +125,8 @@ public class EnemyHealth : Enemy
 	{
 		spriteRenderer.color = new Color(1, 0.33f, 0);
 
+		GAME_MANAGER.instance.currentEnemiesMutated += 1;
+
 		maxHealth = mutatedMaxHealth;
 		currentHealth = mutatedMaxHealth;
 

@@ -23,6 +23,8 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     public int currentEnemiesDisposed, TotalEnemiesDisposed;
     [Space]
     public int currentMaterialsRecycled, TotalMaterialsRecycled;
+    [Space]
+    public int currentCraftedItems, TotalCraftedItems;
 
     public bool isAlive()
     {
@@ -52,6 +54,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         TotalEnemiesDisposed += currentEnemiesDisposed;
         TotalEnemiesMutated += currentEnemiesMutated;
         TotalMaterialsRecycled += currentMaterialsRecycled;
+        TotalCraftedItems += currentCraftedItems;
     }
 
     public void ResetCurrentSummary() //call this when starting a new level
@@ -59,6 +62,7 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
         currentEnemiesDisposed = 0;
         currentEnemiesMutated = 0;
         currentMaterialsRecycled = 0;
+        currentCraftedItems = 0;
 	}
 
 

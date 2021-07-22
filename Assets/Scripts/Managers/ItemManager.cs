@@ -16,6 +16,11 @@ public class ItemManager : Singleton<ItemManager>
     public int glass;
     public int paper;
 
+    int originalplastic;
+    int originalaluminum;
+    int originalglass;
+    int originalpaper;
+
     [Space]
     //RECYCLING ITEM OUTPUTS
     public int recycledPlastic;
@@ -23,14 +28,25 @@ public class ItemManager : Singleton<ItemManager>
     public int recycledPaper;
     public int recycledGlass;
 
+    int originalrecycledPlastic;
+    int originalrecycledAluminum;
+    int originalrecycledPaper;
+    int originalrecycledGlass;
+
     //amount of the crafted usable items, yung mga eco bombs and stuff, dagdag nlang
     [Space]
     public int EcoBricks;
     public int Carpet;
     public int BaseballBat;
 
+    int originalEcoBricks;
+    int originalCarpet;
+    int originalBaseballBat;
+
     [Space] //Passive Powerups;
     public int SkateBoard;
+    public int originalSkateBoard;
+
     public int CardboardHeart, MaxCardboardHeart;
 
     [Space] //Current Donated Stuff
@@ -45,11 +61,41 @@ public class ItemManager : Singleton<ItemManager>
     public int MaxDonatedSkateBoardAmount;
     public int MaxDonatedBaseballBat;
 
-    public void InitializeData() //call this function when starting a level
+    public void InitializeData() //call this function when starting a level or resetting
 	{
-        //plastic = PlayerPrefs.GetInt("plastic");
-		//aluminum = PlayerPrefs.GetInt("aluminum");
+        plastic = originalplastic;
+        paper = originalpaper;
+        glass = originalglass;
+        aluminum = originalaluminum;
+
+        recycledPlastic = originalrecycledPlastic;
+        recycledPaper = originalrecycledPaper;
+        recycledGlass = originalrecycledGlass;
+        recycledAluminum = originalrecycledAluminum;
+
+        EcoBricks = originalEcoBricks;
+        Carpet = originalCarpet;
+        BaseballBat = originalBaseballBat;
+        SkateBoard = originalSkateBoard;
     }
+
+    public void UpdateData() //call this function when starting the next level
+	{
+        originalplastic += plastic;
+        originalpaper += paper;
+        originalglass += glass;
+        originalaluminum += aluminum;
+
+        originalrecycledAluminum += recycledAluminum;
+        originalrecycledGlass += recycledGlass;
+        originalrecycledPaper += recycledPaper;
+        originalrecycledPlastic += recycledPlastic;
+
+        originalEcoBricks += EcoBricks;
+        originalCarpet += Carpet;
+        originalBaseballBat += BaseballBat;
+        originalSkateBoard += SkateBoard;
+	}
 
 	private void Update()
 	{
