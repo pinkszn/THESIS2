@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 3608912153369587596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.1072, y: 4.1072, z: 4.1072}
+  m_LocalScale: {x: 2.2523885, y: 2.2523885, z: 2.2523885}
   m_Children: []
   m_Father: {fileID: 7426094485240648141}
   m_RootOrder: 2
@@ -154,7 +154,8 @@ SpriteRenderer:
   m_SortingLayerID: -1377447169
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 636661afe2a65414f9b2f9cbbbace07d, type: 3}
+  m_Sprite: {fileID: -1963420589764982644, guid: 22089d66ca29e2e47b324e92f032f698,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -322,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7426094484983403870
 Transform:
   m_ObjectHideFlags: 0
@@ -335,7 +336,7 @@ Transform:
   m_LocalScale: {x: 0.3136858, y: 0.6711963, z: 1}
   m_Children: []
   m_Father: {fileID: 7426094485619603624}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7426094484983403864
 MonoBehaviour:
@@ -528,7 +529,7 @@ MonoBehaviour:
   attackStateCounter: 0
   knockbackStrength: 1.5
   isAttacking: 0
-  GreenBin: 0
+  GreenBin: 1
   RedBin: 0
   BlueBin: 0
   attackPoint: {fileID: 7426094485619603624}
@@ -636,7 +637,7 @@ Transform:
   m_LocalScale: {x: 0.3136858, y: 0.67119634, z: 1}
   m_Children: []
   m_Father: {fileID: 7426094485619603624}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7426094485362274674
 MonoBehaviour:
@@ -669,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7426094485479846665
 Transform:
   m_ObjectHideFlags: 0
@@ -682,7 +683,7 @@ Transform:
   m_LocalScale: {x: 0.3136858, y: 0.67119634, z: 1}
   m_Children: []
   m_Father: {fileID: 7426094485619603624}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7426094485479846667
 MonoBehaviour:
@@ -727,9 +728,9 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 0.381, z: 1}
   m_Children:
+  - {fileID: 7426094484983403870}
   - {fileID: 7426094485479846665}
   - {fileID: 7426094485362274672}
-  - {fileID: 7426094484983403870}
   m_Father: {fileID: 7426094485240648141}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

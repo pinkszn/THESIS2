@@ -20706,7 +20706,7 @@ MonoBehaviour:
   ObjectiveText:
   - {fileID: 634154898}
   - {fileID: 35287005}
-  TutorialEnemyGoal: 20
+  TutorialEnemyGoal: 15
   TutorialCraftGoal: 6
   Level1EnemyGoal: 20
   Level1CraftGoal: 6

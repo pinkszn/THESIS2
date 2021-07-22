@@ -26,13 +26,13 @@ public class ObstacleTrashBag : MonoBehaviour
 				spriteRenderer.color = Color.white;
 				break;
 			case EnemyType.Recyclable:
-				spriteRenderer.color = Color.red;
-				break;
-			case EnemyType.Decomposable:
 				spriteRenderer.color = Color.green;
 				break;
-			case EnemyType.NonDecomposable:
+			case EnemyType.Decomposable:
 				spriteRenderer.color = Color.blue;
+				break;
+			case EnemyType.NonDecomposable:
+				spriteRenderer.color = Color.red;
 				break;
 		}
 	}
