@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : Enemy
 {
+	[SerializeField] GameObject DamageEffect;
+
 	#region Enemy Type
 	enum EnemyType
 	{
@@ -54,6 +56,8 @@ public class EnemyHealth : Enemy
 			ChangeAnimationState(HURT);
 			isKnockBack = true;
 			spriteRenderer.color = Color.red;
+			Instantiate(DamageEffect, this.gameObject.transform);
+
 			Invoke("ResetKnockBack", 0.25f);
 		}
 		if(enemyType.ToString() != PlayerAttackType && !mutatedState)
@@ -70,6 +74,7 @@ public class EnemyHealth : Enemy
 			ChangeAnimationState(HURT);
 			isKnockBack = true;
 			spriteRenderer.color = Color.red;
+			Instantiate(DamageEffect, this.gameObject.transform);
 			Invoke("ResetKnockBack", 0.25f);
 		}
 

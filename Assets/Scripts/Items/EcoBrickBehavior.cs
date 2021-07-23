@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EcoBrickBehavior : MonoBehaviour
 {
-    public float speed = 4f;
+	[SerializeField] GameObject EcoBrickExplosionEffect;
+
+	public float speed = 4f;
 	float DestroyTime = 2.5f;
 	[SerializeField] float explosionRadius = 2;
 	[SerializeField] LayerMask enemyLayers;
@@ -36,13 +38,16 @@ public class EcoBrickBehavior : MonoBehaviour
 	{
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayers);
 
-		if(hitEnemies != null)
+
+		foreach (Collider2D enemy in hitEnemies)
 		{
-			foreach (Collider2D enemy in hitEnemies)
+			if (hitEnemies != null)
 			{
 				enemy.GetComponent<EnemyHealth>().EcoBrickKnockBack(this.gameObject, knockbackStrength);
 			}
 		}
+
+		Instantiate(EcoBrickExplosionEffect, this.gameObject.transform);
 
 		Destroy(gameObject);
 	}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BaseballBat : MonoBehaviour
 {
+	[SerializeField] GameObject BaseballEffect;
+
 	[SerializeField] Transform player;
 
 	[SerializeField] int attackDamage;
@@ -33,6 +35,8 @@ public class BaseballBat : MonoBehaviour
 		{
 			enemy.GetComponent<EnemyHealth>().BaseballBatDamage(attackDamage, knockbackStrength);
 		}
+
+		Instantiate(BaseballEffect, player.transform);
 	}
 
 	private void OnDrawGizmosSelected()

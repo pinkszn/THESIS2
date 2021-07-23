@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c3a67c0b2f2364183a7f868e3aa98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EcoBrickExplosionEffect: {fileID: 4592897419877619585, guid: 59bee812de378434aa9158a95c1f1d9c,
+    type: 3}
   speed: 3
   explosionRadius: 2
   enemyLayers:

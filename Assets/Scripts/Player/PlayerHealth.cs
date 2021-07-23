@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : Player
 {
+    [SerializeField] GameObject PlayerHitEffect;
+
     public int MaxHealth;
     public int CurrentHealth;
     int CardboardHealth;
@@ -47,6 +49,7 @@ public class PlayerHealth : Player
         }
 
         spriteRenderer.color = Color.red;
+        Instantiate(PlayerHitEffect, this.gameObject.transform);
         Invoke("ResetColor", 0.25f);
     }
 

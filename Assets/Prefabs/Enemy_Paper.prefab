@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbc867454143114b9f2e7b4d57f89a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageEffect: {fileID: 7486729578022543938, guid: ea9ea8a2f850ed247bb83339e60dd58b,
+    type: 3}
   enemyType: 0
   dropObject: {fileID: 8614522167206222119, guid: cf94caaff1422784bbde50aede146d1e,
     type: 3}
