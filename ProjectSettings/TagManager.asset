@@ -66,3 +66,6 @@ TagManager:
   - name: FadeEffect
     uniqueID: 2681076437
     locked: 0
+  - name: ParticleEffect
+    uniqueID: 671150245
+    locked: 0

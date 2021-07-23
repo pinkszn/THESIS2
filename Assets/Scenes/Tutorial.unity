@@ -549,7 +549,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3063
+    m_Bits: 7159
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -11369,10 +11369,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -13.990462, y: 6.9920354}
-      - {x: -14.00794, y: -85.277695}
-      - {x: 164.49364, y: -85.297356}
-      - {x: 164.186, y: 7.2343087}
+    - - {x: -18.948591, y: 13.1526575}
+      - {x: -18.9238, y: -25.288488}
+      - {x: 73.79512, y: -25.168104}
+      - {x: 73.75437, y: 13.131273}
 --- !u!4 &1269191635
 Transform:
   m_ObjectHideFlags: 0

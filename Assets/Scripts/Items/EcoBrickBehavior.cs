@@ -26,29 +26,19 @@ public class EcoBrickBehavior : MonoBehaviour
 	public void Update()
 	{
 		transform.position += shootDir * speed * Time.deltaTime;
-
-	}
-
-	private void OnDestroy()
-	{
-		ExplosionRadius();
 	}
 
 	void ExplosionRadius()
 	{
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayers);
 
-
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			if (hitEnemies != null)
+			if (enemy != null)
 			{
 				enemy.GetComponent<EnemyHealth>().EcoBrickKnockBack(this.gameObject, knockbackStrength);
 			}
 		}
-
-		Instantiate(EcoBrickExplosionEffect, this.gameObject.transform);
-
 		Destroy(gameObject);
 	}
 
@@ -56,6 +46,10 @@ public class EcoBrickBehavior : MonoBehaviour
 	{
 		if(collision.gameObject.CompareTag("ENEMY"))
 		{
+			ContactPoint2D contact = collision.contacts[0];
+			Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+			Vector3 pos = contact.point;
+			Instantiate(EcoBrickExplosionEffect, pos, rot);
 			ExplosionRadius();
 		}
 	}
