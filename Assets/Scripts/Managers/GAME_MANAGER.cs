@@ -26,16 +26,13 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
     [Space]
     public int currentCraftedItems, TotalCraftedItems;
 
-    public bool isAlive()
-    {
-        //if health is 0 or other various conditions
-        // return false
-        //else
-        return true;
-    }
+    [SerializeField] GameObject GameUI; //temp
+    [SerializeField] bool isUIOn = true; //temp
 
     private void Update()
     {
+        UIKey(); //temporary
+
         PauseKey();
         OpenRecyclingUI();
         OpenMap();
@@ -151,4 +148,29 @@ public class GAME_MANAGER : Singleton<GAME_MANAGER>
 	}
 
     #endregion Recycling
+
+    void UIKey()
+    {
+        if (Input.GetKeyDown(KeyCode.F1) && isUIOn)
+        {
+            CloseUIT();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.F1) && !isUIOn)
+        {
+            OpenUIT();
+        }
+    }
+
+    void OpenUIT()
+    {
+        GameUI.SetActive(true);
+        isUIOn = true;
+    }
+
+    void CloseUIT()
+    {
+        GameUI.SetActive(false);
+        isUIOn = false;
+    }
 }
