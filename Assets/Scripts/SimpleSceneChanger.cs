@@ -12,6 +12,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     public int Level01Index;
     public int Level02Index;
     public int Level03Index;
+    public int EndScreenIndex;
 
     public int LevelIndex;
 
@@ -75,9 +76,18 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     public void Level3()
     {
         StartCoroutine(FadeScene(Level03Index, 0.2f, 0.3f, CanvasType.GameUI, false));
+        LevelIndex = Level03Index;
         ItemManager.instance.UpdateData();
         BGMManager.Instance.Stop("BGM02Part01", "BGM02Part02");
         BGMManager.Instance.Play("BGM03Part01", "BGM03Part02");
+        //AudioManager.instance.Play();
+        //BGMManager.instance.Play()
+    }
+
+    public void EndScreen()
+    {
+        StartCoroutine(FadeScene(EndScreenIndex, 0.2f, 0.3f, CanvasType.FinalScreen, false));
+        BGMManager.Instance.Stop("BGM03Part01", "BGM03Part02");
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
@@ -124,7 +134,10 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
             case 3:
                 Level3();
                 break;
-		}
+            case 4:
+                EndScreen();
+                break;
+        }
 
         GAME_MANAGER.instance.ResetCurrentSummary();
         GAME_MANAGER.instance.afterScreen = false;

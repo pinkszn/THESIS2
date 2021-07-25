@@ -14,8 +14,8 @@ public enum CanvasType
     Codex,
     CommunityScreen,
     Controls,
-    ToBeContinued,
-    MiniMap
+    MiniMap,
+    FinalScreen
 }
 
 public class CanvasManager : Singleton<CanvasManager>

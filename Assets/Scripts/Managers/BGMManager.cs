@@ -32,7 +32,7 @@ public class BGMManager : Singleton<BGMManager>
 	IEnumerator PlayBGM(Sound part01, Sound part02)
 	{
 		part01.source.Play();
-		yield return new WaitForSeconds(part01.clip.length);
+		yield return new WaitForSecondsRealtime(part01.clip.length);
 		part02.source.Play();
 	}
 

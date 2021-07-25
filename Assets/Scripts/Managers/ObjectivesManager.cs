@@ -65,7 +65,7 @@ public class ObjectivesManager : Singleton<ObjectivesManager>
 
 				if (GAME_MANAGER.instance.currentCraftedItems <= Level2CraftGoal)
 				{
-					ObjectiveText[1].SetText("Crafted Items: " + GAME_MANAGER.instance.currentEnemiesDisposed + "/" + Level2CraftGoal);
+					ObjectiveText[1].SetText("Crafted Items: " + GAME_MANAGER.instance.currentCraftedItems + "/" + Level2CraftGoal);
 				}
 				break;
 
@@ -77,7 +77,7 @@ public class ObjectivesManager : Singleton<ObjectivesManager>
 
 				if (GAME_MANAGER.instance.currentCraftedItems <= Level3CraftGoal)
 				{
-					ObjectiveText[1].SetText("Crafted Items: " + GAME_MANAGER.instance.currentEnemiesDisposed + "/" + Level3CraftGoal);
+					ObjectiveText[1].SetText("Crafted Items: " + GAME_MANAGER.instance.currentCraftedItems + "/" + Level3CraftGoal);
 				}
 				break;
 		}

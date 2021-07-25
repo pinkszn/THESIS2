@@ -48,14 +48,14 @@ TagManager:
   - name: Ground
     uniqueID: 4192960771
     locked: 0
+  - name: Items
+    uniqueID: 671109547
+    locked: 0
   - name: Enemy
     uniqueID: 1936211645
     locked: 0
   - name: Player
     uniqueID: 31804263
-    locked: 0
-  - name: Items
-    uniqueID: 671109547
     locked: 0
   - name: SignBoard
     uniqueID: 610390451

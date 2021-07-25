@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf9e9958204a534c957aa8cab8f3a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasType: 9
+  canvasType: 10
 --- !u!1 &23305665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6402,6 +6402,7 @@ MonoBehaviour:
   Level01Index: 2
   Level02Index: 3
   Level03Index: 4
+  EndScreenIndex: 5
   LevelIndex: 0
 --- !u!4 &487681299
 Transform:
@@ -19919,7 +19920,6 @@ MonoBehaviour:
   Carpet: 0
   BaseballBat: 0
   SkateBoard: 0
-  originalSkateBoard: 0
   CardboardHeart: 0
   MaxCardboardHeart: 3
   DonatedEcoBricksAmount: 0
@@ -23747,7 +23747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf9e9958204a534c957aa8cab8f3a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasType: 10
+  canvasType: 9
 --- !u!1 &2110909460
 GameObject:
   m_ObjectHideFlags: 0
