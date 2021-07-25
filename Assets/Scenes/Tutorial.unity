@@ -12611,20 +12611,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3372216927577606413, guid: 965ff197c06cc8048a373d7724bdd16b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372216927577606413, guid: 965ff197c06cc8048a373d7724bdd16b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 610390451
+      objectReference: {fileID: 0}
     - target: {fileID: 8675942020016132498, guid: 965ff197c06cc8048a373d7724bdd16b,
         type: 3}
       propertyPath: m_Name
       value: EndPlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675942020016132499, guid: 965ff197c06cc8048a373d7724bdd16b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.377013
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675942020016132499, guid: 965ff197c06cc8048a373d7724bdd16b,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.05057466
       objectReference: {fileID: 0}
     - target: {fileID: 8675942020016132589, guid: 965ff197c06cc8048a373d7724bdd16b,
         type: 3}
@@ -12634,12 +12634,12 @@ PrefabInstance:
     - target: {fileID: 8675942020016132589, guid: 965ff197c06cc8048a373d7724bdd16b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.25
+      value: 65.337
       objectReference: {fileID: 0}
     - target: {fileID: 8675942020016132589, guid: 965ff197c06cc8048a373d7724bdd16b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.99
+      value: -9.511
       objectReference: {fileID: 0}
     - target: {fileID: 8675942020016132589, guid: 965ff197c06cc8048a373d7724bdd16b,
         type: 3}

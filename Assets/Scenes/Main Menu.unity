@@ -6342,7 +6342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -664.1997, y: 472.00003}
+  m_AnchoredPosition: {x: -664.1997, y: 472}
   m_SizeDelta: {x: -1659.24, y: -964.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516205869
@@ -20706,14 +20706,14 @@ MonoBehaviour:
   ObjectiveText:
   - {fileID: 634154898}
   - {fileID: 35287005}
-  TutorialEnemyGoal: 15
-  TutorialCraftGoal: 6
+  TutorialEnemyGoal: 5
+  TutorialCraftGoal: 1
   Level1EnemyGoal: 20
-  Level1CraftGoal: 6
-  Level2EnemyGoal: 20
-  Level2CraftGoal: 6
-  Level3EnemyGoal: 20
-  Level3CraftGoal: 6
+  Level1CraftGoal: 5
+  Level2EnemyGoal: 40
+  Level2CraftGoal: 10
+  Level3EnemyGoal: 80
+  Level3CraftGoal: 15
 --- !u!1 &2022814014
 GameObject:
   m_ObjectHideFlags: 0
