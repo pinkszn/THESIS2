@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class BGMManager : Singleton<BGMManager>
@@ -20,23 +21,34 @@ public class BGMManager : Singleton<BGMManager>
 		}
 	}
 
-	public void Play(string name)
+	public void Play(string Part01name, string Part02name)
 	{
-		Sound s = Array.Find(sounds, sound => sound.name == name);
-		s.source.Play();
+		Sound part01 = Array.Find(sounds, sound => sound.name == Part01name);
+		Sound part02 = Array.Find(sounds, sound => sound.name == Part02name);
+
+		StartCoroutine(PlayBGM(part01,part02));
 	}
 
-	public void Stop(string name)
+	IEnumerator PlayBGM(Sound part01, Sound part02)
 	{
-		Sound s = Array.Find(sounds, sound => sound.name == name);
+		part01.source.Play();
+		yield return new WaitForSeconds(part01.clip.length);
+		part02.source.Play();
+	}
 
-		if (!s.source.enabled)
+	public void Stop(string Part01Name, string Part02Name)
+	{
+		Sound part01 = Array.Find(sounds, sound => sound.name == Part01Name);
+		Sound part02 = Array.Find(sounds, sound => sound.name == Part02Name);
+
+		if (part01.source.enabled)
 		{
-			return;
+			part01.source.Stop();
 		}
-		else
+
+		if (part02.source.enabled)
 		{
-			s.source.Stop();
+			part02.source.Stop();
 		}
 	}
 }

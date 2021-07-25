@@ -49,6 +49,7 @@ public class PlayerHealth : Player
         }
 
         spriteRenderer.color = Color.red;
+        AudioManager.instance.Play("PlayerHit");
         Instantiate(PlayerHitEffect, this.gameObject.transform);
         Invoke("ResetColor", 0.25f);
     }
