@@ -170,6 +170,7 @@ public class ItemManager : Singleton<ItemManager>
             recycledGlass -= 1;
             EcoBricks += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            GAME_MANAGER.instance.currentCraftedItems += 1;
             AudioManager.instance.Play("CraftedItem");
             return;
         }
@@ -181,6 +182,7 @@ public class ItemManager : Singleton<ItemManager>
             recycledPlastic -= 3;
             Carpet += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            GAME_MANAGER.instance.currentCraftedItems += 1;
             AudioManager.instance.Play("CraftedItem");
             return;
         }
@@ -192,6 +194,7 @@ public class ItemManager : Singleton<ItemManager>
             recycledAluminum -= 2;
             BaseballBat += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 2;
+            GAME_MANAGER.instance.currentCraftedItems += 1;
             AudioManager.instance.Play("CraftedItem");
             return;
         }
@@ -204,6 +207,7 @@ public class ItemManager : Singleton<ItemManager>
             recycledAluminum -= 2;
             SkateBoard += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 4;
+            GAME_MANAGER.instance.currentCraftedItems += 1;
             AudioManager.instance.Play("CraftedItem");
             return;
         }
@@ -215,6 +219,7 @@ public class ItemManager : Singleton<ItemManager>
             recycledPaper -= 3;
             CardboardHeart += 1;
             GAME_MANAGER.instance.currentMaterialsRecycled += 3;
+            GAME_MANAGER.instance.currentCraftedItems += 1;
             AudioManager.instance.Play("CraftedItem");
             return;
         }
