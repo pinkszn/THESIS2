@@ -72,7 +72,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
     public void Level3()
     {
-        StartCoroutine(FadeScene(Level03Index, 0.2f, 0.3f, CanvasType.ToBeContinued, false));
+        StartCoroutine(FadeScene(Level03Index, 0.2f, 0.3f, CanvasType.GameUI, false));
         ItemManager.instance.UpdateData();
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
