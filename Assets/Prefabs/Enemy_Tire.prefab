@@ -106,7 +106,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.0033515692}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.5833333, y: 0.7083333}
     newSize: {x: 1.1666666, y: 0.7291667}
     adaptiveTilingThreshold: 0.5
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageEffect: {fileID: 7486729578022543938, guid: ea9ea8a2f850ed247bb83339e60dd58b,
     type: 3}
-  enemyType: 1
+  enemyType: 2
   dropObject: {fileID: 8614522167206222119, guid: 57111a5ae39894348a5bae27df16c711,
     type: 3}
   maxHealth: 3
