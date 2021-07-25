@@ -45,7 +45,7 @@ public class ItemManager : Singleton<ItemManager>
 
     [Space] //Passive Powerups;
     public int SkateBoard;
-    public int originalSkateBoard;
+    int originalSkateBoard;
 
     public int CardboardHeart, MaxCardboardHeart;
 

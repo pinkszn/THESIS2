@@ -57,7 +57,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     {
         StartCoroutine(FadeScene(Level01Index, 0.2f, 0.3f, CanvasType.GameUI,false));
         LevelIndex = Level01Index;
-        ItemManager.instance.InitializeData();
+        ItemManager.instance.UpdateData();
         //AudioManager.instance.Play();
         //BGMManager.instance.Play()
     }
