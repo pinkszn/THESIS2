@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1936211645
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -6445629657280069628, guid: c9c6c6f435625f94589e31600e6b30ff,
     type: 3}
@@ -191,7 +191,7 @@ MonoBehaviour:
   DamageEffect: {fileID: 7486729578022543938, guid: ea9ea8a2f850ed247bb83339e60dd58b,
     type: 3}
   enemyType: 2
-  dropObject: {fileID: 8614522167206222119, guid: 57111a5ae39894348a5bae27df16c711,
+  dropObject: {fileID: 8614522167206222119, guid: c7aceb6c403bde845a59b199c89bee4e,
     type: 3}
   maxHealth: 3
   currentHealth: 3
@@ -280,7 +280,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1936211645
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
     type: 3}

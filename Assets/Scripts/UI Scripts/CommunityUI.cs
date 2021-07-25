@@ -77,20 +77,20 @@ public class CommunityUI : MonoBehaviour
 	#region Community Screen Button Functions
 	public void DonateEcoBrick()//Hard Code Muna
     {
-        if (ItemManager.instance.EcoBricks > 3)
+        if (ItemManager.instance.EcoBricks > 0)
         {
             ItemManager.instance.DonatedEcoBricksAmount += 1;
-            ItemManager.instance.EcoBricks -= 3;
+            ItemManager.instance.EcoBricks -= 1;
             //Debug.Log("Donated all Eco Bricks");
             //AudioManager.instance.Play("DonateTemp");
         }
     }
     public void DonateCarpet()
     {
-        if (ItemManager.instance.Carpet > 3)
+        if (ItemManager.instance.Carpet > 0)
         {
             ItemManager.instance.DonatedCarpetAmount += 1;
-            ItemManager.instance.Carpet -= 3;
+            ItemManager.instance.Carpet -= 1;
             //Debug.Log("Donated all Carpet");
             //AudioManager.instance.Play("DonateTemp");
         }
@@ -98,10 +98,10 @@ public class CommunityUI : MonoBehaviour
 
     public void DonateSkateBoard()
     {
-        if (ItemManager.instance.SkateBoard > 3)
+        if (ItemManager.instance.SkateBoard > 0)
         {
             ItemManager.instance.DonatedSkateBoardAmount += 1;
-            ItemManager.instance.SkateBoard -= 3;
+            ItemManager.instance.SkateBoard -= 1;
             //Debug.Log("Donated all Skate Boards");
             //AudioManager.instance.Play("DonateTemp");
         }
@@ -109,10 +109,10 @@ public class CommunityUI : MonoBehaviour
     
     public void DonateBaseballBat()//Hard Code Muna
     {
-        if (ItemManager.instance.BaseballBat > 3)
+        if (ItemManager.instance.BaseballBat > 0)
         {
             ItemManager.instance.DonatedBaseballBat += 1;
-            ItemManager.instance.BaseballBat -= 3;
+            ItemManager.instance.BaseballBat -= 1;
             //Debug.Log("Donated all Skate Boards");
             //AudioManager.instance.Play("DonateTemp");
         }
