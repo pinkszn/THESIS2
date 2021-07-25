@@ -98,6 +98,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     }
     public static void SummaryScreen()
     {
+        GAME_MANAGER.instance.SetTotalSummary();
         instance.StartCoroutine(instance.FadeScene(5, 0.2f, 0.3f, CanvasType.EndScreen,true));
     }
 
@@ -111,8 +112,8 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
         switch(LevelIndex)
 		{
             case 1:
-                Level1();
-                break;
+				Level1();
+				break;
             case 2:
                 Level2();
                 break;
@@ -121,6 +122,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
                 break;
 		}
 
+        GAME_MANAGER.instance.ResetCurrentSummary();
         GAME_MANAGER.instance.afterScreen = false;
     }
     #endregion
