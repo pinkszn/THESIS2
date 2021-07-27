@@ -12,11 +12,16 @@ public class CommunityUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] toDonateAmount;
 
+    [SerializeField] private Image[] CommunityBG;
+
+    [SerializeField] private Sprite[] CommunityMaxedBG;
+
 	private void Update()
     {
         UpdateToDonateAmount();
         UpdateCommunityBarValue();
         ButtonFunctionality();
+        UpdateCommunityBackground();
     }
 
     void UpdateToDonateAmount()
@@ -71,6 +76,26 @@ public class CommunityUI : MonoBehaviour
         if (ItemManager.instance.DonatedSkateBoardAmount != ItemManager.instance.MaxDonatedSkateBoardAmount)
         {
             donateButtons[3].interactable = true;
+        }
+    }
+
+    void UpdateCommunityBackground()
+	{
+        if (ItemManager.instance.DonatedEcoBricksAmount == ItemManager.instance.MaxDonatedEcoBricksAmount)
+        {
+            CommunityBG[0].sprite = CommunityMaxedBG[0];
+        }
+        if (ItemManager.instance.DonatedSkateBoardAmount == ItemManager.instance.MaxDonatedSkateBoardAmount)
+        {
+            CommunityBG[1].sprite = CommunityMaxedBG[1];
+        }
+        if (ItemManager.instance.DonatedBaseballBat == ItemManager.instance.MaxDonatedBaseballBat)
+        {
+            CommunityBG[2].sprite = CommunityMaxedBG[2];
+        }
+        if (ItemManager.instance.DonatedCarpetAmount == ItemManager.instance.MaxDonatedCarpetAmount)
+        {
+            CommunityBG[3].sprite = CommunityMaxedBG[3];
         }
     }
 
