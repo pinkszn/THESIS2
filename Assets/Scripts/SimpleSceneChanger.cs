@@ -44,9 +44,15 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
 
     #region Scenes
 
+    public void StoryBoard()
+	{
+        CanvasManager.instance.SecondaryCanvas(CanvasType.StoryBoard);
+	}
+
     public void TutorialLevel()
     {
         StartCoroutine(FadeScene(TutorialIndex, 0.2f, 0.3f, CanvasType.GameUI, false));
+        CanvasManager.instance.TurnOffSecondaryCanvas(CanvasType.StoryBoard);
         LevelIndex = TutorialIndex;
         AudioManager.instance.Play("GameStart");
         BGMManager.Instance.Play("BGM01Part01","BGM01Part02");

@@ -15,7 +15,8 @@ public enum CanvasType
     CommunityScreen,
     Controls,
     MiniMap,
-    FinalScreen
+    FinalScreen,
+    StoryBoard
 }
 
 public class CanvasManager : Singleton<CanvasManager>
