@@ -38,7 +38,7 @@ public class EnemyMovement : Enemy
 
 	public void ResetSlowDown()
 	{
-		moveSpeed = 2f;
+		moveSpeed = 1f;
 	}
 
 	void Chase()

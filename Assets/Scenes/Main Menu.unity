@@ -10603,6 +10603,26 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: BaseBallBatSFX
+    clip: {fileID: 8300000, guid: bc82ea8318cc0c745918b89605ebca90, type: 3}
+    volume: 1
+    pitch: 1
+    panStereo: 0
+    playOnAwake: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: EcoBrickSFX
+    clip: {fileID: 8300000, guid: e3d34a31a11666446ad9d5aa7a0fc6bc, type: 3}
+    volume: 1
+    pitch: 1
+    panStereo: 0
+    playOnAwake: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &786581992
 GameObject:
   m_ObjectHideFlags: 0

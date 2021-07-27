@@ -36,6 +36,8 @@ public class BaseballBat : MonoBehaviour
 			enemy.GetComponent<EnemyHealth>().BaseballBatDamage(attackDamage, knockbackStrength);
 		}
 
+		AudioManager.instance.Play("BaseBallBatSFX");
+
 		Instantiate(BaseballEffect, player.transform);
 	}
 

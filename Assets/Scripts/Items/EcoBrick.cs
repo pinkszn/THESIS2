@@ -32,5 +32,6 @@ public class EcoBrick : MonoBehaviour
         Transform bulletTransform = Instantiate(EcoBrickProjectile, playerAttack.attackPoint.position, Quaternion.identity);
         Vector3 shootDir = (playerAttack.attackPoint.position - this.transform.position).normalized;
         bulletTransform.GetComponent<EcoBrickBehavior>().Setup(shootDir);
+		AudioManager.instance.Play("EcoBrickSFX");
     }
 }
