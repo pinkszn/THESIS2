@@ -50,8 +50,8 @@ public class RecyclePaper : RecycleItemsBase
 	//}
 	public override void SetActiveButtons()
 	{
-		RecycleManager.instance.ReuseUIButton.gameObject.SetActive(true);
-		RecycleManager.instance.TrashUIButton.gameObject.SetActive(true);
+		//RecycleManager.instance.ReuseUIButton.gameObject.SetActive(true);
+		//RecycleManager.instance.TrashUIButton.gameObject.SetActive(true);
 
 		for (int i = 0; i <= RecycleManager.instance.ProcessButtons.Length - 1; i++)
 		{

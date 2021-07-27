@@ -8,8 +8,6 @@ public class RecycleManager : Singleton<RecycleManager>
     public Button[] ProcessButtons;
     public Button[] MaterialButtons;
     public Button ExitRecyclingUIButton;
-    public Button ReuseUIButton;
-    public Button TrashUIButton;
     public RecycleItemsBase recycleItem;
     [SerializeField] TextMeshProUGUI codexMaterialDescription;
     [SerializeField] TextMeshProUGUI codexMaterialName;
@@ -17,23 +15,23 @@ public class RecycleManager : Singleton<RecycleManager>
 
     void Update()
     {
-        UpdateRecyclingUI();
+        //UpdateRecyclingUI();
         CodexMaterial();
     }
 
-    void UpdateRecyclingUI() //set all buttons na wala kapag null
-    {
-        if (recycleItem == null)
-        {
-            for (int i = 0; i <= ProcessButtons.Length - 1; i++)
-            {
-                ProcessButtons[i].gameObject.SetActive(false);
-            }
+    //void UpdateRecyclingUI() //set all buttons na wala kapag null
+    //{
+    //    if (recycleItem == null)
+    //    {
+    //        for (int i = 0; i <= ProcessButtons.Length - 1; i++)
+    //        {
+    //            ProcessButtons[i].gameObject.SetActive(false);
+    //        }
 
-            ReuseUIButton.gameObject.SetActive(false);
-            TrashUIButton.gameObject.SetActive(false);
-        }
-    }
+    //        ReuseUIButton.gameObject.SetActive(false);
+    //        TrashUIButton.gameObject.SetActive(false);
+    //    }
+    //}
 
     #region Recycling Buttons
     public void ExitRecycling()//Not working as intended not sure kung ano sira???
