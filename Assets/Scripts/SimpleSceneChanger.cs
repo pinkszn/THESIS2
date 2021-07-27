@@ -108,6 +108,7 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     {
         StartCoroutine(FadeScene(SceneManager.GetActiveScene().buildIndex, 0.2f, 0.3f, CanvasType.GameUI,false));
         ItemManager.instance.InitializeData();
+        GAME_MANAGER.instance.ResetCurrentSummary();
         CanvasManager.Instance.TurnOffSecondaryCanvas(CanvasType.GameOver);
     }
     public static void SummaryScreen()
