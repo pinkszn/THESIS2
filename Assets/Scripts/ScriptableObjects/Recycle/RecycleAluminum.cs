@@ -42,11 +42,6 @@ public class RecycleAluminum : RecycleItemsBase
 			Debug.Log("Plastic is seperated");
 		}
 	}
-	public override void Trash(){}
-	//public override void Reuse()
-	//{
-	//	Debug.Log("Reused" + name);
-	//}
 	public override void SetActiveButtons()
 	{
 		//RecycleManager.instance.ReuseUIButton.gameObject.SetActive(true);

@@ -43,18 +43,6 @@ public class RecyclePlastic : RecycleItemsBase
 		}
 	}
 	public override void Shred(){}
-	public override void Trash(){}
-	//   public override void Reuse()
-	//{
-	//	Debug.Log("Reused Plastic");
-
-	//	if (RecycleManager.instance.shredPlastic > 0)
-	//	{
-	//		RecycleManager.instance.shredPlastic -= 1;
-	//		RecycleManager.instance.recycledPlastic += 1;
-	//		Debug.Log("Recycled Plastic complete");
-	//	}
-	//}
 
 	public override void SetActiveButtons()
 	{

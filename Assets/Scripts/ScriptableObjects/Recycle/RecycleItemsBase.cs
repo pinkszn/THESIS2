@@ -21,8 +21,6 @@ public abstract class RecycleItemsBase : ScriptableObject
     public abstract void Crush();
     public abstract void Wash();
     public abstract void Shred();
-    public abstract void Trash();
-    //public abstract void Reuse(); //
 
     public abstract void SetActiveButtons();
     protected abstract void DisableButtons();

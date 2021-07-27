@@ -15,23 +15,20 @@ public class RecycleManager : Singleton<RecycleManager>
 
     void Update()
     {
-        //UpdateRecyclingUI();
+        UpdateRecyclingUI();
         CodexMaterial();
     }
 
-    //void UpdateRecyclingUI() //set all buttons na wala kapag null
-    //{
-    //    if (recycleItem == null)
-    //    {
-    //        for (int i = 0; i <= ProcessButtons.Length - 1; i++)
-    //        {
-    //            ProcessButtons[i].gameObject.SetActive(false);
-    //        }
-
-    //        ReuseUIButton.gameObject.SetActive(false);
-    //        TrashUIButton.gameObject.SetActive(false);
-    //    }
-    //}
+    void UpdateRecyclingUI() //set all buttons na wala kapag null
+    {
+        if (recycleItem == null)
+        {
+            for (int i = 0; i <= ProcessButtons.Length - 1; i++)
+            {
+               ProcessButtons[i].gameObject.SetActive(false);
+            }
+        }
+    }
 
     #region Recycling Buttons
     public void ExitRecycling()//Not working as intended not sure kung ano sira???
@@ -60,14 +57,6 @@ public class RecycleManager : Singleton<RecycleManager>
     public void ShredButton()
     {
         recycleItem.Shred();
-    }
-    public void TrashButton()
-    {
-        recycleItem.Trash();
-    }
-    public void ReuseButton()
-    {
-        //recycleItem.Reuse();
     }
 
     public void CodexMaterial()

@@ -41,13 +41,6 @@ public class RecyclePaper : RecycleItemsBase
 	}
 	public override void Wash(){}
 	public override void Shred(){}
-	public override void Trash()
-	{
-	}
-	//public override void Reuse()
-	//{
-	//	Debug.Log("Reused " + name);
-	//}
 	public override void SetActiveButtons()
 	{
 		//RecycleManager.instance.ReuseUIButton.gameObject.SetActive(true);

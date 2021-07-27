@@ -106,8 +106,10 @@ public class SimpleSceneChanger : Singleton<SimpleSceneChanger>
     public void MainMenu()
     {
         instance.StartCoroutine(instance.FadeScene(0, 0.2f, 0.3f, CanvasType.MainMenu,true));
+        BGMManager.Instance.Stop("BGM01Part01", "BGM01Part02");
+        BGMManager.Instance.Stop("BGM02Part01", "BGM02Part02");
+        BGMManager.Instance.Stop("BGM03Part01", "BGM03Part02");
         GAME_MANAGER.Instance.ResumeGame();
-        BGMManager.Instance.Stop("BGM01Part01","BGM01Part01");
     }
 
     public void RetryLevel()
